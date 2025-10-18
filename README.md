@@ -84,3 +84,9 @@ Conclusão da Renderização: Para um e-commerce como o "taoTaoPerto", onde ser 
 <details> <summary><strong>Complexidade de Gerenciamento</strong></summary> Embora poderoso, o PostgreSQL pode ser mais complexo de administrar, otimizar (tuning) e escalar horizontalmente (distribuir em várias máquinas) do que alternativas mais simples como o MySQL ou bancos NoSQL. </details>
 
 <details> <summary><strong>Menos Popularidade (em Hospedagem Simples)</strong></summary> Embora amplamente disponível, em algumas plataformas de hospedagem "baratas" ou compartilhadas, o MySQL ainda é oferecido com mais frequência. Isso é um ponto menor, já que os principais provedores de nuvem (AWS, Google, Azure) têm excelente suporte ao Postgres. </details>
+
+<details> <summary><strong>DEVs</strong></summary> 
+    - Ivens magno da costa lisboa  
+    - Rodrigo santos calvacante
+    - Luiz eduardo de paula maia
+ </details>
