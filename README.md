@@ -1,5 +1,3 @@
-Aqui está o Markdown atualizado, incluindo a análise sobre CSR (Client-Side Rendering) vs. SSR (Server-Side Rendering) para o frontend Angular.
-
 🚀 Análise de Tecnologias: Projeto taoTaoPerto 🛒
 Este documento detalha as vantagens e desvantagens da stack tecnológica selecionada para o desenvolvimento do e-commerce "taoTaoPerto".
 
