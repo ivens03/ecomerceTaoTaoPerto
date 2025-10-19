@@ -76,7 +76,7 @@ O projeto **TaoTaoPerto** foi concebido e implementado pelos seguintes alunos, c
 
 | Membro da Equipe |  |
 | :--- | :--- |
-| **Ivens Magno da Costa Lisboa** | Engenheiro de software |
+| **Ivens Magno Da Costa Lisboa** | Engenheiro de software |
 | **Rodrigo Santos Cavalcante** | Engenheiro de software |
-| **Luiz Eduardo de Paula Maia** | Engenheiro de software |
+| **Luiz Eduardo De Paula Maia** | Engenheiro de software |
 | **Rikelme Botelho Pessoa** | Engenheiro de software |
