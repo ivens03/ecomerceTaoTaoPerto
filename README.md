@@ -79,3 +79,4 @@ O projeto **TaoTaoPerto** foi concebido e implementado pelos seguintes alunos, c
 | **Ivens Magno da Costa Lisboa** | |
 | **Rodrigo Santos Cavalcante** |  |
 | **Luiz Eduardo de Paula Maia** |  |
+| **Rikelme Botelho Pessoa** |  |
