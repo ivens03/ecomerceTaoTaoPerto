@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    container_name: spring-boot-ecommerce
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/dbspringboottaotaoperto
+      - JAVA_OPTS=-Xms256m -Xmx512m
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: postgres:15-alpine
+    container_name: postgres-ecommerce
+    ports:
+      - "5434:5432"
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d dbspringboottaotaoperto"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
