@@ -20,7 +20,8 @@ Seu projeto está configurado com as seguintes dependências principais do Sprin
 * **Spring Web** (`spring-boot-starter-web`): Essencial para construir as APIs RESTful que o seu E-commerce necessita (ex: endpoints para produtos, usuários, e o "Checkout Otimizado").
 * **Spring Data JPA** (`spring-boot-starter-data-jpa`): Usado para a camada de persistência de dados. Facilita a comunicação com o banco de dados **PostgreSQL** para armazenar pedidos, usuários e o catálogo de produtos.
 * **Validation** (`spring-boot-starter-validation`): Utilizado para validar os dados de entrada nas suas APIs (DTOs), crucial para garantir a integridade dos dados, como na "validação de idade" para o conteúdo adulto.
-* **Springdoc OpenAPI (Swagger)** (`springdoc-openapi-starter-webmvc-ui`): Adicionado para gerar documentação de API interativa (Swagger UI) automaticamente a partir dos seus controllers.
+* **Springdoc OpenAPI (Swagger)** (`spring-doc-openapi-starter-webmvc-ui`): Adicionado para gerar documentação de API interativa (Swagger UI) automaticamente a partir dos seus controllers.
+* **Spring Boot DevTools** (`spring-boot-devtools`): Adicionado para habilitar o reinício automático (hot reload) durante o desenvolvimento, acelerando o ciclo de feedback a cada mudança no código.
 
 ## Documentação de Referência
 
