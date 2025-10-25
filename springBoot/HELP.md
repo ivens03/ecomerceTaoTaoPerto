@@ -20,8 +20,9 @@ Seu projeto está configurado com as seguintes dependências principais do Sprin
 * **Spring Web** (`spring-boot-starter-web`): Essencial para construir as APIs RESTful que o seu E-commerce necessita (ex: endpoints para produtos, usuários, e o "Checkout Otimizado").
 * **Spring Data JPA** (`spring-boot-starter-data-jpa`): Usado para a camada de persistência de dados. Facilita a comunicação com o banco de dados **PostgreSQL** para armazenar pedidos, usuários e o catálogo de produtos.
 * **Validation** (`spring-boot-starter-validation`): Utilizado para validar os dados de entrada nas suas APIs (DTOs), crucial para garantir a integridade dos dados, como na "validação de idade" para o conteúdo adulto.
-* **Springdoc OpenAPI (Swagger)** (`spring-doc-openapi-starter-webmvc-ui`): Adicionado para gerar documentação de API interativa (Swagger UI) automaticamente a partir dos seus controllers.
+* **Springdoc OpenAPI (Swagger)** (`springdoc-openapi-starter-webmvc-ui`): Adicionado para gerar documentação de API interativa (Swagger UI) automaticamente a partir dos seus controllers.
 * **Spring Boot DevTools** (`spring-boot-devtools`): Adicionado para habilitar o reinício automático (hot reload) durante o desenvolvimento, acelerando o ciclo de feedback a cada mudança no código.
+* **Flyway Core** (`flyway-core`): Adicionado para gerenciamento de migrações de banco de dados (versionamento de schema), garantindo que a estrutura do banco de dados evolua de forma controlada.
 
 ## Documentação de Referência
 
@@ -33,6 +34,7 @@ Para mais referências, por favor, considere as seguintes seções (baseado nas 
 * [Spring Data JPA](https://docs.spring.io/spring-boot/3.5.7/reference/data/sql.html#data.sql.jpa-and-spring-data) (Para integração com PostgreSQL - link da versão 3.5.7)
 * [Validation](https://docs.spring.io/spring-boot/3.5.6/reference/io/validation.html) (Para validar dados de entrada)
 * **[Springdoc-openapi (Swagger)](https://springdoc.org/) (Documentação oficial da biblioteca de integração Swagger/OpenAPI)**
+* **[Flyway Documentation](https://flywaydb.org/documentation/) (Documentação oficial do Flyway para migrações)**
 
 ## Guias Recomendados
 
@@ -42,6 +44,7 @@ Os seguintes guias ilustram como usar concretamente os recursos do seu projeto:
 * [Building REST services with Spring](https://spring.io/guides/tutorials/rest/) (Tutorial mais aprofundado sobre APIs REST)
 * [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/) (Relevante para seu uso do PostgreSQL)
 * [Validation](https://spring.io/guides/gs/validating-form-input/) (Como aplicar as validações)
+* **[Database Migrations with Flyway](https://spring.io/guides/gs/managing-database-migrations-with-flyway/) (Guia relevante do Spring para sua nova dependência)**
 
 ### Acesso à Documentação da API (Swagger)
 
