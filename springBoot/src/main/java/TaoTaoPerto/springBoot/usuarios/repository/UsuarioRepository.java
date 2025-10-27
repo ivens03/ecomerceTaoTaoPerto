@@ -9,7 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<UsuarioModel,Integer> {
-
-    //UsuarioDtoMapper findByAtivo(Integer id);
     Optional<UsuarioModel> findByIdAndAtivo(Integer id, boolean ativo);
 }
