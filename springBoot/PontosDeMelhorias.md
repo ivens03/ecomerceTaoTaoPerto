@@ -22,6 +22,7 @@ Este arquivo documenta tarefas de refatoração, correção de bugs e melhorias 
     }
     ```
 
+
 ### 2. Centralizar Tratamento de Erros com Exceções Customizadas
 
 - **Problema:** A camada de serviço está lançando exceções genéricas (`RuntimeException`) para regras de negócio e falhas de busca (ex: "recurso não encontrado").
@@ -32,17 +33,20 @@ Este arquivo documenta tarefas de refatoração, correção de bugs e melhorias 
       UsuarioModel usuarioModel = usuarioRepository.findById(id)
               .orElseThrow(() -> new RuntimeException("Usuario nao encontrado"));
       ```
+
     - Em `EnderecoServices.java` (método `deletLogicoEndereco`):
       ```java
       EnderecoModel enderecoModel = enderecoRepository.findById(id)
               .orElseThrow(() -> new RuntimeException("Endereço não encontrado"));
       ```
+
     - Em `UsuarioServices.java` (método `listarUsuarioPorId`):
       ```java
       if (buscadorDeUsuarioPorID.isEmpty()) {
           throw new RuntimeException("Usuario com ID: " + id + " não foi encontrado");
       }
       ```
+
 - **Solução Sugerida:**
     1.  **Criar Exceções Específicas:** Definir classes de exceção customizadas (ex: `RecursoNaoEncontradoException extends RuntimeException`).
     2.  **Refatorar os Services:** Substituir os `RuntimeException` pelas novas exceções.
@@ -53,6 +57,7 @@ Este arquivo documenta tarefas de refatoração, correção de bugs e melhorias 
           // Depois
           .orElseThrow(() -> new RecursoNaoEncontradoException("Usuário com ID: " + id + " não encontrado"));
           ```
+
     3.  **Implementar um Handler Global (`@RestControllerAdvice`):** Criar uma classe `RestExceptionHandler` que intercepta exceções.
     4.  **Mapear Exceções para Status HTTP:** Dentro do *Handler*, usar `@ExceptionHandler(RecursoNaoEncontradoException.class)` para capturar a exceção e retornar um `ResponseEntity` com `HttpStatus.NOT_FOUND (404)` e um corpo de erro padronizado (como o sugerido no Ponto 1).
 
@@ -75,5 +80,29 @@ Este arquivo documenta tarefas de refatoração, correção de bugs e melhorias 
               // ... outros campos
           }
           ```
+
     3.  **Ativar Validação no Controller:** Adicionar a anotação `@Valid` antes do `@RequestBody` nos métodos `POST` e `PUT` (ex: no `UsuarioController` que recebe o `salvarUsuario`).
     4.  **Capturar Erros de Validação:** No *Handler* Global (`@RestControllerAdvice` criado no Ponto 2), adicionar um método para capturar `MethodArgumentNotValidException`. Este método deve retornar `HttpStatus.BAD_REQUEST (400)` e uma lista com todos os erros de validação (ex: "O nome completo não pode ser vazio").
+
+## Testes Automatizados
+
+### 4. Implementar Cobertura de Testes Automatizados
+
+- **Problema:** O projeto não possui cobertura de testes automatizados (unitários ou de integração).
+- **Análise:** A ausência de testes torna o processo de refatoração (como as melhorias 1, 2 e 3) arriscado, pois não há como garantir que as mudanças não introduziram bugs (regressões) em outras partes do código. Isso compromete a confiabilidade da aplicação e aumenta o custo de manutenção a longo prazo.
+- **Solução Sugerida:**
+    1.  **Adicionar Dependência:** Garantir que o `spring-boot-starter-test` está no `pom.xml`. Ele inclui JUnit 5, Mockito e Spring Test.
+    2.  **Testes Unitários (Camada de Serviço):**
+        * **Onde:** Criar classes de teste para `UsuarioServices` e `EnderecoServices`.
+        * **Como:** Usar `@ExtendWith(MockitoExtension.class)` e `@Mock` para simular o comportamento dos *Repositories* (ex: `UsuarioRepository`, `EnderecoRepository`).
+        * **O que testar:**
+            * **Caminho Feliz:** Testar se `salvarUsuario` chama `repository.save()` e retorna o DTO correto.
+            * **Tratamento de Erros:** Testar se os métodos (ex: `listarUsuarioPorIdAtivo`) lançam a `RecursoNaoEncontradoException` (sugerida no Ponto 2) quando o *repository* retorna um `Optional.empty()` ou um usuário inativo.
+            * **Lógica de Negócio:** Testar se `buscarTodosAtivos` filtra corretamente os usuários inativos.
+    3.  **Testes de Integração (Camada de Controller):**
+        * **Onde:** Criar classes de teste para `UsuarioConsultasController` e `EnderecoController`.
+        * **Como:** Usar `@SpringBootTest` e `@AutoConfigureMockMvc` para testar os endpoints da API sem levantar um servidor real.
+        * **O que testar:**
+            * **Status HTTP:** Verificar se os endpoints retornam os status corretos (ex: `201 CREATED` para `POST /endereco/registro`, `404 NOT FOUND` para `GET /endereco/listar/999` (ID inexistente)).
+            * **Validação (Ponto 3):** Testar se, ao enviar um DTO inválido (ex: nome em branco) para um endpoint `POST` ou `PUT`, a API retorna `400 BAD REQUEST`.
+            * **Respostas:** Verificar se o JSON de resposta está correto e contém os dados esperados.
