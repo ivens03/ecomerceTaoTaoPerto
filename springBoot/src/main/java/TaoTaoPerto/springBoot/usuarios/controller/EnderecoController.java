@@ -70,7 +70,7 @@ public class EnderecoController {
             @ApiResponse(responseCode = "400", description = "Dados inválidos fornecidos",
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "Usuário ou Endereço não encontrado",
-                    content = @Content) // O service já lança a exceção
+                    content = @Content)
     })
     @PutMapping("/atualizarEndereco/{id}")
     public ResponseEntity<EnderecoDto> atualizarEndereco(@PathVariable Integer id, EnderecoDto enderecoDto) {
@@ -85,7 +85,7 @@ public class EnderecoController {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = EnderecoDto.class))),
             @ApiResponse(responseCode = "404", description = "Endereço não encontrado",
-                    content = @Content) // O service já lança a exceção
+                    content = @Content)
     })
     @DeleteMapping("/deletar/{id}")
     public ResponseEntity<EnderecoDto> deletLogicoEndereco(@PathVariable Integer id){
