@@ -13,11 +13,11 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/gerentes/dados/usuarios")
-public class UsuarioController {
+public class UsuarioConsultasController {
 
     private final UsuarioServices usuarioServices;
 
-    public UsuarioController(UsuarioServices usuarioServices) {
+    public UsuarioConsultasController(UsuarioServices usuarioServices) {
         this.usuarioServices = usuarioServices;
     }
 
