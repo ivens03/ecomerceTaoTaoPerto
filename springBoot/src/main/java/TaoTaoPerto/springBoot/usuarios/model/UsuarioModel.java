@@ -2,6 +2,7 @@ package TaoTaoPerto.springBoot.usuarios.model;
 
 import TaoTaoPerto.springBoot.usuarios.enums.TiposUsuariosEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +14,7 @@ import org.hibernate.annotations.Generated;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -83,4 +85,27 @@ public class UsuarioModel implements Serializable {
 
     @Column(name = "tentativas_falhas_login", nullable = false)
     private Integer tentativasFalhasLogin = 0;
+
+    @Column(name = "avatar_url", length = 500)
+    private String avatarUrl;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<EnderecoModel> enderecos;
+
+//    @JsonManagedReference
+//    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+//    private ConfiguracaoSegurancaModel configuracaoSeguranca;
+
+//    @JsonManagedReference
+//    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+//    private PreferenciaUsuarioModel preferencias;
+
+//    @JsonManagedReference
+//    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
+//    private PerfilFuncionarioModel perfilFuncionario;
+
+//    @JsonManagedReference
+//    @OneToMany(mappedBy = "gestor", fetch = FetchType.LAZY)
+//    private List<PerfilFuncionarioModel> subordinados;
 }
