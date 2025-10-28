@@ -15,7 +15,7 @@ public class OpenApiConfig {
                 .info(new Info()
                         .title("E-commerce TaoTaoPerto Docuemntação")
                         .description("Documentação de APIs para o e-commerce TaoTaoPerto")
-                        .version("0.0.1")
+                        .version("0.0.2")
                         .contact(new Contact()
                                 .name("Ivens Magno Da Costa Lisboa")
                                 .email("ivensmagno@gmail.com")));
