@@ -43,4 +43,5 @@ public class EnderecoDto {
     @Size(min = 2, max = 2, message = "O estado deve ter exatamente 2 caracteres")
     private String estado;
 
+    private Boolean ativo;
 }

@@ -1,6 +1,8 @@
 package TaoTaoPerto.springBoot.usuarios.controller;
 
+import TaoTaoPerto.springBoot.usuarios.dtos.EnderecoDto;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
+import TaoTaoPerto.springBoot.usuarios.services.EnderecoServices;
 import TaoTaoPerto.springBoot.usuarios.services.UsuarioServices;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +18,11 @@ import java.util.Optional;
 public class UsuarioConsultasController {
 
     private final UsuarioServices usuarioServices;
+    private final EnderecoServices enderecoServices;
 
-    public UsuarioConsultasController(UsuarioServices usuarioServices) {
+    public UsuarioConsultasController(UsuarioServices usuarioServices, EnderecoServices enderecoServices) {
         this.usuarioServices = usuarioServices;
+        this.enderecoServices = enderecoServices;
     }
 
     //Listar todos mesmo não ativos
@@ -45,4 +49,9 @@ public class UsuarioConsultasController {
         return ResponseEntity.ok(usuarioServices.listarUsuarioPorIdAtivo(id));
     }
 
+    // Listar todos os endereços de todos os usuários
+    @GetMapping("/todosEnderecos")
+    public ResponseEntity<List<EnderecoDto>> listarTodosEnderecos(){
+        return ResponseEntity.ok(enderecoServices.buscarTodosEnderecosDeTodosOsUsuarios());
+    }
 }

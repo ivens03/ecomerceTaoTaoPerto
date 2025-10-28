@@ -1,5 +1,6 @@
 package TaoTaoPerto.springBoot.usuarios.model;
 
+import TaoTaoPerto.springBoot.usuarios.dtos.EnderecoDto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -60,4 +61,35 @@ public class EnderecoModel implements Serializable {
     @Generated(GenerationTime.ALWAYS)
     @Column(name = "atualizado_em", nullable = false, insertable = false)
     private LocalDateTime atualizadoEm;
+
+    @Column(name = "ativo", nullable = false)
+    private Boolean ativo;
+
+    public void atualizarEnderecoComDto(EnderecoDto enderecoDto) {
+        if (enderecoDto.getLogradouro() != null) {
+            this.logradouro = enderecoDto.getLogradouro();
+        }
+        if (enderecoDto.getCep() != null) {
+            this.cep = enderecoDto.getCep();
+        }
+        if (enderecoDto.getNumero() != null) {
+            this.numero = enderecoDto.getNumero();
+        }
+        if (enderecoDto.getComplemento() != null) {
+            this.complemento = enderecoDto.getComplemento();
+        }
+        if (enderecoDto.getBairro() != null) {
+            this.bairro = enderecoDto.getBairro();
+        }
+        if (enderecoDto.getCidade() != null) {
+            this.cidade = enderecoDto.getCidade();
+        }
+        if (enderecoDto.getEstado() != null) {
+            this.estado = enderecoDto.getEstado();
+        }
+        if (enderecoDto.getAtivo() != null) {
+            this.ativo = enderecoDto.getAtivo();
+        }
+    }
+
 }
