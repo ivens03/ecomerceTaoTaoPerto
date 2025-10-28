@@ -22,8 +22,58 @@ Este arquivo documenta tarefas de refatoração, correção de bugs e melhorias 
     }
     ```
 
-### 2. (Próximo ponto de melhoria)
+### 2. Centralizar Tratamento de Erros com Exceções Customizadas
 
-- **Endpoint Afetado:**
-- **Problema:**
+- **Problema:** A camada de serviço está lançando exceções genéricas (`RuntimeException`) para regras de negócio e falhas de busca (ex: "recurso não encontrado").
+- **Análise:** Lançar `RuntimeException` diretamente dos serviços faz com que o Spring trate qualquer falha de negócio como um `500 (Internal Server Error)`, o que é semanticamente incorreto. O Ponto 1 desta lista é um sintoma direto deste problema. A lógica de tratamento de erro está espalhada e misturada com a lógica de negócio.
+- **Exemplos no Código Atual:**
+    - Em `UsuarioServices.java` (método `atualizarUsuario`):
+      ```java
+      UsuarioModel usuarioModel = usuarioRepository.findById(id)
+              .orElseThrow(() -> new RuntimeException("Usuario nao encontrado"));
+      ```
+    - Em `EnderecoServices.java` (método `deletLogicoEndereco`):
+      ```java
+      EnderecoModel enderecoModel = enderecoRepository.findById(id)
+              .orElseThrow(() -> new RuntimeException("Endereço não encontrado"));
+      ```
+    - Em `UsuarioServices.java` (método `listarUsuarioPorId`):
+      ```java
+      if (buscadorDeUsuarioPorID.isEmpty()) {
+          throw new RuntimeException("Usuario com ID: " + id + " não foi encontrado");
+      }
+      ```
 - **Solução Sugerida:**
+    1.  **Criar Exceções Específicas:** Definir classes de exceção customizadas (ex: `RecursoNaoEncontradoException extends RuntimeException`).
+    2.  **Refatorar os Services:** Substituir os `RuntimeException` pelas novas exceções.
+        - *Exemplo de mudança no `UsuarioServices`*:
+          ```java
+          // Antes
+          // .orElseThrow(() -> new RuntimeException("Usuario nao encontrado"));
+          // Depois
+          .orElseThrow(() -> new RecursoNaoEncontradoException("Usuário com ID: " + id + " não encontrado"));
+          ```
+    3.  **Implementar um Handler Global (`@RestControllerAdvice`):** Criar uma classe `RestExceptionHandler` que intercepta exceções.
+    4.  **Mapear Exceções para Status HTTP:** Dentro do *Handler*, usar `@ExceptionHandler(RecursoNaoEncontradoException.class)` para capturar a exceção e retornar um `ResponseEntity` com `HttpStatus.NOT_FOUND (404)` e um corpo de erro padronizado (como o sugerido no Ponto 1).
+
+### 3. Implementar Validações de DTOs com Bean Validation
+
+- **Problema:** Os DTOs (`UsuarioDto`, `EnderecoDto`) não possuem validações automáticas de entrada. Isso força a camada de serviço a validar dados (ex: verificar se um campo é nulo ou vazio) ou, pior, permite que dados inválidos cheguem ao banco.
+- **Análise:** Sem validação na entrada (Controller), o sistema pode receber, por exemplo, um `UsuarioDto` com nome em branco ou um `EnderecoDto` sem CEP. Isso pode gerar erros `500` no banco (constraint violations) ou salvar dados "sujos".
+- **Solução Sugerida:**
+    1.  **Adicionar Dependência:** Incluir `spring-boot-starter-validation` no `pom.xml` (se ainda não estiver presente).
+    2.  **Anotar os DTOs:** Usar anotações do `jakarta.validation.constraints` (ex: `@NotEmpty`, `@Size`, `@Email`) nos campos dos DTOs.
+        - *Exemplo (`UsuarioDto.java`):*
+          ```java
+          public class UsuarioDto {
+              @NotEmpty(message = "O nome completo não pode ser vazio")
+              @Size(min = 3, max = 100)
+              private String nomeCompleto;
+
+              @NotEmpty(message = "A senha não pode ser vazia")
+              private String senha;
+              // ... outros campos
+          }
+          ```
+    3.  **Ativar Validação no Controller:** Adicionar a anotação `@Valid` antes do `@RequestBody` nos métodos `POST` e `PUT` (ex: no `UsuarioController` que recebe o `salvarUsuario`).
+    4.  **Capturar Erros de Validação:** No *Handler* Global (`@RestControllerAdvice` criado no Ponto 2), adicionar um método para capturar `MethodArgumentNotValidException`. Este método deve retornar `HttpStatus.BAD_REQUEST (400)` e uma lista com todos os erros de validação (ex: "O nome completo não pode ser vazio").
