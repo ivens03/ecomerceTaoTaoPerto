@@ -33,3 +33,6 @@ build/
 
 ### Varialvel de ambiente bakc ###
 .env
+
+.idea/
+*.iml
