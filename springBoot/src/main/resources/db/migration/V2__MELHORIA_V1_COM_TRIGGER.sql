@@ -1,6 +1,4 @@
--- 29/10/2025 foi ajustado para evitar bugs
 -- Criação dos schemas
-
 CREATE SCHEMA IF NOT EXISTS usuarios;
 CREATE SCHEMA IF NOT EXISTS auditoria;
 
@@ -28,8 +26,8 @@ $$ LANGUAGE plpgsql;
 
 -- Adequação: Adicionado IF NOT EXISTS
 CREATE TABLE IF NOT EXISTS usuarios.usuarios (
-    id BIGSERIAL PRIMARY KEY,
-    email VARCHAR(60) NOT NULL UNIQUE,
+                                                 id BIGSERIAL PRIMARY KEY,
+                                                 email VARCHAR(60) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
     nome_completo VARCHAR(255),
     cpf VARCHAR(11) UNIQUE,
@@ -52,10 +50,10 @@ CREATE TABLE IF NOT EXISTS usuarios.usuarios (
 
 -- Adequação: Adicionado IF NOT EXISTS
 CREATE TABLE IF NOT EXISTS auditoria.log_auditoria_usuarios (
-    id BIGSERIAL PRIMARY KEY,
-    usuario_id BIGINT, -- Quem sofreu a ação (pode ser nulo se for ação do sistema)
+                                                                id BIGSERIAL PRIMARY KEY,
+                                                                usuario_id BIGINT, -- Quem sofreu a ação (pode ser nulo se for ação do sistema)
 
-    ator_usuario_id BIGINT REFERENCES usuarios.usuarios(id),
+                                                                ator_usuario_id BIGINT REFERENCES usuarios.usuarios(id),
     acao VARCHAR(50) NOT NULL, -- Ex: 'LOGIN_SUCESSO', 'UPDATE_PERFIL', 'DESATIVOU_CONTA'
     ip_acao VARCHAR(45) NOT NULL,
 
