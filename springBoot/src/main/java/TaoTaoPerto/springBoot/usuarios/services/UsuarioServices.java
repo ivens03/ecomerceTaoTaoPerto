@@ -47,7 +47,7 @@ public class UsuarioServices {
     }
 
     //Buscar por id mesmo não sendo ativo
-    public Optional<UsuarioDto> listarUsuarioPorId(Integer id){
+    public Optional<UsuarioDto> listarUsuarioPorId(Long id){
         var buscadorDeUsuarioPorID = usuarioRepository.findById(id)
                 .map(usuarioDtoMapper::map);
         if (buscadorDeUsuarioPorID.isEmpty()) {
@@ -57,14 +57,14 @@ public class UsuarioServices {
     }
 
     //Buscar por id usuarios ativos
-    public UsuarioDto listarUsuarioPorIdAtivo(Integer id) {
+    public UsuarioDto listarUsuarioPorIdAtivo(Long id) {
         return usuarioRepository.findByIdAndAtivo(id, true)
                 .map(usuarioDtoMapper::map)
                 .orElseThrow(() -> new RuntimeException("Usuário ativo com ID: " + id + " não encontrado"));
     }
 
     //Atualizar
-    public UsuarioDto atualizarUsuario(Integer id, UsuarioDto usuarioDto){
+    public UsuarioDto atualizarUsuario(Long id, UsuarioDto usuarioDto){
         UsuarioModel usuarioModel = usuarioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuario nao encontrado"));
         usuarioModel.setNomeCompleto(usuarioDto.getNomeCompleto());
@@ -74,7 +74,7 @@ public class UsuarioServices {
     }
 
     // Delet Logico
-    public UsuarioDto deletLogicoUsuario(UsuarioDto usuarioDto, Integer id){
+    public UsuarioDto deletLogicoUsuario(Long id){
         UsuarioModel usuario = usuarioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuario com ID: " + id + " não encontrado"));
         usuario.setAtivo(false);

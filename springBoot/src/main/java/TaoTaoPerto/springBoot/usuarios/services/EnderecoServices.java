@@ -30,7 +30,7 @@ public class EnderecoServices {
     }
 
     // Listar todos os endereços de um usuário específico
-    public List<EnderecoDto> buscarTodosEnderecosDoMesmoUsuario(Integer id) {
+    public List<EnderecoDto> buscarTodosEnderecosDoMesmoUsuario(Long id) {
         var usuario = usuarioRepository.findById(id);
         if (usuario.isEmpty() || !usuario.get().getAtivo() ) {
             throw new RuntimeException("Usuario com ID: " + id + " não encontrado ou está desativado");
@@ -42,7 +42,7 @@ public class EnderecoServices {
     }
 
     // Listar todos os endereços ativos de um usuário ativo específico "id"
-    public List<EnderecoDto> buscarTodosEnderecosAtivoDoMesmoUsuario(Integer id) {
+    public List<EnderecoDto> buscarTodosEnderecosAtivoDoMesmoUsuario(Long id) {
         var usuario = usuarioRepository.findById(id);
         if (usuario.isEmpty() || !usuario.get().getAtivo()) {
             throw new RuntimeException("Usuário com ID: " + id + " não encontrado ou está desativado");
@@ -64,7 +64,7 @@ public class EnderecoServices {
     }
 
     //Atualizar pelo id
-    public EnderecoDto atualizarEndereco(Integer id, EnderecoDto enderecoDto) {
+    public EnderecoDto atualizarEndereco(Long id, EnderecoDto enderecoDto) {
         var usuario = usuarioRepository.findById(id);
         if (usuario.isEmpty() || !usuario.get().getAtivo()) {
             throw new RuntimeException("Usuário com ID: " + id + " não encontrado ou está inativo");
@@ -76,7 +76,7 @@ public class EnderecoServices {
     }
 
     //Delet logico do endereco do usuario
-    public EnderecoDto deletLogicoEndereco(Integer id){
+    public EnderecoDto deletLogicoEndereco(Long id){
         EnderecoModel enderecoModel = enderecoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Endereço não encontrado"));
         enderecoModel.setAtivo(false);

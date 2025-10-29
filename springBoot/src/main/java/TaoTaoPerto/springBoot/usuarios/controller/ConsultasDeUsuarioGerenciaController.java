@@ -56,7 +56,7 @@ public class ConsultasDeUsuarioGerenciaController {
                             schema = @Schema(implementation = UsuarioDto.class)))
     })
     @GetMapping("/listarPorId/{id}")
-    public ResponseEntity<Optional<UsuarioDto>> listarUsuarioPorId(@PathVariable Integer id){
+    public ResponseEntity<Optional<UsuarioDto>> listarUsuarioPorId(@PathVariable Long id){
         return ResponseEntity.ok(usuarioServices.listarUsuarioPorId(id));
     }
 
@@ -84,7 +84,7 @@ public class ConsultasDeUsuarioGerenciaController {
                     content = @Content) // Corpo vazio para 404
     })
     @GetMapping("/listarPorIdAtivo/{id}")
-    public ResponseEntity<UsuarioDto> listarUsuarioPorIdAtivo(@PathVariable Integer id) {
+    public ResponseEntity<UsuarioDto> listarUsuarioPorIdAtivo(@PathVariable Long id) {
         return ResponseEntity.ok(usuarioServices.listarUsuarioPorIdAtivo(id));
     }
 

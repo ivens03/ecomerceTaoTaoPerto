@@ -56,7 +56,7 @@ public class EnderecoController {
                     content = @Content)
     })
     @GetMapping("/listar/{id}")
-    public ResponseEntity<List<EnderecoDto>> listarTodosEnderecos(@PathVariable Integer id){
+    public ResponseEntity<List<EnderecoDto>> listarTodosEnderecos(@PathVariable Long id){
         return ResponseEntity.ok(enderecoServices.buscarTodosEnderecosAtivoDoMesmoUsuario(id));
     }
 
@@ -73,7 +73,7 @@ public class EnderecoController {
                     content = @Content)
     })
     @PutMapping("/atualizarEndereco/{id}")
-    public ResponseEntity<EnderecoDto> atualizarEndereco(@PathVariable Integer id, EnderecoDto enderecoDto) {
+    public ResponseEntity<EnderecoDto> atualizarEndereco(@PathVariable Long id, EnderecoDto enderecoDto) {
         return ResponseEntity.ok(enderecoServices.atualizarEndereco(id, enderecoDto));
     }
 
@@ -88,7 +88,7 @@ public class EnderecoController {
                     content = @Content)
     })
     @DeleteMapping("/deletar/{id}")
-    public ResponseEntity<EnderecoDto> deletLogicoEndereco(@PathVariable Integer id){
+    public ResponseEntity<EnderecoDto> deletLogicoEndereco(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(enderecoServices.deletLogicoEndereco(id));
     }
 }

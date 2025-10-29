@@ -1,5 +1,6 @@
 package TaoTaoPerto.springBoot.usuarios.model;
 
+import TaoTaoPerto.springBoot.cliente.model.PerfilClienteModel;
 import TaoTaoPerto.springBoot.usuarios.enums.TiposUsuariosEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -8,8 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenerationTime;
 import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -48,7 +49,7 @@ public class UsuarioModel implements Serializable {
     private LocalDate dataNascimento;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "tipo_usuario", nullable = false)
+    @Column(name = "tipo_usuario", nullable = false, columnDefinition = "varchar(20)")
     private TiposUsuariosEnum tipoUsuario = TiposUsuariosEnum.CLIENTE;
 
     @Column(name = "ativo", nullable = false)
@@ -92,6 +93,10 @@ public class UsuarioModel implements Serializable {
     @JsonManagedReference
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<EnderecoModel> enderecos;
+
+    @JsonManagedReference
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
+    private PerfilClienteModel perfilCliente;
 
 //    @JsonManagedReference
 //    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
