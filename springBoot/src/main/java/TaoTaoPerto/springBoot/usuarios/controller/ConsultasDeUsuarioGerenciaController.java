@@ -24,12 +24,12 @@ import java.util.Optional;
         description = "Endpoint responsável pela visualização gerentes terem as informações dos usuarios fazendo consultas")
 @RestController
 @RequestMapping("/gerentes/dados/usuarios")
-public class UsuarioConsultasController {
+public class ConsultasDeUsuarioGerenciaController {
 
     private final UsuarioServices usuarioServices;
     private final EnderecoServices enderecoServices;
 
-    public UsuarioConsultasController(UsuarioServices usuarioServices, EnderecoServices enderecoServices) {
+    public ConsultasDeUsuarioGerenciaController(UsuarioServices usuarioServices, EnderecoServices enderecoServices) {
         this.usuarioServices = usuarioServices;
         this.enderecoServices = enderecoServices;
     }
