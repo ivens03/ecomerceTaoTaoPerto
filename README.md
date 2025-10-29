@@ -32,6 +32,12 @@ A plataforma utiliza algoritmos para "prender" o usuário e otimizar o processo 
 | **Pesquisa Preditiva Mutável** 🔍 | A barra de pesquisa ajusta suas sugestões e a ordem dos resultados **automaticamente** de acordo com as preferências e o histórico de navegação do usuário. |
 | **Cupons Inteligentes** 🏷️ | Cupons de desconto são disponibilizados e personalizados por **categorias** que o usuário demonstrou maior interesse, impulsionando a conversão. |
 | **Checkout Otimizado** 🛒 | O design do carrinho e do fluxo de checkout é altamente visível e foi planejado para requerer o **mínimo de cliques** possível, garantindo uma compra rápida e sem atrito. |
+| **Seguir Lojas** 🛍️| Permite que o usuário acompanhe suas lojas favoritas e receba alertas sobre novos produtos, promoções e coleções exclusivas|
+| **Ranking de Vendedores** ⭐| Mostra uma pontuação de reputação calculada com base em avaliações de clientes, tempo de resposta e pontualidade nas entregas.|
+| **Desafio Semanal** 🎯| Oferece missões como “Compre 2 itens na mesma loja” ou “Avalie um produto hoje”, que rendem pequenas recompensas ao serem concluídas.|
+| **Wishlist** 📝 | A lista de desejos ( wishlist ) será um ambiente para o usuário "salvar" seus interesses em produtos, tendo a possibilidade de criar inúmeras listas com temas editáveis. |
+| **Sistema de Promoções** | O sistema permitirá que o descontos sejam aplicados automaticamente em produtos ou categorias durante um período específico de tempo, sem que o cliente precise usar cupom. |
+| **Cálculo de Frete Automático** | Um campo simples onde o usuário insere o CEP e então é mostrado qual o valor será cobrado antes de uma possível compra. |
 
 ### 2.3. Painel de Vendedor com Analytics Avançado 📈
 
