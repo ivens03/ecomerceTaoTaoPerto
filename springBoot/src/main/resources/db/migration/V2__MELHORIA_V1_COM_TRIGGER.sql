@@ -1,24 +1,33 @@
+-- 29/10/2025 foi ajustado para evitar bugs
 -- Criação dos schemas
+
 CREATE SCHEMA IF NOT EXISTS usuarios;
 CREATE SCHEMA IF NOT EXISTS auditoria;
 
+-- Adequação: Cria o ENUM apenas se ele não existir
+DO $$
+BEGIN
+    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'tipo_usuario_enum') THEN
 CREATE TYPE usuarios.tipo_usuario_enum AS ENUM (
-    'CLIENTE',
-    'ENTREGADORES',
-    'GERENTES',
-    'SUPORTE',
-    'VENDEDORES'
-);
+            'CLIENTE',
+            'ENTREGADORES',
+            'GERENTES',
+            'SUPORTE',
+            'VENDEDORES'
+        );
+END IF;
+END$$;
 
 CREATE OR REPLACE FUNCTION auditoria.trigger_set_timestamp()
 RETURNS TRIGGER AS $$
 BEGIN
     NEW.atualizado_em = NOW();
-    RETURN NEW;
+RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TABLE usuarios.usuarios (
+-- Adequação: Adicionado IF NOT EXISTS
+CREATE TABLE IF NOT EXISTS usuarios.usuarios (
     id BIGSERIAL PRIMARY KEY,
     email VARCHAR(60) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
@@ -39,14 +48,10 @@ CREATE TABLE usuarios.usuarios (
     ultimo_login_em TIMESTAMP NULL,
     ultimo_login_ip VARCHAR(45) NULL,
     tentativas_falhas_login INT NOT NULL DEFAULT 0
-);
+    );
 
-CREATE TRIGGER set_timestamp
-    BEFORE UPDATE ON usuarios.usuarios
-    FOR EACH ROW
-    EXECUTE FUNCTION auditoria.trigger_set_timestamp();
-
-CREATE TABLE auditoria.log_auditoria_usuarios (
+-- Adequação: Adicionado IF NOT EXISTS
+CREATE TABLE IF NOT EXISTS auditoria.log_auditoria_usuarios (
     id BIGSERIAL PRIMARY KEY,
     usuario_id BIGINT, -- Quem sofreu a ação (pode ser nulo se for ação do sistema)
 
@@ -60,4 +65,11 @@ CREATE TABLE auditoria.log_auditoria_usuarios (
     timestamp_acao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     FOREIGN KEY (usuario_id) REFERENCES usuarios.usuarios(id) ON DELETE SET NULL
-);
+    );
+
+-- Anexar triggers (comandos CREATE OR REPLACE são seguros)
+DROP TRIGGER IF EXISTS set_timestamp ON usuarios.usuarios;
+CREATE TRIGGER set_timestamp
+    BEFORE UPDATE ON usuarios.usuarios
+    FOR EACH ROW
+    EXECUTE FUNCTION auditoria.trigger_set_timestamp();
