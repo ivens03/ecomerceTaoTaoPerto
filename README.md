@@ -40,7 +40,7 @@ A plataforma utiliza algoritmos para "prender" o usuário e otimizar o processo 
 | **Cálculo de Frete Automático** | Um campo simples onde o usuário insere o CEP e então é mostrado qual o valor será cobrado antes de uma possível compra. |
 | **Lootbox +18 🔞🎁** | Caixa surpresa exclusiva da seção adulta, comprada por um valor fixo (ex: R$19,90), contendo itens aleatórios como: lubrificantes, mini acessórios, camisinhas especiais, vales-desconto para produtos +18, frete grátis ou até brinquedos completos. Embalagem totalmente discreta e sem identificação do conteúdo, fortalecendo a privacidade e estimulando recompra pela curiosidade. |
 | **Seus Sonhos Empacotados 💀** | Um espaço paralelo ao marketplace principal, com ofertas imprevisíveis e regras mutáveis. Produtos podem ter preços aleatórios, cupons de risco (podem aumentar ou reduzir o valor final) e promoções-relâmpago que somem em minutos. Mantém o usuário curioso e engajado. |
-| **Avatar Progressivo 🧬**C | Usuários e vendedores possuem um avatar personalizável que evolui conforme interagem no site. A cada compra, avaliação ou meta cumprida, o avatar ganha novos visuais, emblemas ou animações — criando uma identidade visual e um senso de progresso contínuo. |
+| **Avatar Progressivo 🧬** | Usuários e vendedores possuem um avatar personalizável que evolui conforme interagem no site. A cada compra, avaliação ou meta cumprida, o avatar ganha novos visuais, emblemas ou animações — criando uma identidade visual e um senso de progresso contínuo. |
 
 
 ### 2.3. Painel de Vendedor com Analytics Avançado 📈
