@@ -52,26 +52,70 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 
 ## 2.4 – Recursos para CLIENTES
 
-### 2.4.1 – Rastreamento com Mapa Simplificado
-- O cliente vê um ponto no mapa se movendo (mesmo que seja só atualização por status).
+### **2.4.1 – Rastreamento com Mapa Simplificado**
+- O cliente vê um ponto no mapa se movendo conforme o status do pedido.
 
-### 2.4.2 – Estimativa de Entrega pelo Histórico
-- Calcula tempo médio com base em pedidos anteriores da mesma loja + CEP.
+**Como funciona?**  
+- O ponto não representa o veículo em tempo real.  
+- Ele muda de posição de acordo com o último status logístico recebido (ex: “A caminho do CD”, “Saiu para Entrega”).  
+- A animação cria a sensação de movimento mesmo quando há apenas atualizações pontuais.
 
-### 2.4.3 – Assinatura VIP
-- Cliente paga mensalidade e recebe frete reduzido, cupons e suporte prioritário.
+**Como seria o ponto?**  
+- Um ícone visual simples: mini-caminhão ou caixa animada.  
+- Opção de personalização por tema da plataforma.
+
+**Onde ele veria?**  
+- Na página de **Detalhes do Pedido**, sendo o primeiro elemento visual logo após o cabeçalho do pedido.
+
+---
+
+### **2.4.2 – Estimativa de Entrega pelo Histórico**
+- Calcula o tempo médio de chegada baseado em pedidos anteriores.
+
+**E se for cliente novo ou rota nova?**  
+- A estimativa passa a usar o histórico geral de entregas na região do CEP.  
+- Caso a loja seja nova, usa média de outras lojas próximas e histórico da transportadora da plataforma.  
+- Quando o sistema acumular dados reais, a estimativa passa a ficar mais precisa automaticamente.
+
+---
+
+### **2.4.3 – Assinatura VIP**
+- Cliente paga uma mensalidade para benefícios exclusivos.
+
+**Como funciona?**   
+- O usuário paga um valor mensal fixo.
+- Em troca recebe:  
+  ✅ Frete reduzido ou grátis em produtos selecionados  
+  ✅ Cupons exclusivos  
+  ✅ Suporte prioritário  
+  ✅ Benefícios especiais em datas comemorativas
+
+**Formas de pagamento**
+- Cartão de crédito recorrente  
+- Boleto com renovação mensal  
+- Saldo interno da plataforma
 
 ---
 
 ## 2.5 – Recursos para ENTREGADORES
 
 ### 2.5.1 – Histórico de Ganhos
-- Cada entrega gera pontos.
-- Gráfico simples: dia / quantidade de entregas / ganhos.
+- Entregadores visualizam **quanto ganharam por dia**.
 
-### 2.5.2 – Registro de Gastos (Gasolina etc)
-- Entregador insere gastos diários.
-- Relatório simples semanal.
+**Quais gráficos serão usados e para que servem?**  
+- Gráfico de barras: **dia vs valor ganho**  
+- Linha acumulando ganhos semanais/mensais  
+- Objetivo: dar clareza sobre desempenho diário e incentivar produtividade.
+
+### **2.5.2 – Registro de Gastos (Gasolina, manutenção, óleo, etc)**
+- Entregador pode registrar os próprios gastos.
+
+**Por qual motivo ele faria isso?**
+- Ajuda a calcular o lucro real no mês.  
+- Plataforma pode gerar relatórios que mostram se vale a pena pegar certas rotas ou horários.
+
+**O relatório é exportável?**
+- Sim, o sistema permite exportar em **PDF ou Excel**, permitindo controle contábil externo.
 
 ### 2.5.3 – Rotas Preferidas
 - Ele escolhe regiões que quer ou não quer atender.
@@ -94,14 +138,28 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 
 ## 2.7 – Recursos para SUPORTE
 
-### 2.7.1 – Chatbot de Triagem Nível 1
--Um chatbot simples no início do chat de suporte que faz 2-3 perguntas (ex: "Qual o número do pedido?", "Seu problema é com o item ou a entrega?").
+### **2.7.1 – Chatbot de Triagem Nível 1**
+- Antes de chegar ao humano, um robô faz perguntas simples.
 
-### 2.7.2 – Histórico Unificado de Reclamações
-- O suporte visualiza tudo histórico daquele cliente ou vendedor(quantos chamados já abriu, quantos reembolsos pediu, comportamento suspeito).
+**Esse chat é com quem e quem responde?**
+- Primeiro nível: chatbot automatizado.  
+- Caso não resolva, encaminha para um atendente humano do setor de suporte.
+- Futuramente podendo encaminhar para algum outro setor se necessário
 
-### 2.7.3 – Reembolso Simplificado
-- Suporte clica em “aprovar” e cliente recebe crédito interno.
+### **2.7.2 – Histórico Unificado de Reclamações**
+- O suporte pode visualizar histórico daquele cliente ou vendedor.
+
+**Por que esse nível de acesso?**
+- Para identificar abusos, golpes, clientes repetidamente insatisfeitos, problemas recorrentes com uma loja ou produto.
+- Evita reembolsos indevidos e agiliza casos urgentes.
+
+### **2.7.3 – Reembolso Simplificado**
+- O suporte pode clicar em “aprovar” e gerar reembolso interno imediatamente.
+
+**Como funciona o processo?**
+1. Caso aprovado, o sistema devolve o valor como **crédito interno** na conta do cliente.
+2. Crédito pode ser usado para nova compra.
+3. Em casos especiais, é possível fazer reversão via cartão ou pix.
 
 ---
 
@@ -110,11 +168,24 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 ### 2.8.1 – Etiqueta de 'Vendido Pela Loja'
 - Exibe nos produtos a informação de que são vendidos e enviados pela própria loja.
 
-### 2.8.2 – Cupom Relâmpago
-- Cupom válido por tempo limitado (1h, 1 dia).
+### **2.8.2 – Cupom Relâmpago**
+- Cupom válido por tempo curto (ex: 1h ou 1 dia).
 
-### 2.8.3 – Por que este preço?" ❔
-- 	Um ícone de interrogação ao lado do preço final no carrinho. Ao clicar, ele mostra o detalhamento do custo (Preço Base + Frete + Impostos- Cupons Aplicados).
+**Por que o vendedor tem cupom?**
+- Para limpar estoque rápido, destacar produtos, atrair tráfego para a vitrine da loja.
+
+**Onde o vendedor usa?**
+- No painel da loja, criando cupons para produtos específicos ou toda a loja.
+
+### **2.8.3 – “Por que este preço?” ❔**
+- Ícone ao lado do preço do carrinho **explica para o cliente**:  
+  - Preço do produto  
+  - Frete  
+  - Impostos  
+
+**Objetivo:**  
+- Criar transparência e empatia com o valor final, ajudando o cliente a entender de onde vem o preço.
+
 
 
 ## 3. Stack Tecnológica (Tecnologias Utilizadas) 🛠️
