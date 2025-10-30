@@ -11,6 +11,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GenerationTime;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -49,7 +51,8 @@ public class UsuarioModel implements Serializable {
     private LocalDate dataNascimento;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "tipo_usuario", nullable = false, columnDefinition = "varchar(20)")
+    @Column(name = "tipo_usuario", nullable = false, columnDefinition = "usuarios.tipo_usuario_enum")
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM) // <-- 3. ADICIONE ESTA LINHA
     private TiposUsuariosEnum tipoUsuario = TiposUsuariosEnum.CLIENTE;
 
     @Column(name = "ativo", nullable = false)

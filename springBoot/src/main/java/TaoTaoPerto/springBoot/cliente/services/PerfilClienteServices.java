@@ -34,27 +34,29 @@ public class PerfilClienteServices {
     public PerfilClienteDto salvarPerfilCliente(PerfilClienteDto perfilClienteDto){
 
         UsuarioDto usuarioDto = perfilClienteDto.getUsuario();
-        usuarioDto.setTipoUsuario(TiposUsuariosEnum.CLIENTE);
+        //usuarioDto.setTipoUsuario(TiposUsuariosEnum.CLIENTE); // O DTO já faz isso
 
         // 1. Salva o Usuário (retorna DTO)
         UsuarioDto usuarioSalvoDto = usuarioServices.salvarUsuario(usuarioDto);
 
-        // 2. Busca o Model salvo usando o novo método (retorna Model)
-        // (Agora usuarioSalvoDto.getId() retorna Long, e buscarModelPorId aceita Long)
+        // 2. Busca o Model do usuário salvo
         UsuarioModel usuarioSalvoModel = usuarioDtoMapper.map(
                 usuarioServices.listarUsuarioPorId(usuarioSalvoDto.getId())
                         .orElseThrow(() -> new RuntimeException("Usuário não encontrado"))
         );
-        // 3. Cria e associa o Perfil
-        PerfilClienteModel novoPerfil = new PerfilClienteModel();
-        novoPerfil.setUsuario(usuarioSalvoModel);
 
-        // ... (Lógica de Endereço Padrão aqui) ...
+        // 3. (MUDANÇA AQUI) Busca o Perfil que o TRIGGER V9 acabou de criar
+        PerfilClienteModel perfilSalvo = perfilClienteRepository.findByUsuarioId(usuarioSalvoModel.getId())
+                .orElseThrow(() -> new RuntimeException("ERRO CRÍTICO: Trigger V9 falhou em criar o perfil do cliente."));
 
-        // 4. Salva o Perfil
-        PerfilClienteModel perfilSalvo = perfilClienteRepository.save(novoPerfil);
+        // 4. (Lógica de Endereço Padrão aqui)
+        // if (perfilClienteDto.getEnderecoPadrao() != null) {
+        //    EnderecoModel enderecoSalvo = enderecoService.salvar(perfilClienteDto.getEnderecoPadrao(), usuarioSalvoModel);
+        //    perfilSalvo.setEnderecoPadrao(enderecoSalvo);
+        //    perfilSalvo = perfilClienteRepository.save(perfilSalvo); // Salva a atualização
+        // }
 
-        // 5. Retorna o DTO mapeado
+        // 5. Retorna o DTO mapeado (agora com o perfil que o trigger criou)
         return perfilClienteDtoMapper.map(perfilSalvo);
     }
 }
