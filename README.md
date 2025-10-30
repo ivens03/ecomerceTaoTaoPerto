@@ -96,7 +96,41 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 - Saldo interno da plataforma
 
 ---
+### **2.4.4 – Notificação de Queda de Preço Personalizada**
+- Cliente marca um produto e recebe alerta automático quando o preço cair.
 
+**Como funciona?**
+- O cliente clica em “Acompanhar preço” no produto desejado.
+- O sistema monitora alterações de valor e envia notificação quando o preço for reduzido.
+- As notificações podem ser enviadas por e-mail, SMS ou dentro do aplicativo.
+
+**Benefícios:**
+- Evita que o cliente perca promoções.
+---
+### **2.4.5 – Compra Compartilhada**
+- Permite que amigos adicionem produtos juntos em um mesmo carrinho.
+
+**Como funciona?**
+- O cliente cria um carrinho e compartilha o link com outros usuários.
+- Cada participante adiciona seus produtos e define a forma de pagamento.
+- A compra é concluída quando todos confirmam suas partes.
+
+**Benefícios:**
+- Facilita compras coletivas (ex: presentes, eventos).
+- Estimula engajamento social entre usuários da plataforma.
+---
+
+### **2.4.6 – Modo “Comprar Novamente” Rápido**
+- Um botão que refaz o último pedido com apenas um clique.
+
+**Como funciona?**
+- O sistema salva automaticamente o histórico de pedidos concluídos.
+- Ao clicar em “Comprar novamente”, todos os itens anteriores são adicionados ao carrinho.
+- O cliente pode revisar e confirmar em segundos.
+
+**Benefícios:**
+- Agiliza compras recorrentes.
+---
 ## 2.5 – Recursos para ENTREGADORES
 
 ### 2.5.1 – Histórico de Ganhos
@@ -122,6 +156,40 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 - Sistema prioriza pedidos naquelas áreas.
 
 ---
+### **2.5.4 – Avaliação de Desempenho e Histórico de Entregas**
+- Estatísticas completas de entregas realizadas, atrasos e avaliações.
+
+**Como funciona?**
+- O entregador acessa um painel com dados de desempenho diário, semanal e mensal.
+- Mostra número de entregas, tempo médio, pontualidade e média das avaliações.
+- Permite filtrar resultados por período.
+
+**Benefícios:**
+- Incentiva produtividade.
+- Permite acompanhar evolução e identificar melhorias.
+---
+### **2.5.5 – Relato Rápido de Problemas**
+- Botão “Relatar problema” envia automaticamente foto e localização.
+
+**Como funciona?**
+- O entregador fotografa o problema (ex: endereço incorreto, cliente ausente).
+- O sistema envia imagem, geolocalização e pedido vinculado ao suporte.
+- O suporte recebe a notificação em tempo real.
+
+**Benefícios:**
+- Reduz falhas e melhora a comunicação.
+---
+### **2.5.6 – Visualização de Rotas Otimizadas**
+- Mapa com o trajeto ideal e informações detalhadas de entrega.
+
+**Como funciona?**
+- O sistema calcula o percurso mais rápido considerando distância e trânsito.
+- Exibe pontos de parada, endereços e tempo estimado de entrega.
+- Atualiza automaticamente o status conforme as entregas são concluídas.
+
+**Benefícios:**
+- Reduz custos operacionais e tempo de entrega.
+---
 
 ## 2.6 – Recursos para GERENTES
 
@@ -133,6 +201,39 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 
 ### 2.6.3 – Alerta de Problemas
 - Se uma loja tem muitas reclamações, ou um entregador com atrasos, o gerente recebe aviso.
+
+---
+### **2.6.4 – Mapa de Calor de Vendas**
+- Mostra visualmente as regiões com maior volume de pedidos.
+
+**Como funciona?**
+- O mapa utiliza cores para representar intensidade de vendas por região.
+- Permite filtragem por data, categoria de produto e loja.
+
+**Benefícios:**
+- Identifica áreas estratégicas e oportunidades de expansão.
+---
+### **2.6.5 – Simulador de Lucro**
+- Mostra o impacto estimado nos lucros antes de aplicar descontos.
+
+**Como funciona?**
+- O gerente informa o percentual de desconto ou promoção.
+- O sistema calcula a nova margem de lucro automaticamente.
+- Exibe comparativo entre lucro atual e projetado.
+
+**Benefícios:**
+- Evita prejuízos e promoções mal planejadas.
+---
+### **2.6.6 – Alerta de Vendedores Inativos**
+- Notifica automaticamente quando um vendedor fica X dias sem atividade.
+
+**Como funciona?**
+- O sistema monitora login, publicações e vendas.
+- Caso o vendedor atinja o limite de inatividade, o gerente é alertado.
+- Pode acionar contato automático por e-mail ou painel.
+
+**Benefícios:**
+- Mantém a plataforma ativa e saudável.
 
 ---
 
@@ -162,6 +263,40 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 3. Em casos especiais, é possível fazer reversão via cartão ou pix.
 
 ---
+### **2.7.4 – Relatórios de Atendimento**
+- Acompanha métricas de desempenho do suporte e satisfação dos clientes.
+
+**Como funciona?**
+- O sistema registra tempo médio de resposta, taxa de resolução e avaliações dos usuários.
+- Os dados são exibidos em gráficos e relatórios exportáveis.
+
+**Benefícios:**
+- Melhora o controle de qualidade.
+---
+### **2.7.5 – Auto-Sugestão de Solução**
+- Sugere respostas automáticas com base em reclamações anteriores.
+
+**Como funciona?**
+- Ao digitar uma reclamação, o sistema identifica casos semelhantes.
+- Exibe sugestões de respostas e ações baseadas em soluções anteriores.
+- O atendente pode editar e enviar rapidamente.
+
+**Benefícios:**
+- Reduz tempo de atendimento.
+---
+### **2.7.6 – Chat Pré-Configurado por Tipo de Problema**
+- Cliente escolhe o motivo e o suporte recebe formulário filtrado.
+
+**Como funciona?**
+- O cliente seleciona o tipo de problema (ex: entrega, pagamento, produto).
+- O sistema direciona o atendimento para o setor correto com dados já filtrados.
+- O suporte recebe as informações organizadas.
+
+**Benefícios:**
+- Reduz tempo de triagem.
+- Garante atendimento mais rápido e assertivo.
+
+---
 
 ## 2.8 – Recursos para VENDEDORES
 
@@ -185,8 +320,39 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 
 **Objetivo:**  
 - Criar transparência e empatia com o valor final, ajudando o cliente a entender de onde vem o preço.
+---
+### **2.8.4 – Comparador de Preços Concorrentes**
+- Mostra o preço médio de produtos semelhantes em outras lojas da plataforma.
 
+**Como funciona?**
+- O vendedor acessa o painel e visualiza o preço médio de produtos equivalentes.
+- Pode ajustar seu preço em tempo real com base nos concorrentes.
 
+**Benefícios:**
+- Mantém a loja competitiva.
+---
+### **2.8.5 – Estoque Inteligente**
+- Sugere quais produtos repor com base no histórico de vendas.
+
+**Como funciona?**
+- O sistema analisa o histórico de vendas e a velocidade de retirada dos produtos.
+- Recomenda reposições automáticas e alerta sobre baixos estoques.
+
+**Benefícios:**
+- Evita falta de produtos.
+- Melhora planejamento de compras e reposições.
+---
+### **2.8.6 – Análise de Desistências**
+- Informa quantas vezes o produto foi visto ou adicionado ao carrinho sem compra.
+
+**Como funciona?**
+- O sistema registra visualizações e abandonos de carrinho por produto.
+- Exibe relatórios com taxa de desistência e possíveis causas (preço, frete, prazo).
+
+**Benefícios:**
+- Ajuda o vendedor a otimizar preços e descrições.
+- Reduz abandono de carrinho e melhora conversão.
+---
 
 ## 3. Stack Tecnológica (Tecnologias Utilizadas) 🛠️
 
