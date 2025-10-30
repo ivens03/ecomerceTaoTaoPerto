@@ -1,4 +1,4 @@
-package TaoTaoPerto.springBoot.exception;
+package TaoTaoPerto.springBoot.exception.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
