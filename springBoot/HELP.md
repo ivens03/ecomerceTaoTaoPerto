@@ -80,12 +80,17 @@ com.taotaoperto
 │   ├── model/
 │   └── dto/
 │── administradores/           # Funcionalidades administrativas
+│   ├── controller/
+│   ├── service/
+│   ├── repository/
+│   ├── model/
+│   └── dto/
+│── suporte/                   # Funcionalidades suporte
     ├── controller/
     ├── service/
     ├── repository/
     ├── model/
     └── dto/
-
 ```
 
 ### Descrição dos Pacotes
