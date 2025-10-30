@@ -4,7 +4,7 @@ import TaoTaoPerto.springBoot.cliente.dtos.PerfilClienteDto;
 import TaoTaoPerto.springBoot.cliente.dtos.PerfilClienteDtoMapper;
 import TaoTaoPerto.springBoot.cliente.model.PerfilClienteModel;
 import TaoTaoPerto.springBoot.cliente.repository.PerfilClienteRepository;
-import TaoTaoPerto.springBoot.exception.exception.UsuarioDesativoOuNaoEncontrado;
+import TaoTaoPerto.springBoot.exception.tratamentoDeErro.UsuarioDesativoOuNaoEncontrado;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDtoMapper;
 import TaoTaoPerto.springBoot.usuarios.model.UsuarioModel;

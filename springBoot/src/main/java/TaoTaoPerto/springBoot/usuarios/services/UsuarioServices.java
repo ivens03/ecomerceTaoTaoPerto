@@ -1,6 +1,6 @@
 package TaoTaoPerto.springBoot.usuarios.services;
 
-import TaoTaoPerto.springBoot.exception.exception.UsuarioDesativoOuNaoEncontrado;
+import TaoTaoPerto.springBoot.exception.tratamentoDeErro.UsuarioDesativoOuNaoEncontrado;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDtoMapper;
 import TaoTaoPerto.springBoot.usuarios.model.UsuarioModel;
