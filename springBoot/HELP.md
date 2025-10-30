@@ -61,6 +61,10 @@ com.taotaoperto
 │   ├── repository/
 │   ├── model/
 │   └── dto/
+├── exception/                  # Tratamento de erros personalizados.
+│   ├── dto/
+│   ├── tratamentoDeErro/
+│   ├── GlobalExceptionHandler
 ├── clientes/                  # Funcionalidades específicas para clientes
 │   ├── controller/
 │   ├── service/
