@@ -1,6 +1,7 @@
 package TaoTaoPerto.springBoot.usuarios.model;
 
 import TaoTaoPerto.springBoot.cliente.model.PerfilClienteModel;
+import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.enums.TiposUsuariosEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -116,4 +117,25 @@ public class UsuarioModel implements Serializable {
 //    @JsonManagedReference
 //    @OneToMany(mappedBy = "gestor", fetch = FetchType.LAZY)
 //    private List<PerfilFuncionarioModel> subordinados;
+
+    public void atualizarUsuarioComDto(UsuarioDto usuarioDto) {
+        if (usuarioDto.getNomeCompleto() != null) {
+            this.nomeCompleto = usuarioDto.getNomeCompleto();
+        }
+        if (usuarioDto.getCpf() != null) {
+            this.cpf = usuarioDto.getCpf();
+        }
+        if (usuarioDto.getCelular() != null) {
+            this.celular = usuarioDto.getCelular();
+        }
+        if (usuarioDto.getDataNascimento() != null) {
+            this.dataNascimento = usuarioDto.getDataNascimento();
+        }
+        if (usuarioDto.getTipoUsuario() != null) {
+            this.tipoUsuario = usuarioDto.getTipoUsuario();
+        }
+        if (usuarioDto.getAtivo() != null) {
+            this.ativo = usuarioDto.getAtivo();
+        }
+    }
 }

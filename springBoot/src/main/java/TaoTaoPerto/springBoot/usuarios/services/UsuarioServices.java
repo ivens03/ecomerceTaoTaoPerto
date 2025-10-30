@@ -64,12 +64,13 @@ public class UsuarioServices {
     }
 
     //Atualizar
-    public UsuarioDto atualizarUsuario(Long id, UsuarioDto usuarioDto){
+    public UsuarioDto atualizarUsuario(Long id, UsuarioDto usuarioDto) {
         UsuarioModel usuarioModel = usuarioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuario nao encontrado"));
-        usuarioModel.setNomeCompleto(usuarioDto.getNomeCompleto());
-        usuarioModel.setSenha(usuarioDto.getSenha());
-        usuarioModel.setTipoUsuario(usuarioDto.getTipoUsuario());
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado com ID: " + id));
+        usuarioModel.atualizarUsuarioComDto(usuarioDto);
+        if (usuarioDto.getSenha() != null) {
+            usuarioModel.setSenha(usuarioDto.getSenha());
+        }
         return usuarioDtoMapper.map(usuarioRepository.save(usuarioModel));
     }
 

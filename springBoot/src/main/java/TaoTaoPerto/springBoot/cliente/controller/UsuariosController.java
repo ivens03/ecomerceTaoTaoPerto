@@ -1,4 +1,4 @@
-package TaoTaoPerto.springBoot.usuarios.controller;
+package TaoTaoPerto.springBoot.cliente.controller;
 
 import TaoTaoPerto.springBoot.cliente.dtos.PerfilClienteDto;
 import TaoTaoPerto.springBoot.cliente.services.PerfilClienteServices;
