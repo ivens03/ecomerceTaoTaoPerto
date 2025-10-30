@@ -50,6 +50,73 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 * **Integração de Gráficos:** Vendedores têm acesso a gráficos em tempo real de suas **Vendas, Usuários Alcançados e Visualizações** de produtos.
 * **Impulsionamento:** Ferramenta para que o vendedor possa **impulsionar a visibilidade** de seus produtos dentro da plataforma, melhorando o engajamento e a performance.
 
+## 2.4 – Recursos para CLIENTES
+
+### 2.4.1 – Rastreamento com Mapa Simplificado
+- O cliente vê um ponto no mapa se movendo (mesmo que seja só atualização por status).
+
+### 2.4.2 – Estimativa de Entrega pelo Histórico
+- Calcula tempo médio com base em pedidos anteriores da mesma loja + CEP.
+
+### 2.4.3 – Assinatura VIP
+- Cliente paga mensalidade e recebe frete reduzido, cupons e suporte prioritário.
+
+---
+
+## 2.5 – Recursos para ENTREGADORES
+
+### 2.5.1 – Histórico de Ganhos
+- Cada entrega gera pontos.
+- Gráfico simples: dia / quantidade de entregas / ganhos.
+
+### 2.5.2 – Registro de Gastos (Gasolina etc)
+- Entregador insere gastos diários.
+- Relatório simples semanal.
+
+### 2.5.3 – Rotas Preferidas
+- Ele escolhe regiões que quer ou não quer atender.
+- Sistema prioriza pedidos naquelas áreas.
+
+---
+
+## 2.6 – Recursos para GERENTES
+
+### 2.6.1 – Dashboard Básico
+- Mostra pedidos por dia, atrasos, clientes e vendedores ativos.
+
+### 2.6.2 – Modo de Intervenção
+- Gerente pode assumir um chat entre cliente/vendedor e resolver diretamente.
+
+### 2.6.3 – Alerta de Problemas
+- Se uma loja tem muitas reclamações, ou um entregador com atrasos, o gerente recebe aviso.
+
+---
+
+## 2.7 – Recursos para SUPORTE
+
+### 2.7.1 – Chatbot de Triagem Nível 1
+-Um chatbot simples no início do chat de suporte que faz 2-3 perguntas (ex: "Qual o número do pedido?", "Seu problema é com o item ou a entrega?").
+
+### 2.7.2 – Histórico Unificado de Reclamações
+- O suporte visualiza tudo histórico daquele cliente ou vendedor(quantos chamados já abriu, quantos reembolsos pediu, comportamento suspeito).
+
+### 2.7.3 – Reembolso Simplificado
+- Suporte clica em “aprovar” e cliente recebe crédito interno.
+
+---
+
+## 2.8 – Recursos para VENDEDORES
+
+### 2.8.1 – Etiqueta de 'Vendido Pela Loja'
+- Exibe nos produtos a informação de que são vendidos e enviados pela própria loja.
+
+### 2.8.2 – Cupom Relâmpago
+- Cupom válido por tempo limitado (1h, 1 dia).
+
+### 2.8.3 – Por que este preço?" ❔
+- 	Um ícone de interrogação ao lado do preço final no carrinho. Ao clicar, ele mostra o detalhamento do custo (Preço Base + Frete + Impostos- Cupons Aplicados).
+
+
 ## 3. Stack Tecnológica (Tecnologias Utilizadas) 🛠️
 
 O projeto **TaoTaoPerto** foi construído utilizando uma arquitetura moderna e tecnologias de ponta, garantindo performance, escalabilidade e facilidade de manutenção.
