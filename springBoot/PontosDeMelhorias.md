@@ -94,15 +94,54 @@ Este arquivo documenta tarefas de refatoração, correção de bugs e melhorias 
     1.  **Adicionar Dependência:** Garantir que o `spring-boot-starter-test` está no `pom.xml`. Ele inclui JUnit 5, Mockito e Spring Test.
     2.  **Testes Unitários (Camada de Serviço):**
         * **Onde:** Criar classes de teste para `UsuarioServices` e `EnderecoServices`.
-        * **Como:** Usar `@ExtendWith(MockitoExtension.class)` e `@Mock` para simular o comportamento dos *Repositories* (ex: `UsuarioRepository`, `EnderecoRepository`).
+        * **Como:** Usar `@ExtendWith(MockitoExtension.class)` e `@Mock` para simular o comportamento dos repositórios.
         * **O que testar:**
-            * **Caminho Feliz:** Testar se `salvarUsuario` chama `repository.save()` e retorna o DTO correto.
-            * **Tratamento de Erros:** Testar se os métodos (ex: `listarUsuarioPorIdAtivo`) lançam a `RecursoNaoEncontradoException` (sugerida no Ponto 2) quando o *repository* retorna um `Optional.empty()` ou um usuário inativo.
-            * **Lógica de Negócio:** Testar se `buscarTodosAtivos` filtra corretamente os usuários inativos.
-    3.  **Testes de Integração (Camada de Controller):**
-        * **Onde:** Criar classes de teste para `UsuarioConsultasController` e `EnderecoController`.
-        * **Como:** Usar `@SpringBootTest` e `@AutoConfigureMockMvc` para testar os endpoints da API sem levantar um servidor real.
+            * **Caminho Feliz:** Verificar se os métodos retornam os resultados esperados.
+            * **Tratamento de Erros:** Garantir que as exceções corretas são lançadas.
+
+    3.  **Testes de Integração (API REST):**
+        * **Onde:** Criar testes para os endpoints dos controladores.
+        * **Como:** Usar `@SpringBootTest` e `TestRestTemplate`.
         * **O que testar:**
-            * **Status HTTP:** Verificar se os endpoints retornam os status corretos (ex: `201 CREATED` para `POST /endereco/registro`, `404 NOT FOUND` para `GET /endereco/listar/999` (ID inexistente)).
-            * **Validação (Ponto 3):** Testar se, ao enviar um DTO inválido (ex: nome em branco) para um endpoint `POST` ou `PUT`, a API retorna `400 BAD REQUEST`.
-            * **Respostas:** Verificar se o JSON de resposta está correto e contém os dados esperados.
+            * **Status HTTP:** Verificar códigos de resposta.
+            * **Corpo da Resposta:** Validar o JSON retornado.
+
+### 5. Segurança Avançada
+- [ ] Implementar autenticação JWT
+- [ ] Configurar autorização baseada em roles
+- [ ] Proteger endpoints sensíveis
+
+### 6. Logging Estratégico
+- [ ] Adicionar logs em pontos críticos
+  ```java
+  @Slf4j
+  @Service
+  public class UsuarioService {
+      public UsuarioDto buscarPorId(Long id) {
+          log.info("Buscando usuário com ID: {}", id);
+          // implementação
+      }
+  }
+  ```
+
+### 7. Cache de Dados
+- [ ] Implementar cache para consultas frequentes
+  ```java
+  @Service
+  @CacheConfig(cacheNames = "usuarios")
+  public class UsuarioService {
+      @Cacheable
+      public UsuarioDto buscarPorId(Long id) {
+          // implementação
+      }
+  }
+  ```
+
+### 8. Monitoramento
+- [ ] Adicionar Spring Boot Actuator
+  ```xml
+  <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+  </dependency>
+  ```
