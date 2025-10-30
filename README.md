@@ -111,9 +111,18 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 - Permite que amigos adicionem produtos juntos em um mesmo carrinho.
 
 **Como funciona?**
-- O cliente cria um carrinho e compartilha o link com outros usuários.
-- Cada participante adiciona seus produtos e define a forma de pagamento.
-- A compra é concluída quando todos confirmam suas partes.
+- Um cliente cria um **carrinho compartilhado** e diferente de seu carrinho pessoal que gera um link único.  
+- Esse link é enviado para amigos ou familiares.  
+- Cada participante:
+  - Pode adicionar seus próprios produtos.  
+  - Define o método de pagamento individual.
+  - Visualiza em tempo real o que os outros adicionaram.  
+- O pedido só é confirmado quando **todos os participantes finalizam o pagamento**.  
+- As notificações podem ser enviadas por e-mail, SMS ou dentro do aplicativo.
+
+**Formas de pagamento aceitas:**  
+- Cartão de crédito ou débito (individual por participante).  
+- PIX (cada um com seu QR Code exclusivo).  
 
 **Benefícios:**
 - Facilita compras coletivas (ex: presentes, eventos).
@@ -160,21 +169,37 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 - Estatísticas completas de entregas realizadas, atrasos e avaliações.
 
 **Como funciona?**
-- O entregador acessa um painel com dados de desempenho diário, semanal e mensal.
-- Mostra número de entregas, tempo médio, pontualidade e média das avaliações.
-- Permite filtrar resultados por período.
+- O sistema coleta dados das entregas finalizadas e gera métricas automáticas.  
+- Os indicadores vêm de três fontes:
+  - **Clientes:** avaliam pontualidade e cuidado com o pacote.  
+  - **Distribuidora:** avalia cumprimento de prazos e rotas.  
+  - **Sistema:** calcula tempo médio, desvios e taxa de sucesso.
+ 
+**O que aparece no painel?**  
+- Total de entregas realizadas (diário, semanal, mensal).  
+- Entregas atrasadas (% e número absoluto).  
+- Avaliação média (nota de 1 a 5 estrelas).
+
+**Filtros disponíveis:**  
+- Por período (dia, semana, mês, personalizado).  
+- Por tipo de entrega (expressa, agendada, padrão).  
 
 **Benefícios:**
 - Incentiva produtividade.
 - Permite acompanhar evolução e identificar melhorias.
 ---
 ### **2.5.5 – Relato Rápido de Problemas**
-- Botão “Relatar problema” envia automaticamente foto e localização.
+- Botão “Relatar problema” envia automaticamente foto e localização alem de um formulário.
 
 **Como funciona?**
-- O entregador fotografa o problema (ex: endereço incorreto, cliente ausente).
-- O sistema envia imagem, geolocalização e pedido vinculado ao suporte.
-- O suporte recebe a notificação em tempo real.
+- O entregador acessa o botão “Relatar problema” dentro do pedido.  
+- Abre-se um formulário simplificado, contendo:
+  - Seleção do tipo de problema (cliente ausente, endereço incorreto, trânsito, avaria, etc.).  
+  - Campo opcional para observação.  
+  - Upload de foto (ex: fachada da casa, produto danificado).  
+  - Localização automática via GPS.  
+- O sistema envia automaticamente o relatório para o suporte e registra o status da entrega como **“em análise”**. 
+- O cliente pode contestar após 3 dias
 
 **Benefícios:**
 - Reduz falhas e melhora a comunicação.
@@ -221,16 +246,16 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 - O sistema calcula a nova margem de lucro automaticamente.
 - Exibe comparativo entre lucro atual e projetado.
 
-**Benefícios:**
-- Evita prejuízos e promoções mal planejadas.
----
 ### **2.6.6 – Alerta de Vendedores Inativos**
-- Notifica automaticamente quando um vendedor fica X dias sem atividade.
+- Notifica automaticamente quando um vendedor ultrapassa o limite de dias sem atividade.
 
 **Como funciona?**
-- O sistema monitora login, publicações e vendas.
-- Caso o vendedor atinja o limite de inatividade, o gerente é alertado.
-- Pode acionar contato automático por e-mail ou painel.
+- O sistema monitora eventos de atividade do vendedor (login, atualização de produtos, mensagens, vendas, etc.).  
+- Se nenhuma ação for registrada por 15 dias consecutivos, o sistema envia um alerta:  
+  - Primeiro alerta via painel administrativo.  
+  - Segundo alerta por e-mail, após 30 dias.  
+- Caso o vendedor complete 45 dias sem atividade, o sistema pode:
+  - Pausar automaticamente os anúncios e divulgações. 
 
 **Benefícios:**
 - Mantém a plataforma ativa e saudável.
