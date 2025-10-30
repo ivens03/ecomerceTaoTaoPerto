@@ -4,6 +4,20 @@ Este arquivo documenta tarefas de refatoração, correção de bugs e melhorias 
 
 ## API - Tratamento de Erros
 
+
+
+- **Resposta Esperada (404 Not Found):**
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "message": "O usuário solicitado está inativo",
+    "path": "/ususarios/conta/1"
+  }
+  ```
+
+## API - Tratamento de Erros
+
 ### 1. Corrigir resposta de erro ao buscar usuários inativos
 
 - **Endpoint Afetado:** `GET /gerentes/dados/usuarios/listarPorIdAtivo/{id}`
@@ -22,6 +36,37 @@ Este arquivo documenta tarefas de refatoração, correção de bugs e melhorias 
     }
     ```
 
+#### Outro endPoint afetado:  
+
+- **Endpoint Afetado:** `GET /ususarios/conta/{id}`
+- **Problema:** Ao tentar buscar um usuário pelo ID, se o usuário existir mas estiver com `ativo = false`, a API retorna um erro 500 (Internal Server Error).
+- **Impacto:** Má experiência do usuário e mensagem de erro não amigável.
+- **Solução Proposta:**
+    1. Modificar o método `listarUsuarioPorIdAtivo` em `UsuarioServices` para lançar uma exceção personalizada quando o usuário estiver inativo.
+    2. Criar um `@ControllerAdvice` para capturar essa exceção e retornar uma resposta HTTP adequada (404 Not Found).
+    3. Incluir uma mensagem clara no corpo da resposta.
+
+- **Exemplo de Implementação:**
+  ```java
+  // Em UsuarioServices.java
+  public UsuarioDto listarUsuarioPorIdAtivo(Long id) {
+      UsuarioModel usuario = usuarioRepository.findById(id)
+          .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado"));
+      
+      if (!usuario.getAtivo()) {
+          throw new ResourceInactiveException("O usuário solicitado está inativo");
+      }
+      
+      return usuarioDtoMapper.map(usuario);
+  }
+  
+  // Classe de exceção personalizada
+  public class ResourceInactiveException extends RuntimeException {
+      public ResourceInactiveException(String message) {
+          super(message);
+      }
+  }
+  ```
 
 ### 2. Centralizar Tratamento de Erros com Exceções Customizadas
 
