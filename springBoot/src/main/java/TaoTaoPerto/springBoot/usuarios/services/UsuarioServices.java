@@ -1,5 +1,6 @@
 package TaoTaoPerto.springBoot.usuarios.services;
 
+import TaoTaoPerto.springBoot.exception.UsuarioDesativoOuNaoEncontrado;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDtoMapper;
 import TaoTaoPerto.springBoot.usuarios.model.UsuarioModel;
@@ -60,7 +61,7 @@ public class UsuarioServices {
     public UsuarioDto listarUsuarioPorIdAtivo(Long id) {
         return usuarioRepository.findByIdAndAtivo(id, true)
                 .map(usuarioDtoMapper::map)
-                .orElseThrow(() -> new RuntimeException("Usuário ativo com ID: " + id + " não encontrado"));
+                .orElseThrow(() -> new UsuarioDesativoOuNaoEncontrado("Não foi possivel encontrar o usuario do ID: (" + id + ") "));
     }
 
     //Atualizar

@@ -1,5 +1,6 @@
 package TaoTaoPerto.springBoot.usuarios.services;
 
+import TaoTaoPerto.springBoot.exception.UsuarioDesativoOuNaoEncontrado;
 import TaoTaoPerto.springBoot.usuarios.dtos.EnderecoDto;
 import TaoTaoPerto.springBoot.usuarios.dtos.EnderecoDtoMapper;
 import TaoTaoPerto.springBoot.usuarios.model.EnderecoModel;
@@ -7,7 +8,6 @@ import TaoTaoPerto.springBoot.usuarios.repository.EnderecoRepository;
 import TaoTaoPerto.springBoot.usuarios.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -33,7 +33,7 @@ public class EnderecoServices {
     public List<EnderecoDto> buscarTodosEnderecosDoMesmoUsuario(Long id) {
         var usuario = usuarioRepository.findById(id);
         if (usuario.isEmpty() || !usuario.get().getAtivo() ) {
-            throw new RuntimeException("Usuario com ID: " + id + " não encontrado ou está desativado");
+            throw new UsuarioDesativoOuNaoEncontrado("Não foi possivel encontrar o usuario do ID: (" + id + ") ");
         }
         return enderecoRepository.findByUsuarioId(id)
                 .stream()
@@ -45,7 +45,7 @@ public class EnderecoServices {
     public List<EnderecoDto> buscarTodosEnderecosAtivoDoMesmoUsuario(Long id) {
         var usuario = usuarioRepository.findById(id);
         if (usuario.isEmpty() || !usuario.get().getAtivo()) {
-            throw new RuntimeException("Usuário com ID: " + id + " não encontrado ou está desativado");
+            throw new UsuarioDesativoOuNaoEncontrado("Não foi possivel encontrar o usuario do ID: (" + id + ") ");
         }
         return enderecoRepository.findByUsuarioId(id)
                 .stream()
@@ -67,7 +67,7 @@ public class EnderecoServices {
     public EnderecoDto atualizarEndereco(Long id, EnderecoDto enderecoDto) {
         var usuario = usuarioRepository.findById(id);
         if (usuario.isEmpty() || !usuario.get().getAtivo()) {
-            throw new RuntimeException("Usuário com ID: " + id + " não encontrado ou está inativo");
+            throw new UsuarioDesativoOuNaoEncontrado("Não foi possivel encontrar o usuario do ID: (" + id + ") ");
         }
         EnderecoModel enderecoModel = enderecoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Endereço não encontrado"));

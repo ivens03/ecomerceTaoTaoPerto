@@ -4,6 +4,7 @@ import TaoTaoPerto.springBoot.cliente.dtos.PerfilClienteDto;
 import TaoTaoPerto.springBoot.cliente.dtos.PerfilClienteDtoMapper;
 import TaoTaoPerto.springBoot.cliente.model.PerfilClienteModel;
 import TaoTaoPerto.springBoot.cliente.repository.PerfilClienteRepository;
+import TaoTaoPerto.springBoot.exception.UsuarioDesativoOuNaoEncontrado;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDtoMapper;
 import TaoTaoPerto.springBoot.usuarios.model.UsuarioModel;
@@ -33,7 +34,7 @@ public class PerfilClienteServices {
         UsuarioDto usuarioSalvoDto = usuarioServices.salvarUsuario(usuarioDto);
         UsuarioModel usuarioSalvoModel = usuarioDtoMapper.map(
                 usuarioServices.listarUsuarioPorId(usuarioSalvoDto.getId())
-                        .orElseThrow(() -> new RuntimeException("Usuário não encontrado"))
+                        .orElseThrow(() -> new UsuarioDesativoOuNaoEncontrado("Usuário não encontrado"))
         );
         PerfilClienteModel perfilSalvo = perfilClienteRepository.findByUsuarioId(usuarioSalvoModel.getId())
                 .orElseThrow(() -> new RuntimeException("ERRO CRÍTICO: Falha em criar o perfil do cliente."));
