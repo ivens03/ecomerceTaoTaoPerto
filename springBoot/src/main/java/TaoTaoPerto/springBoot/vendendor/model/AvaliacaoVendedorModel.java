@@ -39,7 +39,7 @@ public class AvaliacaoVendedorModel implements Serializable {
     @Min(1)
     @Max(5)
     @Column(nullable = false)
-    private Short nota; // Mapeia 'nota SMALLINT NOT NULL CHECK (nota >= 1 AND nota <= 5)'
+    private Short nota;
 
     @Column(length = 100)
     private String titulo;
