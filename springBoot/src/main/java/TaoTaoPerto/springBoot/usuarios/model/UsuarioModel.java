@@ -53,7 +53,7 @@ public class UsuarioModel implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_usuario", nullable = false, columnDefinition = "usuarios.tipo_usuario_enum")
-    @JdbcTypeCode(SqlTypes.NAMED_ENUM) // <-- 3. ADICIONE ESTA LINHA
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     private TiposUsuariosEnum tipoUsuario = TiposUsuariosEnum.CLIENTE;
 
     @Column(name = "ativo", nullable = false)

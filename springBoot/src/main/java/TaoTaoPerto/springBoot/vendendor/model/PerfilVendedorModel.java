@@ -33,21 +33,21 @@ public class PerfilVendedorModel implements Serializable {
 
     @NotNull
     @Column(name = "nome_loja", nullable = false, unique = true, length = 150)
-    private String nomeLoja; // Mapeia 'nome_loja VARCHAR(150) NOT NULL UNIQUE'
+    private String nomeLoja;
 
     @Column(columnDefinition = "TEXT")
-    private String descricao; // Mapeia 'descricao TEXT NULL'
+    private String descricao;
 
     @Column(name = "logo_url", length = 500)
-    private String logoUrl; // Mapeia 'logo_url VARCHAR(500) NULL'
+    private String logoUrl;
 
     @Column(name = "banner_url", length = 500)
-    private String bannerUrl; // Mapeia 'banner_url VARCHAR(500) NULL'
+    private String bannerUrl;
 
     @NotNull
     @DecimalMin("0.0")
     @Column(name = "nota_media", nullable = false, precision = 3, scale = 2)
-    private BigDecimal notaMedia = BigDecimal.ZERO; // Mapeia 'nota_media DECIMAL(3, 2) NOT NULL DEFAULT 0.00'
+    private BigDecimal notaMedia = BigDecimal.ZERO;
 
     @NotNull
     @Column(name = "total_avaliacoes", nullable = false)
@@ -55,7 +55,7 @@ public class PerfilVendedorModel implements Serializable {
 
     @OneToMany(
             mappedBy = "perfilVendedor",
-            cascade = CascadeType.ALL, // Se apagar o perfil, apaga as avaliações
+            cascade = CascadeType.ALL,
             orphanRemoval = true,
             fetch = FetchType.LAZY
     )
@@ -63,13 +63,13 @@ public class PerfilVendedorModel implements Serializable {
 
     @CreationTimestamp
     @Column(name = "criado_em", nullable = false, updatable = false)
-    private Instant criadoEm; // Mapeia 'criado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP'
+    private Instant criadoEm;
 
     @UpdateTimestamp
     @Column(name = "atualizado_em", nullable = false)
-    private Instant atualizadoEm; // Mapeia 'atualizado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP'
+    private Instant atualizadoEm;
 
-    // (Opcional) Métodos 'helper' para sincronizar o relacionamento
+    // Métodos 'helper' para sincronizar o relacionamento
     public void addAvaliacao(AvaliacaoVendedorModel avaliacao) {
         this.avaliacoes.add(avaliacao);
         avaliacao.setPerfilVendedor(this);

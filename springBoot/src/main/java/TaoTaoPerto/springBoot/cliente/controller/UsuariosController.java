@@ -15,7 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@Tag(name = "EndPoint dos usuários", description = "Endpoints para o cadastro e gerenciamento da conta do usuário (self-service)")
+@Tag(name = "EndPoint dos clientes", description = "Endpoints para o cadastro e gerenciamento da conta do usuário (self-service)")
 @RestController
 @RequestMapping("/ususarios")
 public class UsuariosController {
