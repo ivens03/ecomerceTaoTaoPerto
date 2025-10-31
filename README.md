@@ -55,16 +55,16 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 ### **2.4.1 – Rastreamento com Mapa Simplificado**
 - O cliente vê um ponto no mapa se movendo conforme o status do pedido.
 
-**Como funciona?**  
-- O ponto não representa o veículo em tempo real.  
-- Ele muda de posição de acordo com o último status logístico recebido (ex: “A caminho do CD”, “Saiu para Entrega”).  
+**Como funciona?**  
+- O ponto não representa o veículo em tempo real.  
+- Ele muda de posição de acordo com o último status logístico recebido (ex: “A caminho do CD”, “Saiu para Entrega”).  
 - A animação cria a sensação de movimento mesmo quando há apenas atualizações pontuais.
 
-**Como seria o ponto?**  
-- Um ícone visual simples: mini-caminhão ou caixa animada.  
+**Como seria o ponto?**  
+- Um ícone visual simples: mini-caminhão ou caixa animada.  
 - Opção de personalização por tema da plataforma.
 
-**Onde ele veria?**  
+**Onde ele veria?**  
 - Na página de **Detalhes do Pedido**, sendo o primeiro elemento visual logo após o cabeçalho do pedido.
 
 ---
@@ -72,9 +72,9 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 ### **2.4.2 – Estimativa de Entrega pelo Histórico**
 - Calcula o tempo médio de chegada baseado em pedidos anteriores.
 
-**E se for cliente novo ou rota nova?**  
-- A estimativa passa a usar o histórico geral de entregas na região do CEP.  
-- Caso a loja seja nova, usa média de outras lojas próximas e histórico da transportadora da plataforma.  
+**E se for cliente novo ou rota nova?**  
+- A estimativa passa a usar o histórico geral de entregas na região do CEP.  
+- Caso a loja seja nova, usa média de outras lojas próximas e histórico da transportadora da plataforma.  
 - Quando o sistema acumular dados reais, a estimativa passa a ficar mais precisa automaticamente.
 
 ---
@@ -82,7 +82,7 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 ### **2.4.3 – Assinatura VIP**
 - Cliente paga uma mensalidade para benefícios exclusivos.
 
-**Como funciona?**   
+**Como funciona?**   
 - O usuário paga um valor mensal fixo.
 - Em troca recebe:  
   ✅ Frete reduzido ou grátis em produtos selecionados  
@@ -91,8 +91,8 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
   ✅ Benefícios especiais em datas comemorativas
 
 **Formas de pagamento**
-- Cartão de crédito recorrente  
-- Boleto com renovação mensal  
+- Cartão de crédito recorrente  
+- Boleto com renovação mensal  
 - Saldo interno da plataforma
 
 ---
@@ -111,18 +111,18 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 - Permite que amigos adicionem produtos juntos em um mesmo carrinho.
 
 **Como funciona?**
-- Um cliente cria um **carrinho compartilhado** e diferente de seu carrinho pessoal que gera um link único.  
-- Esse link é enviado para amigos ou familiares.  
+- Um cliente cria um **carrinho compartilhado** e diferente de seu carrinho pessoal que gera um link único.  
+- Esse link é enviado para amigos ou familiares.  
 - Cada participante:
-  - Pode adicionar seus próprios produtos.  
-  - Define o método de pagamento individual.
-  - Visualiza em tempo real o que os outros adicionaram.  
-- O pedido só é confirmado quando **todos os participantes finalizam o pagamento**.  
+  - Pode adicionar seus próprios produtos.  
+  - Define o método de pagamento individual.
+  - Visualiza em tempo real o que os outros adicionaram.  
+- O pedido só é confirmado quando **todos os participantes finalizam o pagamento**.  
 - As notificações podem ser enviadas por e-mail, SMS ou dentro do aplicativo.
 
-**Formas de pagamento aceitas:**  
-- Cartão de crédito ou débito (individual por participante).  
-- PIX (cada um com seu QR Code exclusivo).  
+**Formas de pagamento aceitas:**  
+- Cartão de crédito ou débito (individual por participante).  
+- PIX (cada um com seu QR Code exclusivo).  
 
 **Benefícios:**
 - Facilita compras coletivas (ex: presentes, eventos).
@@ -140,21 +140,71 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 **Benefícios:**
 - Agiliza compras recorrentes.
 ---
+
+### **2.4.7 – Histórico Inteligente de Avaliações**
+O sistema sugere produtos para avaliar.
+
+Após avaliar, o cliente ganha benefícios como cupons.
+
+---
+
+### **2.4.8 – Perfil de Preferências**
+O usuário escolhe manually preferências básicas:
+
+* Tipos de produto que mais gosta
+* Marcas favoritas
+* Faixa de preço
+
+**Benefício:**
+A plataforma ajusta recomendações e promoções sem depender apenas de histórico.
+
+---
+
+### **2.4.9 – Comparador de Produtos**
+O usuário marca 2 produtos e abre uma tela mostrando:
+
+* Preço
+* Avaliação
+* Entrega
+* Garantia
+* Descrição resumida
+
+**Benefício:**
+Ajuda a decidir mais rápido entre produtos similares.
+
+### **2.4.10 – Histórico de Pedidos Detalhado**
+- O cliente pode ver uma lista de todos os pedidos já feitos (atuais e concluídos).
+
+**Como funciona?**
+- Uma nova seção no perfil do usuário chamada "Meus Pedidos".
+- Lista os pedidos do mais recente para o mais antigo. 
+- Cada item da lista mostra:
+  - Número do pedido
+  - Valor total
+  - Data da compra
+  -Status atual (Ex: "Pagamento Aprovado", "Em trânsito", "Entregue")
+- Ao clicar, ele é levado para a página de "Detalhes do Pedido" 
+ 
+**Benefícios:**
+- Essencial: É a funcionalidade mais básica de qualquer e-commerce. O cliente precisa acompanhar o que comprou.
+
+---
+
 ## 2.5 – Recursos para ENTREGADORES
 
 ### 2.5.1 – Histórico de Ganhos
 - Entregadores visualizam **quanto ganharam por dia**.
 
-**Quais gráficos serão usados e para que servem?**  
-- Gráfico de barras: **dia vs valor ganho**  
-- Linha acumulando ganhos semanais/mensais  
+**Quais gráficos serão usados e para que servem?**  
+- Gráfico de barras: **dia vs valor ganho**  
+- Linha acumulando ganhos semanais/mensais  
 - Objetivo: dar clareza sobre desempenho diário e incentivar produtividade.
 
 ### **2.5.2 – Registro de Gastos (Gasolina, manutenção, óleo, etc)**
 - Entregador pode registrar os próprios gastos.
 
 **Por qual motivo ele faria isso?**
-- Ajuda a calcular o lucro real no mês.  
+- Ajuda a calcular o lucro real no mês.  
 - Plataforma pode gerar relatórios que mostram se vale a pena pegar certas rotas ou horários.
 
 **O relatório é exportável?**
@@ -169,20 +219,20 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 - Estatísticas completas de entregas realizadas, atrasos e avaliações.
 
 **Como funciona?**
-- O sistema coleta dados das entregas finalizadas e gera métricas automáticas.  
+- O sistema coleta dados das entregas finalizadas e gera métricas automáticas.  
 - Os indicadores vêm de três fontes:
-  - **Clientes:** avaliam pontualidade e cuidado com o pacote.  
-  - **Distribuidora:** avalia cumprimento de prazos e rotas.  
-  - **Sistema:** calcula tempo médio, desvios e taxa de sucesso.
- 
-**O que aparece no painel?**  
-- Total de entregas realizadas (diário, semanal, mensal).  
-- Entregas atrasadas (% e número absoluto).  
+  - **Clientes:** avaliam pontualidade e cuidado com o pacote.  
+  - **Distribuidora:** avalia cumprimento de prazos e rotas.  
+  - **Sistema:** calcula tempo médio, desvios e taxa de sucesso.
+ 
+**O que aparece no painel?**  
+- Total de entregas realizadas (diário, semanal, mensal).  
+- Entregas atrasadas (% e número absoluto).  
 - Avaliação média (nota de 1 a 5 estrelas).
 
-**Filtros disponíveis:**  
-- Por período (dia, semana, mês, personalizado).  
-- Por tipo de entrega (expressa, agendada, padrão).  
+**Filtros disponíveis:**  
+- Por período (dia, semana, mês, personalizado).  
+- Por tipo de entrega (expressa, agendada, padrão).  
 
 **Benefícios:**
 - Incentiva produtividade.
@@ -192,12 +242,12 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 - Botão “Relatar problema” envia automaticamente foto e localização alem de um formulário.
 
 **Como funciona?**
-- O entregador acessa o botão “Relatar problema” dentro do pedido.  
+- O entregador acessa o botão “Relatar problema” dentro do pedido.  
 - Abre-se um formulário simplificado, contendo:
-  - Seleção do tipo de problema (cliente ausente, endereço incorreto, trânsito, avaria, etc.).  
-  - Campo opcional para observação.  
-  - Upload de foto (ex: fachada da casa, produto danificado).  
-  - Localização automática via GPS.  
+  - Seleção do tipo de problema (cliente ausente, endereço incorreto, trânsito, avaria, etc.).  
+  - Campo opcional para observação.  
+  - Upload de foto (ex: fachada da casa, produto danificado).  
+  - Localização automática via GPS.  
 - O sistema envia automaticamente o relatório para o suporte e registra o status da entrega como **“em análise”**. 
 - O cliente pode contestar após 3 dias
 
@@ -214,6 +264,45 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 
 **Benefícios:**
 - Reduz custos operacionais e tempo de entrega.
+---
+
+### **2.5.7 – Check-in Simples de Entrega**
+Ao chegar no endereço, o entregador clica “Cheguei”.
+
+* Sistema registra localização aproximada (não precisa GPS em tempo real)
+* Cliente recebe notificação: “Seu pedido está chegando”
+
+**Benefício:**
+Evita ligações e aumenta transparência.
+
+---
+
+### **2.5.8 – Prova de Entrega por Foto**
+Se o cliente não estiver, o entregador tira uma foto do pacote deixado na portaria ou caixa de correio.
+
+**Benefício:**
+Evita reclamações e chargebacks.
+
+---
+
+### **2.5.9 – Aviso Automático de Trânsito/Clima**
+Se a cidade estiver com enchente, protesto ou trânsito crítico, o entregador marca “dificuldade na rota”.
+
+* Prazo ajusta automaticamente
+* Cliente recebe aviso preventivo
+
+### **2.5.10 – Status "Online" / "Offline**
+Um botão claro na tela principal do app que permite ao entregador definir se está disponível para receber novas entregas.
+
+**Como funciona?**
+- Online: O entregador está logado, ativo e o sistema pode alocar novas rotas/entregas para ele.
+
+- Offline: O entregador não é considerado pelo sistema para novas alocações. Ele pode estar em pausa, encerrando o dia ou resolvendo um problema.
+
+- O sistema apenas envia corridas para quem está "Online".
+
+**Benefícios:**
+- Essencial: Dá ao entregador controle sobre sua jornada de trabalho e evita que o sistema envie corridas que ele não pode aceitar (o que geraria cancelamentos e frustração).
 ---
 
 ## 2.6 – Recursos para GERENTES
@@ -250,15 +339,50 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 - Notifica automaticamente quando um vendedor ultrapassa o limite de dias sem atividade.
 
 **Como funciona?**
-- O sistema monitora eventos de atividade do vendedor (login, atualização de produtos, mensagens, vendas, etc.).  
-- Se nenhuma ação for registrada por 15 dias consecutivos, o sistema envia um alerta:  
-  - Primeiro alerta via painel administrativo.  
-  - Segundo alerta por e-mail, após 30 dias.  
+- O sistema monitora eventos de atividade do vendedor (login, atualização de produtos, mensagens, vendas, etc.).  
+- Se nenhuma ação for registrada por 15 dias consecutivos, o sistema envia um alerta:  
+  - Primeiro alerta via painel administrativo.  
+  - Segundo alerta por e-mail, após 30 dias.  
 - Caso o vendedor complete 45 dias sem atividade, o sistema pode:
-  - Pausar automaticamente os anúncios e divulgações. 
+  - Pausar automaticamente os anúncios e divulgações. 
 
 **Benefícios:**
 - Mantém a plataforma ativa e saudável.
+
+---
+
+### **2.6.7 – Relatório de Fraude**
+Algoritmo identifica padrões suspeitos: cashback abusivo, contas duplicadas, devoluções frequentes, etc.
+
+Gerente recebe alerta para investigar.
+
+---
+
+### **2.6.8 – Painel de Tendências**
+Mostra quais categorias ou marcas estão crescendo.
+
+Ajuda o marketplace a incentivar vendedores a atender demanda específica.
+
+---
+
+### **2.6.9 – Painel de Picos de Reclamação**
+O sistema detecta quando um produto ou loja está gerando reclamações fora do normal.
+
+* “Produto quebrado”
+* “Descrição falsa”
+* “Demora na entrega”
+
+**Benefício:**
+Ação preventiva sem precisar suspender a loja.
+
+---
+
+### **2.6.10 – Auditoria de Conversas**
+Gerente pode revisar conversas entre cliente ↔ vendedor ↔ entregador caso haja disputa.
+
+* Apenas quando há chamado formal
+* Mantém transparência
+* Ajuda a decidir reembolso
 
 ---
 
@@ -268,7 +392,7 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 - Antes de chegar ao humano, um robô faz perguntas simples.
 
 **Esse chat é com quem e quem responde?**
-- Primeiro nível: chatbot automatizado.  
+- Primeiro nível: chatbot automatizado.  
 - Caso não resolva, encaminha para um atendente humano do setor de suporte.
 - Futuramente podendo encaminhar para algum outro setor se necessário
 
@@ -323,6 +447,33 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 
 ---
 
+### **2.7.7 – Carimbo de Evidências**
+Suporte pode anexar prints, fotos enviadas pelo cliente ou vendedor dentro do caso.
+
+Facilita análise e auditoria.
+
+---
+
+### **2.7.8 – Etiqueta “Cliente Risco” / “Loja Risco”**
+Se o sistema identificar golpes recorrentes (cliente pedindo reembolso sem motivo ou loja enganando compradores), coloca um alerta interno.
+
+Previne prejuízo financeiro.
+
+---
+
+### **2.7.9 – Escalonamento Automático**
+Se o suporte não resolver em X tempo, o sistema envia o caso ao gerente automaticamente.
+
+---
+
+### **2.7.10 – Encerramento com Pesquisa de Satisfação**
+Quando o chamado fecha:
+
+* Cliente avalia o atendimento
+* Dados ajudam na qualidade e métrica de SLAs
+
+---
+
 ## 2.8 – Recursos para VENDEDORES
 
 ### 2.8.1 – Etiqueta de 'Vendido Pela Loja'
@@ -338,12 +489,12 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 - No painel da loja, criando cupons para produtos específicos ou toda a loja.
 
 ### **2.8.3 – “Por que este preço?” ❔**
-- Ícone ao lado do preço do carrinho **explica para o cliente**:  
-  - Preço do produto  
-  - Frete  
-  - Impostos  
+- Ícone ao lado do preço do carrinho **explica para o cliente**:  
+  - Preço do produto  
+  - Frete  
+  - Impostos  
 
-**Objetivo:**  
+**Objetivo:**  
 - Criar transparência e empatia com o valor final, ajudando o cliente a entender de onde vem o preço.
 ---
 ### **2.8.4 – Comparador de Preços Concorrentes**
@@ -378,6 +529,42 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 - Ajuda o vendedor a otimizar preços e descrições.
 - Reduz abandono de carrinho e melhora conversão.
 ---
+
+### **2.8.7 – Ferramenta de A/B Testing de Vitrine**
+Vendedor cria 2 versões de banner, foto ou título.
+
+Sistema mostra automaticamente qual gerou mais cliques e vendas.
+
+---
+
+### **2.8.8 – Promoções por Horário Estratégico**
+Vendedor agenda promoções automáticas em horários de pico ou baixa.
+
+Ex: descontos só à noite ou só nos finais de semana.
+
+---
+
+### **2.8.9 – Perguntas e Respostas**
+Clientes fazem perguntas no produto e o vendedor responde publicamente.
+
+* Reduz dúvidas repetidas
+* Aumenta conversão
+
+---
+
+### **2.8.10 – Organização de Catálogo por Coleções**
+Vendedor pode organizar:
+
+* “Black Friday”
+* “Presentes”
+* “Technologia”
+* “Adulto”
+
+**Benefício:**
+Deixa vitrine profissional com pouco esforço.
+
+---
+
 
 ## 3. Stack Tecnológica (Tecnologias Utilizadas) 🛠️
 
