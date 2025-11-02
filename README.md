@@ -1,4 +1,4 @@
-# Projeto E-commerce TaoTaoPerto MBA Unifametro 
+<img width="512" height="512" alt="image" src="https://github.com/user-attachments/assets/d1c2480a-7095-499f-97e2-d0acc8e8581e" /># Projeto E-commerce TaoTaoPerto MBA Unifametro 
 
 ## 1. Contexto Acadêmico 🎓
 
@@ -36,8 +36,8 @@ A plataforma utiliza algoritmos para "prender" o usuário e otimizar o processo 
 | **Ranking de Vendedores** ⭐| Mostra uma pontuação de reputação calculada com base em avaliações de clientes, tempo de resposta e pontualidade nas entregas.|
 | **Desafio Semanal** 🎯| Oferece missões como “Compre 2 itens na mesma loja” ou “Avalie um produto hoje”, que rendem pequenas recompensas ao serem concluídas.|
 | **Wishlist** 📝 | A lista de desejos ( wishlist ) será um ambiente para o usuário "salvar" seus interesses em produtos, tendo a possibilidade de criar inúmeras listas com temas editáveis. |
-| **Sistema de Promoções** | O sistema permitirá que o descontos sejam aplicados automaticamente em produtos ou categorias durante um período específico de tempo, sem que o cliente precise usar cupom. |
-| **Cálculo de Frete Automático** | Um campo simples onde o usuário insere o CEP e então é mostrado qual o valor será cobrado antes de uma possível compra. |
+| **Sistema de Promoções 🎁** | O sistema permitirá que o descontos sejam aplicados automaticamente em produtos ou categorias durante um período específico de tempo, sem que o cliente precise usar cupom. |
+| **Cálculo de Frete Automático 🔍** | Um campo simples onde o usuário insere o CEP e então é mostrado qual o valor será cobrado antes de uma possível compra. |
 | **Lootbox +18 🔞🎁** | Caixa surpresa exclusiva da seção adulta, comprada por um valor fixo (ex: R$19,90), contendo itens aleatórios como: lubrificantes, mini acessórios, camisinhas especiais, vales-desconto para produtos +18, frete grátis ou até brinquedos completos. Embalagem totalmente discreta e sem identificação do conteúdo, fortalecendo a privacidade e estimulando recompra pela curiosidade. |
 | **Seus Sonhos Empacotados 💀** | Um espaço paralelo ao marketplace principal, com ofertas imprevisíveis e regras mutáveis. Produtos podem ter preços aleatórios, cupons de risco (podem aumentar ou reduzir o valor final) e promoções-relâmpago que somem em minutos. Mantém o usuário curioso e engajado. |
 | **Avatar Progressivo 🧬** | Usuários e vendedores possuem um avatar personalizável que evolui conforme interagem no site. A cada compra, avaliação ou meta cumprida, o avatar ganha novos visuais, emblemas ou animações — criando uma identidade visual e um senso de progresso contínuo. |
@@ -139,6 +139,55 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 
 **Benefícios:**
 - Agiliza compras recorrentes.
+
+### **2.4.7 - Lembrete de "Volta de Estoque"**
+- O cliente pode solicitar um alerta quando um produto esgotado voltar ao estoque.
+
+**Como funciona?**
+- O cliente clica no botão “Avise-me quando voltar”.
+- Quando o produto for reabastecido, o sistema envia uma notificação por e-mail ou dentro do app.
+- O lembrete é removido automaticamente após o produto ser novamente comprado pelo cliente.
+
+**Como seria?**
+- Ícone de sino ou texto “Notificar disponibilidade”.
+- Mensagem personalizada com nome do produto e link direto para compra.
+
+**Onde ele veria?**
+- Na página do produto esgotado e na área **“Minhas notificações”** do perfil do cliente.
+
+### **2.4.8 - Mudança de Idioma**
+- Permite ao cliente escolher o idioma da interface do site/aplicativo.
+
+**Como funciona?**
+- O usuário pode alterar o idioma no menu de configurações.
+- O sistema armazena a preferência de idioma no perfil ou navegador.
+- Todos os textos e mensagens da interface são traduzidos automaticamente.
+
+**Como seria?**
+- Botão com a bandeira do Idioma atual utilizado no sistema com uma seta indicando mais opções.
+
+**Onde ele veria?**
+- Na aba de configurações da conta.
+
+
+### **2.4.9 - Medidas Online**
+- Ajuda o cliente a escolher o tamanho ideal de roupas ou calçados.
+
+**Como funciona?**
+
+- O cliente informa suas medidas básicas (altura, peso, tipo físico).
+- O sistema compara com a tabela do produto e sugere o tamanho mais adequado.
+- Pode ser integrado com dados de compras anteriores.
+
+**Como seria?**
+
+- Pop-up ou guia lateral “Descubra seu tamanho”.
+- Exibe uma tabela comparativa com recomendações.
+
+**Como ele veria?**
+
+- Na página do produto, ao lado da seleção de tamanhos.
+
 ---
 ## 2.5 – Recursos para ENTREGADORES
 
@@ -214,6 +263,21 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 
 **Benefícios:**
 - Reduz custos operacionais e tempo de entrega.
+
+### **2.5.7 - Sistema de mensagens com as lojas**
+- Permite que o entregador se comunique diretamente com o vendedor em caso de dúvidas ou imprevistos.
+
+**Como funciona?**
+- Cada pedido possui um chat interno entre entregador e loja.
+- Mensagens são armazenadas e protegidas por ID do pedido.
+- Notificações alertam sobre novas mensagens em tempo real.
+
+**Como seria?**
+- Interface simples de chat com histórico da conversa.
+- Ícones para envio rápido de mensagens predefinidas (“Cheguei ao local”, “Pedido entregue”, etc.).
+
+**Como ele veria?**
+- No painel de entregas do app do entregador, dentro do pedido selecionado.
 ---
 
 ## 2.6 – Recursos para GERENTES
@@ -377,6 +441,36 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 **Benefícios:**
 - Ajuda o vendedor a otimizar preços e descrições.
 - Reduz abandono de carrinho e melhora conversão.
+
+### **2.8.7 - Variação de Cores e Tamanhos do Produto Vendido**
+- O vendedor pode cadastrar múltiplas versões de um mesmo produto.
+
+**Como funciona?**
+- Ao cadastrar o item, o vendedor adiciona cores e tamanhos disponíveis.
+- O sistema agrupa as variações sob um único produto principal.
+- O estoque é gerenciado separadamente por variação.
+
+**Como seria?**
+- Interface com seleção de cores (miniaturas) e tamanhos (botões).
+- Opção de upload de imagens específicas por variação.
+
+**Como ele veria?**
+- No painel de gerenciamento de produtos, na seção “Adicionar Variações”.
+
+### **2.8.8 - Medidas Online**
+- Permite ao vendedor cadastrar tabelas de medidas personalizadas para cada produto.
+
+**Como funciona?**
+- O vendedor insere manualmente as medidas (busto, cintura, comprimento, etc.).
+- O sistema exibe a tabela no produto e vincula ao recurso de “Medidas Online” do cliente.
+- Pode ser reaproveitada para outros produtos similares.
+
+**Como seria?**
+- Formulário visual de medidas com campos pré-definidos.
+- Visualização prévia da tabela antes da publicação.
+
+**Como ele veria?**
+- No painel de cadastro de produtos e na página pública do produto.
 ---
 
 ## 3. Stack Tecnológica (Tecnologias Utilizadas) 🛠️
