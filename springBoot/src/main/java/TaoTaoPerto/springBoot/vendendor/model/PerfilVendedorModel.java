@@ -28,7 +28,7 @@ public class PerfilVendedorModel implements Serializable {
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false, unique = true)
+    @JoinColumn(name = "usuario_id"/*, nullable = false, unique = true*/)
     private UsuarioModel usuario;
 
     @NotNull

@@ -29,7 +29,7 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/ususarios/cadastrar").permitAll()
+                        .requestMatchers("/ususarios/cadastrar", "/vendedor/cadastrar").permitAll()
                         .anyRequest().authenticated()
                 );
 /*                .formLogin(form -> form

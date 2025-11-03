@@ -1,6 +1,5 @@
 package TaoTaoPerto.springBoot.usuarios.services;
 
-import TaoTaoPerto.springBoot.config.security.SecurityConfig;
 import TaoTaoPerto.springBoot.exception.tratamentoDeErro.UsuarioDesativoOuNaoEncontrado;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDtoMapper;
@@ -28,7 +27,8 @@ public class UsuarioServices {
 
     //salvar
     public UsuarioDto salvarUsuario(UsuarioDto usuarioDto){
-        UsuarioModel usuarioModel = usuarioRepository.save(usuarioDtoMapper.map(usuarioDto));
+        UsuarioModel usuarioModel = usuarioDtoMapper.map(usuarioDto);
+        usuarioModel.setAtivo(true);
         String senhaCriptografada = passwordEncoder.encode(usuarioModel.getSenha());
         usuarioModel.setSenha(senhaCriptografada);
         UsuarioModel usuarioSalvo = usuarioRepository.save(usuarioModel);
