@@ -1,4 +1,4 @@
-package TaoTaoPerto.springBoot.config;
+package TaoTaoPerto.springBoot.config.swagger;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -15,7 +15,7 @@ public class OpenApiConfig {
                 .info(new Info()
                         .title("E-commerce TaoTaoPerto Docuemntação")
                         .description("Documentação de APIs para o e-commerce TaoTaoPerto")
-                        .version("0.0.4")
+                        .version("0.0.5")
                         .contact(new Contact()
                                 .name("Ivens Magno Da Costa Lisboa")
                                 .email("ivensmagno@gmail.com")));
