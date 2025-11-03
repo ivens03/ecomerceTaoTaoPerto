@@ -1,10 +1,12 @@
 package TaoTaoPerto.springBoot.usuarios.services;
 
+import TaoTaoPerto.springBoot.config.security.SecurityConfig;
 import TaoTaoPerto.springBoot.exception.tratamentoDeErro.UsuarioDesativoOuNaoEncontrado;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDtoMapper;
 import TaoTaoPerto.springBoot.usuarios.model.UsuarioModel;
 import TaoTaoPerto.springBoot.usuarios.repository.UsuarioRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -16,16 +18,21 @@ public class UsuarioServices {
 
     private final UsuarioRepository usuarioRepository;
     private final UsuarioDtoMapper usuarioDtoMapper;
+    private final PasswordEncoder passwordEncoder;
 
-    public UsuarioServices(UsuarioRepository usuarioRepository, UsuarioDtoMapper usuarioDtoMapper) {
+    public UsuarioServices(UsuarioRepository usuarioRepository, UsuarioDtoMapper usuarioDtoMapper, PasswordEncoder passwordEncoder) {
         this.usuarioRepository = usuarioRepository;
         this.usuarioDtoMapper = usuarioDtoMapper;
+        this.passwordEncoder = passwordEncoder;
     }
 
     //salvar
     public UsuarioDto salvarUsuario(UsuarioDto usuarioDto){
         UsuarioModel usuarioModel = usuarioRepository.save(usuarioDtoMapper.map(usuarioDto));
-        return usuarioDtoMapper.map(usuarioModel);
+        String senhaCriptografada = passwordEncoder.encode(usuarioModel.getSenha());
+        usuarioModel.setSenha(senhaCriptografada);
+        UsuarioModel usuarioSalvo = usuarioRepository.save(usuarioModel);
+        return usuarioDtoMapper.map(usuarioSalvo);
     }
 
     //Buscar todos
