@@ -63,13 +63,13 @@ public class PerfilVendedorServices {
     }
 
     //Buscar por id estando ativo
-/*    public Optional<PerfilVendedorDto> listarPerfilDeVendedorPorIdAtivo(Long id) {
-        var buscadorDePerfilPorID = perfilVendedorRepository.findByIdAndAtivo(id, true)
+    public Optional<PerfilVendedorDto> listarPerfilDeVendedorPorIdAtivo(Long id) {
+        var buscadorDePerfilPorID = perfilVendedorRepository.findByIdAndUsuarioAtivo(id, true)
                 .map(perfilVendedorDtoMapper::map);
         if (buscadorDePerfilPorID.isEmpty()) {
             throw new UsuarioDesativoOuNaoEncontrado("Não foi possivel encontrar o usuario do ID: (" + id + "), pode não existir no sistema ou não foi encontrado. Fale com o suporte para mais inforamçẽos sobre o usuarios especifico.");
         }
         return buscadorDePerfilPorID;
-    }*/
+    }
 
 }

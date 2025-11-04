@@ -9,4 +9,5 @@ import java.util.Optional;
 @Repository
 public interface PerfilVendedorRepository extends JpaRepository<PerfilVendedorModel, Long> {
     //Optional<PerfilVendedorModel> findByIdAndAtivo(Long id, boolean ativo);
+    Optional<PerfilVendedorModel> findByIdAndUsuarioAtivo(Long id, boolean ativo);
 }
