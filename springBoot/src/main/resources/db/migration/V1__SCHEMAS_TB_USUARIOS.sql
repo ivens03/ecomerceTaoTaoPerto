@@ -1,19 +1,19 @@
--- Criação da tabelas de usuarios e Criação dos schemas.
+-- V1: Criação dos schemas e tabelas iniciais
 
 CREATE SCHEMA IF NOT EXISTS usuarios;
 CREATE SCHEMA IF NOT EXISTS auditoria;
 
-CREATE TABLE usuarios (
+-- CORREÇÃO: Especifica o schema 'usuarios' na criação da tabela
+CREATE TABLE usuarios.usuarios (
     id BIGSERIAL PRIMARY KEY,
-
     email VARCHAR(60) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
-
     nome_completo VARCHAR (255) NOT NULL,
     cpf VARCHAR(11),
     celular VARCHAR(15),
-    data_dascimento DATE,
+    data_nascimento DATE,
 
+    -- Esta coluna será alterada por uma migração futura (V10)
     tipo_usuario VARCHAR(20) CHECK (tipo_usuario IN ('CLIENTE', 'ENTREGADORES' ,'GERENTES', 'SUPORTE', 'VENDEDORES')),
     ativo BOOLEAN NOT NULL DEFAULT true,
 
@@ -28,18 +28,16 @@ CREATE TABLE usuarios (
     tentativas_falhas_login INT NOT NULL DEFAULT 0
 );
 
-CREATE TABLE log_auditoria_usuarios (
+-- CORREÇÃO: Especifica o schema 'auditoria' na criação da tabela
+CREATE TABLE auditoria.log_auditoria_usuarios (
     id BIGSERIAL PRIMARY KEY,
-
     usuario_id BIGINT,
-
     acao VARCHAR(50) NOT NULL, -- Ex: 'LOGIN_SUCESSO', 'LOGIN_FALHA', 'UPDATE_SENHA', 'CRIOU_CONTA'
     ip_acao VARCHAR(45) NOT NULL,
-
     detalhes_antes TEXT,
     detalhes_depois TEXT,
-
     timestamp_acao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE SET NULL
+    -- CORREÇÃO: Referencia a tabela com o schema completo 'usuarios.usuarios'
+    FOREIGN KEY (usuario_id) REFERENCES usuarios.usuarios(id) ON DELETE SET NULL
 );
