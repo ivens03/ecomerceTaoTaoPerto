@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class PerfilVendedorDtoMapper {
 
-    // 1. Injetar o mapper de Usuário
     private final UsuarioDtoMapper usuarioDtoMapper;
 
     public PerfilVendedorDtoMapper(UsuarioDtoMapper usuarioDtoMapper) {
@@ -25,9 +24,7 @@ public class PerfilVendedorDtoMapper {
 
         perfilVendedorModel.setId(perfilVendedorDto.getId());
 
-        // 2. Mapear o objeto UsuarioDto para UsuarioModel
         if (perfilVendedorDto.getUsuario() != null) {
-            // Delega a conversão para o mapper de usuário
             perfilVendedorModel.setUsuario(usuarioDtoMapper.map(perfilVendedorDto.getUsuario()));
         }
 
@@ -39,6 +36,12 @@ public class PerfilVendedorDtoMapper {
         perfilVendedorModel.setTotalAvaliacoes(perfilVendedorDto.getTotalAvaliacoes());
         perfilVendedorModel.setCriadoEm(perfilVendedorDto.getCriadoEm());
         perfilVendedorModel.setAtualizadoEm(perfilVendedorDto.getAtualizadoEm());
+        perfilVendedorModel.setTipoPessoa(perfilVendedorDto.getTipoPessoa());
+        perfilVendedorModel.setRazaoSocial(perfilVendedorDto.getRazaoSocial());
+        perfilVendedorModel.setCnpj(perfilVendedorDto.getCnpj());
+        perfilVendedorModel.setInscricaoEstadual(perfilVendedorDto.getInscricaoEstadual());
+        perfilVendedorModel.setNotaMedia(perfilVendedorDto.getNotaMedia());
+
 
         return perfilVendedorModel;
     }
@@ -57,12 +60,9 @@ public class PerfilVendedorDtoMapper {
 
         perfilVendedorDto.setId(perfilVendedorModel.getId());
 
-        // 3. Mapear a entidade UsuarioModel para UsuarioDto
         if (perfilVendedorModel.getUsuario() != null) {
-            // Delega a conversão para o mapper de usuário
             perfilVendedorDto.setUsuario(usuarioDtoMapper.map(perfilVendedorModel.getUsuario()));
-        }
-        else {
+        } else {
             perfilVendedorDto.setUsuario(null);
         }
 
@@ -74,6 +74,11 @@ public class PerfilVendedorDtoMapper {
         perfilVendedorDto.setTotalAvaliacoes(perfilVendedorModel.getTotalAvaliacoes());
         perfilVendedorDto.setCriadoEm(perfilVendedorModel.getCriadoEm());
         perfilVendedorDto.setAtualizadoEm(perfilVendedorModel.getAtualizadoEm());
+        perfilVendedorDto.setTipoPessoa(perfilVendedorModel.getTipoPessoa());
+        perfilVendedorDto.setRazaoSocial(perfilVendedorModel.getRazaoSocial());
+        perfilVendedorDto.setCnpj(perfilVendedorModel.getCnpj());
+        perfilVendedorDto.setInscricaoEstadual(perfilVendedorModel.getInscricaoEstadual());
+        perfilVendedorDto.setNotaMedia(perfilVendedorModel.getNotaMedia());
 
         return perfilVendedorDto;
     }

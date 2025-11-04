@@ -1,6 +1,7 @@
 package TaoTaoPerto.springBoot.vendendor.dtos;
 
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
+import TaoTaoPerto.springBoot.vendendor.enums.TipoPessoaEnum;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
@@ -42,4 +43,15 @@ public class PerfilVendedorDto {
     private Instant criadoEm;
     private Instant atualizadoEm;
 
+    @NotNull(message = "O tipo de pessoa (PF/PJ) é obrigatório.")
+    private TipoPessoaEnum tipoPessoa;
+
+    @Size(max = 255, message = "A Razão Social não pode exceder 255 caracteres.")
+    private String razaoSocial;
+
+    @Size(min = 14, max = 14, message = "O CNPJ deve ter exatamente 14 caracteres.")
+    private String cnpj;
+
+    @Size(max = 20, message = "A Inscrição Estadual não pode exceder 20 caracteres.")
+    private String inscricaoEstadual;
 }

@@ -1,9 +1,11 @@
 package TaoTaoPerto.springBoot.vendendor.model;
 
 import TaoTaoPerto.springBoot.usuarios.model.UsuarioModel;
+import TaoTaoPerto.springBoot.vendendor.enums.TipoPessoaEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -68,6 +70,23 @@ public class PerfilVendedorModel implements Serializable {
     @UpdateTimestamp
     @Column(name = "atualizado_em", nullable = false)
     private Instant atualizadoEm;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_pessoa", nullable = false)
+    private TipoPessoaEnum tipoPessoa;
+
+    @Size(max = 255)
+    @Column(name = "razao_social")
+    private String razaoSocial;
+
+    @Size(min = 14, max = 14, message = "O CNPJ deve ter exatamente 14 caracteres.")
+    @Column(name = "cnpj", length = 14, unique = true)
+    private String cnpj;
+
+    @Size(max = 20)
+    @Column(name = "inscricao_estadual", length = 20)
+    private String inscricaoEstadual;
 
     // Métodos 'helper' para sincronizar o relacionamento
     public void addAvaliacao(AvaliacaoVendedorModel avaliacao) {

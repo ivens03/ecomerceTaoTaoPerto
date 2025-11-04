@@ -39,33 +39,31 @@ public class PerfilVendedorServices {
         if (perfilDto.getUsuario() == null) {
             throw new IllegalArgumentException("Os dados do usuário são obrigatórios no DTO.");
         }
-
-        // Delega a criação do usuário (criptografia, etc.) para o UsuarioServices
         UsuarioDto usuarioSalvoDto = usuarioServices.salvarUsuario(perfilDto.getUsuario());
 
         // 2. Buscar a ENTIDADE do usuário recém-salvo
-        // (Necessário para a associação @OneToOne)
         UsuarioModel usuarioEntidade = usuarioRepository.findById(usuarioSalvoDto.getId())
                 .orElseThrow(() -> new RuntimeException("Erro fatal: não foi possível encontrar usuário recém-criado. ID: " + usuarioSalvoDto.getId()));
 
         // 3. Criar e associar o Perfil
-        // (O Mapper não pode fazer isso, pois o DTO não tem o "usuarioId" agora)
-        PerfilVendedorModel perfilModel = new PerfilVendedorModel();
-        perfilModel.setNomeLoja(perfilDto.getNomeLoja());
-        perfilModel.setDescricao(perfilDto.getDescricao());
-        perfilModel.setLogoUrl(perfilDto.getLogoUrl());
-        perfilModel.setBannerUrl(perfilDto.getBannerUrl());
+        //    !! AQUI ESTÁ A CORREÇÃO !!
+        //    Usamos o mapper para copiar TODOS os campos do DTO
+        PerfilVendedorModel perfilModel = perfilVendedorDtoMapper.map(perfilDto); //
 
-        // Define valores padrão (pois não vêm do DTO de criação)
+        // 4. Definir os valores que não vêm do DTO de criação
+        perfilModel.setId(null); // Garantir que é um 'create'
         perfilModel.setNotaMedia(BigDecimal.ZERO);
         perfilModel.setTotalAvaliacoes(0);
+        perfilModel.setCriadoEm(null); // Deixar o @CreationTimestamp cuidar
+        perfilModel.setAtualizadoEm(null); // Deixar o @UpdateTimestamp cuidar
 
-        // A MÁGICA: Associa a entidade de usuário que acabamos de salvar
+        // 5. Associar a entidade de usuário que acabamos de salvar
         perfilModel.setUsuario(usuarioEntidade);
 
         PerfilVendedorModel perfilSalvo = perfilVendedorRepository.save(perfilModel);
 
-        // 4. Mapear a resposta de volta (o mapper precisa ser ajustado)
-        return perfilVendedorDtoMapper.map(perfilSalvo);
+        // 6. Mapear a resposta de volta
+        System.out.println(perfilSalvo);
+        return perfilVendedorDtoMapper.map(perfilSalvo); //
     }
 }
