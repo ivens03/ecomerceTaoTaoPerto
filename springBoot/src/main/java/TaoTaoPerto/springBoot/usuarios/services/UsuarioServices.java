@@ -59,7 +59,7 @@ public class UsuarioServices {
         var buscadorDeUsuarioPorID = usuarioRepository.findById(id)
                 .map(usuarioDtoMapper::map);
         if (buscadorDeUsuarioPorID.isEmpty()) {
-            throw new RuntimeException("Usuario com ID: " + id + " não foi encontrado");
+            throw new UsuarioDesativoOuNaoEncontrado("Não foi possivel encontrar o usuario do ID: (" + id + "), entre em contato com a suporte!");
         }
         return buscadorDeUsuarioPorID;
     }
@@ -74,7 +74,7 @@ public class UsuarioServices {
     //Atualizar
     public UsuarioDto atualizarUsuario(Long id, UsuarioDto usuarioDto) {
         UsuarioModel usuarioModel = usuarioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado com ID: " + id));
+                .orElseThrow(() -> new UsuarioDesativoOuNaoEncontrado("Não foi possivel encontrar o usuario do ID: " + id));
         usuarioModel.atualizarUsuarioComDto(usuarioDto);
         if (usuarioDto.getSenha() != null) {
             usuarioModel.setSenha(usuarioDto.getSenha());
@@ -85,7 +85,7 @@ public class UsuarioServices {
     // Delet Logico
     public UsuarioDto deletLogicoUsuario(Long id){
         UsuarioModel usuario = usuarioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuario com ID: " + id + " não encontrado"));
+                .orElseThrow(() -> new UsuarioDesativoOuNaoEncontrado("Usuario com ID: " + id + " não encontrado"));
         usuario.setAtivo(false);
         usuario.setDesativadoEm(LocalDateTime.now());
         UsuarioModel usuarioDesativado = usuarioRepository.save(usuario);

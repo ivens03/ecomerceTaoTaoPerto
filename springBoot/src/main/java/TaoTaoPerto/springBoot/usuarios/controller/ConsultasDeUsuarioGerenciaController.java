@@ -4,6 +4,8 @@ import TaoTaoPerto.springBoot.usuarios.dtos.EnderecoDto;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.services.EnderecoServices;
 import TaoTaoPerto.springBoot.usuarios.services.UsuarioServices;
+import TaoTaoPerto.springBoot.vendendor.dtos.PerfilVendedorDto;
+import TaoTaoPerto.springBoot.vendendor.services.PerfilVendedorServices;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -28,10 +30,12 @@ public class ConsultasDeUsuarioGerenciaController {
 
     private final UsuarioServices usuarioServices;
     private final EnderecoServices enderecoServices;
+    private final PerfilVendedorServices perfilVendedorServices;
 
-    public ConsultasDeUsuarioGerenciaController(UsuarioServices usuarioServices, EnderecoServices enderecoServices) {
+    public ConsultasDeUsuarioGerenciaController(UsuarioServices usuarioServices, EnderecoServices enderecoServices, PerfilVendedorServices perfilVendedorServices) {
         this.usuarioServices = usuarioServices;
         this.enderecoServices = enderecoServices;
+        this.perfilVendedorServices = perfilVendedorServices;
     }
 
     //Listar todos mesmo não ativos
@@ -99,5 +103,11 @@ public class ConsultasDeUsuarioGerenciaController {
     })
     public ResponseEntity<List<EnderecoDto>> listarTodosEnderecos(){
         return ResponseEntity.ok(enderecoServices.buscarTodosEnderecosDeTodosOsUsuarios());
+    }
+
+    //Buscar um vendedor por id mesmo não estando ativo no sistema
+    @GetMapping("/vendedores/buscar/listar/{id}")
+    public ResponseEntity<Optional<PerfilVendedorDto>> buscarPerfilDoVendedor(@PathVariable("id") Long id){
+        return ResponseEntity.ok(perfilVendedorServices.listarPerfilDeVendedorPorId(id));
     }
 }
