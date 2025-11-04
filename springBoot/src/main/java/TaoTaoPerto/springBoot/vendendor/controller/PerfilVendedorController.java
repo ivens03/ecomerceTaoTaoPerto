@@ -43,4 +43,18 @@ public class PerfilVendedorController {
         return ResponseEntity.status(HttpStatus.CREATED).body(perfilVendedorDtoSalvo);
     }
 
+    //Buscar por id estando ativo
+    @Operation(summary = "Buscar um vendedor por id mesmo não estando ativo no sistema",
+            description = "Retorna um vendedor por id mesmo não estando ativo no sistema.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Perfil de vendedor encontrado com sucesso",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = PerfilVendedorDto.class)) }),
+            @ApiResponse(responseCode = "404", description = "Perfil de vendedor não encontrado",
+                    content = @Content)
+    })
+    @GetMapping("/buscar/listar/{id}")
+    public ResponseEntity<Optional<PerfilVendedorDto>> buscarPerfilDoVendedor(@PathVariable("id") Long id){
+        return ResponseEntity.ok(perfilVendedorServices.listarPerfilDeVendedorPorIdAtivo(id));
+    }
 }
