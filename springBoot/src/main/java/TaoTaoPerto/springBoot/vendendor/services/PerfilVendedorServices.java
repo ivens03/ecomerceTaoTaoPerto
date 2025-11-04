@@ -1,5 +1,6 @@
 package TaoTaoPerto.springBoot.vendendor.services;
 
+import TaoTaoPerto.springBoot.exception.tratamentoDeErro.UsuarioDesativoOuNaoEncontrado;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.model.UsuarioModel;
 import TaoTaoPerto.springBoot.usuarios.repository.UsuarioRepository;
@@ -12,6 +13,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PerfilVendedorServices {
@@ -31,39 +34,42 @@ public class PerfilVendedorServices {
         this.usuarioRepository = usuarioRepository;
     }
 
-    // Salvar (Criar)
+    // Salvar
     @Transactional
     public PerfilVendedorDto salvarPerfil(PerfilVendedorDto perfilDto) {
-
-        // 1. Validar e Salvar o Usuário ANTES
         if (perfilDto.getUsuario() == null) {
             throw new IllegalArgumentException("Os dados do usuário são obrigatórios no DTO.");
         }
         UsuarioDto usuarioSalvoDto = usuarioServices.salvarUsuario(perfilDto.getUsuario());
-
-        // 2. Buscar a ENTIDADE do usuário recém-salvo
         UsuarioModel usuarioEntidade = usuarioRepository.findById(usuarioSalvoDto.getId())
                 .orElseThrow(() -> new RuntimeException("Erro fatal: não foi possível encontrar usuário recém-criado. ID: " + usuarioSalvoDto.getId()));
-
-        // 3. Criar e associar o Perfil
-        //    !! AQUI ESTÁ A CORREÇÃO !!
-        //    Usamos o mapper para copiar TODOS os campos do DTO
-        PerfilVendedorModel perfilModel = perfilVendedorDtoMapper.map(perfilDto); //
-
-        // 4. Definir os valores que não vêm do DTO de criação
-        perfilModel.setId(null); // Garantir que é um 'create'
+        PerfilVendedorModel perfilModel = perfilVendedorDtoMapper.map(perfilDto);
+        perfilModel.setId(null);
         perfilModel.setNotaMedia(BigDecimal.ZERO);
         perfilModel.setTotalAvaliacoes(0);
-        perfilModel.setCriadoEm(null); // Deixar o @CreationTimestamp cuidar
-        perfilModel.setAtualizadoEm(null); // Deixar o @UpdateTimestamp cuidar
-
-        // 5. Associar a entidade de usuário que acabamos de salvar
         perfilModel.setUsuario(usuarioEntidade);
-
         PerfilVendedorModel perfilSalvo = perfilVendedorRepository.save(perfilModel);
-
-        // 6. Mapear a resposta de volta
-        System.out.println(perfilSalvo);
-        return perfilVendedorDtoMapper.map(perfilSalvo); //
+        return perfilVendedorDtoMapper.map(perfilSalvo);
     }
+
+    //Buscar por id mesmo não sendo ativo
+    public Optional<PerfilVendedorDto> listarPerfilDeVendedorPorId(Long id){
+        var buscadorDePerfilPorID = perfilVendedorRepository.findById(id)
+                .map(perfilVendedorDtoMapper::map);
+        if (buscadorDePerfilPorID.isEmpty()) {
+            throw new UsuarioDesativoOuNaoEncontrado("Não foi possivel encontrar o usuario do ID: (" + id + "), pode não existir no sistema ou não foi encontrado. Fale com o suporte para mais inforamçẽos sobre o usuarios especifico.");
+        }
+        return buscadorDePerfilPorID;
+    }
+
+    //Buscar por id estando ativo
+    public Optional<PerfilVendedorDto> listarPerfilDeVendedorPorIdAtivo(Long id) {
+        var buscadorDePerfilPorID = perfilVendedorRepository.findByIdAndUsuarioAtivo(id, true)
+                .map(perfilVendedorDtoMapper::map);
+        if (buscadorDePerfilPorID.isEmpty()) {
+            throw new UsuarioDesativoOuNaoEncontrado("Não foi possivel encontrar o usuario do ID: (" + id + "), pode não existir no sistema ou não foi encontrado. Fale com o suporte para mais inforamçẽos sobre o usuarios especifico.");
+        }
+        return buscadorDePerfilPorID;
+    }
+
 }
