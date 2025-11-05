@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  /* Fundo gradiente do pântano */
+  background-image: linear-gradient(to bottom right, #3a5a40, #588157, #1e2d24);
+  font-family: 'Inter', sans-serif;
+  
+  /* Garante que o body ocupe a tela toda */
+  margin: 0; 
+  padding: 0;
+}
