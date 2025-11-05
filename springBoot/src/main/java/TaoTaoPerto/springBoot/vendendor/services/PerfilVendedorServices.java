@@ -44,7 +44,9 @@ public class PerfilVendedorServices {
         UsuarioModel usuarioEntidade = usuarioRepository.findById(usuarioSalvoDto.getId())
                 .orElseThrow(() -> new RuntimeException("Erro fatal: não foi possível encontrar usuário recém-criado. ID: " + usuarioSalvoDto.getId()));
         PerfilVendedorModel perfilModel = perfilVendedorDtoMapper.map(perfilDto);
-        perfilModel.setId(null);
+        if (perfilDto.getCnpj() == null) {
+            perfilModel.setCnpj("CNPJ_PADRAO_PF");
+        }
         perfilModel.setNotaMedia(BigDecimal.ZERO);
         perfilModel.setTotalAvaliacoes(0);
         perfilModel.setUsuario(usuarioEntidade);
@@ -70,6 +72,46 @@ public class PerfilVendedorServices {
             throw new UsuarioDesativoOuNaoEncontrado("Não foi possivel encontrar o usuario do ID: (" + id + "), pode não existir no sistema ou não foi encontrado. Fale com o suporte para mais inforamçẽos sobre o usuarios especifico.");
         }
         return buscadorDePerfilPorID;
+    }
+
+    //Listar todos
+    public List<PerfilVendedorDto> listarTodosPerfisDeVendedores() {
+        return perfilVendedorRepository.findAll()
+                .stream()
+                .map(perfilVendedorDtoMapper::map)
+                .toList();
+    }
+
+    //Listar todos ativos
+    public List<PerfilVendedorDto> listarTodosPerfisDeVendedoresAtivos() {
+        return perfilVendedorRepository.findAllByUsuarioAtivo(true)
+                .stream()
+                .map(perfilVendedorDtoMapper::map)
+                .toList();
+    }
+
+    //Atualizar
+    public PerfilVendedorDto atualizarPerfilDeVendedor(Long id, PerfilVendedorDto perfilDto) {
+        Optional<PerfilVendedorModel> perfilOptional = perfilVendedorRepository.findById(id);
+        if (perfilOptional.isEmpty()) {
+            throw new UsuarioDesativoOuNaoEncontrado("Não foi possivel encontrar o usuario do ID: (" + id + "), pode não existir no sistema ou não foi encontrado. Fale com o suporte para mais inforamçẽos sobre o usuarios especifico.");
+        }
+        PerfilVendedorModel perfilModel = perfilOptional.get();
+        perfilModel.atualizarPerfilVendedorComDto(perfilDto);
+        System.out.println(perfilModel);
+        return perfilVendedorDtoMapper.map(perfilVendedorRepository.save(perfilModel));
+    }
+
+    //Delete logico
+    @Transactional
+    public PerfilVendedorDto deletePerfilDeVendedor(Long id) {
+        PerfilVendedorModel vendedor = perfilVendedorRepository.findById(id)
+                .orElseThrow(() -> new UsuarioDesativoOuNaoEncontrado("Perfil de Vendedor com ID: " + id + " não encontrado"));
+        if (vendedor.getUsuario() == null) {
+            throw new IllegalStateException("Perfil de vendedor com ID: " + id + " não possui um usuário associado.");
+        }
+        usuarioServices.deletLogicoUsuario(vendedor.getUsuario().getId());
+        return perfilVendedorDtoMapper.map(vendedor);
     }
 
 }

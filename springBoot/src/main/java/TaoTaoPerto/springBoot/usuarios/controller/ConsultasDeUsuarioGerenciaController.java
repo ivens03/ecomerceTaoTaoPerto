@@ -110,4 +110,16 @@ public class ConsultasDeUsuarioGerenciaController {
     public ResponseEntity<Optional<PerfilVendedorDto>> buscarPerfilDoVendedor(@PathVariable("id") Long id){
         return ResponseEntity.ok(perfilVendedorServices.listarPerfilDeVendedorPorId(id));
     }
+
+    //Listar todos perfil de vendedor
+    @GetMapping("/vendedores/listarTodos")
+    public ResponseEntity<List<PerfilVendedorDto>> listarTodosPerfilDeVendedor(){
+        return ResponseEntity.ok(perfilVendedorServices.listarTodosPerfisDeVendedores());
+    }
+
+    //Listar todos perfil de vendedor ativos
+    @GetMapping("/vendedores/listarTodosAtivos")
+    public ResponseEntity<List<PerfilVendedorDto>> listarTodosPerfilDeVendedorAtivos(){
+        return ResponseEntity.ok(perfilVendedorServices.listarTodosPerfisDeVendedoresAtivos());
+    }
 }
