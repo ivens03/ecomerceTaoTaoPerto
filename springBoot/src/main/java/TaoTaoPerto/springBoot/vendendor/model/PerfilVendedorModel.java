@@ -1,6 +1,7 @@
 package TaoTaoPerto.springBoot.vendendor.model;
 
 import TaoTaoPerto.springBoot.usuarios.model.UsuarioModel;
+import TaoTaoPerto.springBoot.vendendor.dtos.PerfilVendedorDto;
 import TaoTaoPerto.springBoot.vendendor.enums.TipoPessoaEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
@@ -93,4 +94,39 @@ public class PerfilVendedorModel implements Serializable {
         this.avaliacoes.add(avaliacao);
         avaliacao.setPerfilVendedor(this);
     }
+
+    // Metodod para atualizar
+    public void atualizarPerfilVendedorComDto(PerfilVendedorDto perfilVendedorDto) {
+        if (perfilVendedorDto.getCnpj() != null) {
+            this.cnpj = perfilVendedorDto.getCnpj();
+        }
+        if (perfilVendedorDto.getDescricao() != null) {
+            this.descricao = perfilVendedorDto.getDescricao();
+        }
+        if (perfilVendedorDto.getLogoUrl() != null) {
+            this.logoUrl = perfilVendedorDto.getLogoUrl();
+        }
+        if (perfilVendedorDto.getBannerUrl() != null) {
+            this.bannerUrl = perfilVendedorDto.getBannerUrl();
+        }
+        if (perfilVendedorDto.getNotaMedia() != null) {
+            this.notaMedia = perfilVendedorDto.getNotaMedia();
+        }
+        if (perfilVendedorDto.getTotalAvaliacoes() != null) {
+            this.totalAvaliacoes = perfilVendedorDto.getTotalAvaliacoes();
+        }
+        if (perfilVendedorDto.getTipoPessoa() != null) {
+            this.tipoPessoa = perfilVendedorDto.getTipoPessoa();
+        }
+        if (perfilVendedorDto.getRazaoSocial() != null) {
+            this.razaoSocial = perfilVendedorDto.getRazaoSocial();
+        }
+        if (perfilVendedorDto.getInscricaoEstadual() != null) {
+            this.inscricaoEstadual = perfilVendedorDto.getInscricaoEstadual();
+        }
+        if (perfilVendedorDto.getNomeLoja() != null) {
+            this.nomeLoja = perfilVendedorDto.getNomeLoja();
+        }
+    }
+
 }

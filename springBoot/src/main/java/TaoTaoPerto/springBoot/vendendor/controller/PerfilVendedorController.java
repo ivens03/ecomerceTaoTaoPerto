@@ -57,4 +57,39 @@ public class PerfilVendedorController {
     public ResponseEntity<Optional<PerfilVendedorDto>> buscarPerfilDoVendedor(@PathVariable("id") Long id){
         return ResponseEntity.ok(perfilVendedorServices.listarPerfilDeVendedorPorIdAtivo(id));
     }
+
+    //Atualizar perfil do vendedor
+    @Operation(summary = "Atualiza um perfil de vendedor existente",
+            description = "Atualiza um perfil de vendedor existente no sistema.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Perfil de vendedor atualizado com sucesso",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = PerfilVendedorDto.class)) }),
+            @ApiResponse(responseCode = "404", description = "Perfil de vendedor não encontrado",
+                    content = @Content),
+            @ApiResponse(responseCode = "500", description = "Erro interno do servidor",
+                    content = @Content)
+    })
+    @PutMapping("/atualizar/{id}")
+    public ResponseEntity<PerfilVendedorDto> atualizarPerfilDoVendedor(@PathVariable("id") Long id, @RequestBody PerfilVendedorDto perfilVendedorDto){
+        return ResponseEntity.ok(perfilVendedorServices.atualizarPerfilDeVendedor(id, perfilVendedorDto));
+    }
+
+    //Delet logico do perfil do vendedor
+    @Operation(summary = "Deleta um perfil de vendedor existente",
+            description = "Deleta um perfil de vendedor existente no sistema.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Perfil de vendedor deletado com sucesso",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = PerfilVendedorDto.class)) }),
+            @ApiResponse(responseCode = "404", description = "Perfil de vendedor não encontrado",
+                    content = @Content),
+            @ApiResponse(responseCode = "500", description = "Erro interno do servidor",
+                    content = @Content)
+    })
+    @DeleteMapping("/deletar/{id}")
+    public ResponseEntity<PerfilVendedorDto> deletarPerfilDoVendedor(@PathVariable("id") Long id){
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(perfilVendedorServices.deletePerfilDeVendedor(id));
+    }
+
 }
