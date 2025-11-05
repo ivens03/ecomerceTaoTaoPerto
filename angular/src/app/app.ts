@@ -1,12 +1,19 @@
-import { Component, signal } from '@angular/core';
+// ...existing code...
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { LoginComponent } from './login-cliente/login-cliente'; // adicionado
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, LoginComponent], 
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
-export class App {
-  protected readonly title = signal('angular');
+export class AppComponent {
+  title = 'ecommerceTaoTaoPerto-angular';
 }
+
+export { AppComponent as App };
+// ...existing code...
