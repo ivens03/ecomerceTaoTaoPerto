@@ -106,18 +106,41 @@ public class ConsultasDeUsuarioGerenciaController {
     }
 
     //Buscar um vendedor por id mesmo não estando ativo no sistema
+    @Operation(summary = "Buscar perfil de vendedor por ID (incluindo inativos)", // <-- ADICIONADO
+            description = "Busca um perfil de vendedor específico pelo seu ID, mesmo que o usuário associado esteja inativo.")
+    @ApiResponses(value = { // <-- ADICIONADO
+            @ApiResponse(responseCode = "200", description = "Perfil de vendedor encontrado",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = PerfilVendedorDto.class)) }),
+            @ApiResponse(responseCode = "404", description = "Perfil de vendedor não encontrado",
+                    content = @Content)
+    })
     @GetMapping("/vendedores/buscar/listar/{id}")
     public ResponseEntity<Optional<PerfilVendedorDto>> buscarPerfilDoVendedor(@PathVariable("id") Long id){
         return ResponseEntity.ok(perfilVendedorServices.listarPerfilDeVendedorPorId(id));
     }
 
     //Listar todos perfil de vendedor
+    @Operation(summary = "Listar todos os perfis de vendedores (incluindo inativos)", // <-- ADICIONADO
+            description = "Retorna uma lista de todos os perfis de vendedores cadastrados, independentemente do status.")
+    @ApiResponses(value = { // <-- ADICIONADO
+            @ApiResponse(responseCode = "200", description = "Lista de perfis de vendedores retornada com sucesso",
+                    content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = PerfilVendedorDto.class))))
+    })
     @GetMapping("/vendedores/listarTodos")
     public ResponseEntity<List<PerfilVendedorDto>> listarTodosPerfilDeVendedor(){
         return ResponseEntity.ok(perfilVendedorServices.listarTodosPerfisDeVendedores());
     }
 
     //Listar todos perfil de vendedor ativos
+    @Operation(summary = "Listar todos os perfis de vendedores ATIVOS", // <-- ADICIONADO
+            description = "Retorna uma lista de todos os perfis de vendedores cujo usuário associado está com status 'ativo'.")
+    @ApiResponses(value = { // <-- ADICIONADO
+            @ApiResponse(responseCode = "200", description = "Lista de perfis de vendedores ativos retornada com sucesso",
+                    content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = PerfilVendedorDto.class))))
+    })
     @GetMapping("/vendedores/listarTodosAtivos")
     public ResponseEntity<List<PerfilVendedorDto>> listarTodosPerfilDeVendedorAtivos(){
         return ResponseEntity.ok(perfilVendedorServices.listarTodosPerfisDeVendedoresAtivos());
