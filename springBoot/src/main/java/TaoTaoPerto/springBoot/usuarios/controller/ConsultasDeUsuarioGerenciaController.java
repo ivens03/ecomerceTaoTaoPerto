@@ -93,7 +93,7 @@ public class ConsultasDeUsuarioGerenciaController {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = UsuarioDto.class))),
             @ApiResponse(responseCode = "404", description = "Usuário não encontrado ou está inativo",
-                    content = @Content) // Corpo vazio para 404
+                    content = @Content)
     })
     @GetMapping("/listarPorIdAtivo/{id}")
     public ResponseEntity<UsuarioDto> listarUsuarioPorIdAtivo(@PathVariable Long id) {
@@ -114,9 +114,9 @@ public class ConsultasDeUsuarioGerenciaController {
     }
 
     //Buscar um vendedor por id mesmo não estando ativo no sistema
-    @Operation(summary = "Buscar perfil de vendedor por ID (incluindo inativos)", // <-- ADICIONADO
+    @Operation(summary = "Buscar perfil de vendedor por ID (incluindo inativos)",
             description = "Busca um perfil de vendedor específico pelo seu ID, mesmo que o usuário associado esteja inativo.")
-    @ApiResponses(value = { // <-- ADICIONADO
+    @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Perfil de vendedor encontrado",
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = PerfilVendedorDto.class)) }),
@@ -129,9 +129,9 @@ public class ConsultasDeUsuarioGerenciaController {
     }
 
     //Listar todos perfil de vendedor
-    @Operation(summary = "Listar todos os perfis de vendedores (incluindo inativos)", // <-- ADICIONADO
+    @Operation(summary = "Listar todos os perfis de vendedores (incluindo inativos)",
             description = "Retorna uma lista de todos os perfis de vendedores cadastrados, independentemente do status.")
-    @ApiResponses(value = { // <-- ADICIONADO
+    @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Lista de perfis de vendedores retornada com sucesso",
                     content = @Content(mediaType = "application/json",
                             array = @ArraySchema(schema = @Schema(implementation = PerfilVendedorDto.class))))
@@ -142,9 +142,9 @@ public class ConsultasDeUsuarioGerenciaController {
     }
 
     //Listar todos perfil de vendedor ativos
-    @Operation(summary = "Listar todos os perfis de vendedores ATIVOS", // <-- ADICIONADO
+    @Operation(summary = "Listar todos os perfis de vendedores ATIVOS",
             description = "Retorna uma lista de todos os perfis de vendedores cujo usuário associado está com status 'ativo'.")
-    @ApiResponses(value = { // <-- ADICIONADO
+    @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Lista de perfis de vendedores ativos retornada com sucesso",
                     content = @Content(mediaType = "application/json",
                             array = @ArraySchema(schema = @Schema(implementation = PerfilVendedorDto.class))))
@@ -155,6 +155,13 @@ public class ConsultasDeUsuarioGerenciaController {
     }
 
     // Listar todas as categorias do produtos sendo a categoria ativa ou não.
+    @Operation(summary = "Listar todas as categorias de produtos",
+            description = "Retorna uma lista de todas as categorias cadastradas, incluindo ativas e inativas.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Lista de categorias retornada com sucesso",
+                    content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = CategoriaDto.class))))
+    })
     @GetMapping("/vendores/registros/categorias")
     public ResponseEntity<List<CategoriaDto>> listarTodasCategorias() {
         return ResponseEntity.status(HttpStatus.OK).body(categoriaServices.listarTodosProdutosPorCategoria());
