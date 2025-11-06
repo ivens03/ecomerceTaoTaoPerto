@@ -1,5 +1,7 @@
 package TaoTaoPerto.springBoot.usuarios.controller;
 
+import TaoTaoPerto.springBoot.produtos.dtos.CategoriaDto;
+import TaoTaoPerto.springBoot.produtos.services.CategoriaServices;
 import TaoTaoPerto.springBoot.usuarios.dtos.EnderecoDto;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.services.EnderecoServices;
@@ -13,6 +15,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,11 +34,16 @@ public class ConsultasDeUsuarioGerenciaController {
     private final UsuarioServices usuarioServices;
     private final EnderecoServices enderecoServices;
     private final PerfilVendedorServices perfilVendedorServices;
+    private final CategoriaServices categoriaServices;
 
-    public ConsultasDeUsuarioGerenciaController(UsuarioServices usuarioServices, EnderecoServices enderecoServices, PerfilVendedorServices perfilVendedorServices) {
+    public ConsultasDeUsuarioGerenciaController(UsuarioServices usuarioServices,
+                                                EnderecoServices enderecoServices,
+                                                PerfilVendedorServices perfilVendedorServices,
+                                                CategoriaServices categoriaServices) {
         this.usuarioServices = usuarioServices;
         this.enderecoServices = enderecoServices;
         this.perfilVendedorServices = perfilVendedorServices;
+        this.categoriaServices = categoriaServices;
     }
 
     //Listar todos mesmo não ativos
@@ -144,5 +152,11 @@ public class ConsultasDeUsuarioGerenciaController {
     @GetMapping("/vendedores/listarTodosAtivos")
     public ResponseEntity<List<PerfilVendedorDto>> listarTodosPerfilDeVendedorAtivos(){
         return ResponseEntity.ok(perfilVendedorServices.listarTodosPerfisDeVendedoresAtivos());
+    }
+
+    // Listar todas as categorias do produtos sendo a categoria ativa ou não.
+    @GetMapping("/vendores/registros/categorias")
+    public ResponseEntity<List<CategoriaDto>> listarTodasCategorias() {
+        return ResponseEntity.status(HttpStatus.OK).body(categoriaServices.listarTodosProdutosPorCategoria());
     }
 }

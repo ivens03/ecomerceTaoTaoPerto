@@ -27,12 +27,6 @@ public class CategoriaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(categoriaServices.salvarCategoriaDeProduto(categoriaModel));
     }
 
-    // Listar todas as categorias
-    @GetMapping("/todos")
-    public ResponseEntity<List<CategoriaDto>> listarTodasCategorias() {
-        return ResponseEntity.status(HttpStatus.OK).body(categoriaServices.listarTodosProdutosPorCategoria());
-    }
-
     // Listar categoria por id
     @GetMapping("/{id}")
     public ResponseEntity<CategoriaDto> listarCategoriaPorId(@PathVariable Long id) {

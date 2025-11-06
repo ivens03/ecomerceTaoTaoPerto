@@ -24,7 +24,7 @@ public class CategoriaServices {
         return categoriaRepository.save(categoriaModel);
     }
 
-    // Listar todas as categorias
+    // Listar todas as categorias ativas ou não
     public List<CategoriaDto> listarTodosProdutosPorCategoria() {
         return categoriaRepository
                 .findAll()
