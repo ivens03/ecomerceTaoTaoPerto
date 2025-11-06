@@ -1,0 +1,20 @@
+.font-shrek {
+  font-family: 'Metamorphous', cursive;
+}
+.tab-active {
+  background-color: #fef3c7;
+  color: #4a3525;
+  border-bottom: 4px solid #a16207;
+}
+.tab-inactive {
+  background-color: #8a6a4f;
+  color: #fef3c7;
+  opacity: 0.7;
+}
+.btn-magic {
+  transition: all 0.3s ease;
+}
+.btn-magic:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(254, 249, 195, 0.5);
+}

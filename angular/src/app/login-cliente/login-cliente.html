@@ -1,0 +1,124 @@
+<div class="flex items-center justify-center min-h-screen p-4">
+
+  <div class="w-full max-w-lg">
+    <header class="text-center mb-6">
+      <h1 class="font-shrek text-5xl md:text-6xl text-yellow-100" style="text-shadow: 2px 2px #4a3525;">
+        Tão Tão Perto
+      </h1>
+      <p class="text-lg text-yellow-200 mt-2">
+        Entre no seu reino... ou comece uma nova aventura!
+      </p>
+    </header>
+
+    <div class="bg-[#6f4e37] border-8 border-[#4a3525] rounded-xl shadow-2xl overflow-hidden">
+        
+      <nav class="flex">
+        <button 
+          class="font-shrek w-1/2 p-4 text-center cursor-pointer text-sm md:text-base"
+          [ngClass]="{'tab-active': abaAtual === 'login', 'tab-inactive': abaAtual !== 'login'}"
+          (click)="abaAtual = 'login'">
+          Já Tenho Meu Reino
+        </button>
+        <button 
+          class="font-shrek w-1/2 p-4 text-center cursor-pointer text-sm md:text-base"
+          [ngClass]="{'tab-active': abaAtual === 'register', 'tab-inactive': abaAtual !== 'register'}"
+          (click)="abaAtual = 'register'">
+          Quero Meu Próprio Reino
+        </button>
+      </nav>
+
+      <main class="p-6 md:p-8 bg-[#fef3c7] bg-opacity-80">
+          
+        <form [hidden]="abaAtual !== 'login'" (submit)="onFormSubmit($event)" class="space-y-5">
+          <div>
+            <label for="login-email" class="block text-sm font-medium text-[#4a3525] mb-1">E-mail ou Nome do Bardo</label>
+            <input type="text" id="login-email" placeholder="Seu e-mail" class="w-full p-3 rounded-lg bg-white border border-[#8a6a4f] text-[#4a3525] placeholder-[#6b4f3a]">
+          </div>
+            
+          <div>
+            <label for="login-password" class="block text-sm font-medium text-[#4a3525] mb-1">Senha Secreta</label>
+            <div class="relative">
+              <input [type]="loginPasswordType" id="login-password" placeholder="Sua senha" class="w-full p-3 rounded-lg bg-white border border-[#8a6a4f] text-[#4a3525] placeholder-[#6b4f3a]">
+              <button type="button" (click)="toggleLoginPassword()" class="absolute inset-y-0 right-0 px-3 flex items-center text-[#4a3525]">
+                <svg [hidden]="loginPasswordIcon !== 'open'" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.478 0-8.268-2.943-9.542-7z" />
+                </svg>
+                <svg [hidden]="loginPasswordIcon !== 'closed'" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7 1.274-4.057 5.064 7 9.542 7 1.867 0 3.614.59 5.071 1.575M19.07 4.93a1 1 0 010 1.414L3.515 20.485a1 1 0 01-1.414-1.414L19.07 4.93zM16 12a4 4 0 01-4 4m0 0a4 4 0 01-4-4m4 4a4 4 0 010-8 4 4 0 014 4m-4 4v-4m0 0H8" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <a href="#" class="block text-sm text-right text-green-800 hover:text-green-600">
+            Esqueci minha senha... será que o Gato de Botas roubou?
+          </a>
+
+          <button type="submit" class="font-shrek w-full p-3 rounded-lg bg-[#588157] text-white text-xl shadow-md btn-magic">
+            Entrar na Aventura!
+          </button>
+        </form>
+
+        <form [hidden]="abaAtual !== 'register'" (submit)="onFormSubmit($event)" class="space-y-5">
+          <div>
+            <label for="reg-name" class="block text-sm font-medium text-[#4a3525] mb-1">Seu Nome Real</label>
+            <input type="text" id="reg-name" placeholder="Nome completo" class="w-full p-3 rounded-lg bg-white border border-[#8a6a4f] text-[#4a3525] placeholder-[#6b4f3a]">
+          </div>
+            
+          <div>
+            <label for="reg-email" class="block text-sm font-medium text-[#4a3525] mb-1">E-mail do Pombo Correio</label>
+            <input type="email" id="reg-email" placeholder="E-mail" class="w-full p-3 rounded-lg bg-white border border-[#8a6a4f] text-[#4a3525] placeholder-[#6b4f3a]">
+          </div>
+
+          <div>
+            <label for="reg-password" class="block text-sm font-medium text-[#4a3525] mb-1">Criar Senha Secreta</label>
+            <div class="relative">
+              <input [type]="regPasswordType" id="reg-password" placeholder="Crie uma senha" class="w-full p-3 rounded-lg bg-white border border-[#8a6a4f] text-[#4a3525] placeholder-[#6b4f3a]">
+              <button type="button" (click)="toggleRegPassword()" class="absolute inset-y-0 right-0 px-3 flex items-center text-[#4a3525]">
+                <svg [hidden]="regPasswordIcon !== 'open'" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.478 0-8.268-2.943-9.542-7z" /></svg>
+                <svg [hidden]="regPasswordIcon !== 'closed'" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7 1.274-4.057 5.064 7 9.542 7 1.867 0 3.614.59 5.071 1.575M19.07 4.93a1 1 0 010 1.414L3.515 20.485a1 1 0 01-1.414-1.414L19.07 4.93zM16 12a4 4 0 01-4 4m0 0a4 4 0 01-4-4m4 4a4 4 0 010-8 4 4 0 014 4m-4 4v-4m0 0H8" /></svg>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label for="reg-confirm-password" class="block text-sm font-medium text-[#4a3525] mb-1">Confirmar Senha Secreta</label>
+            <input type="password" id="reg-confirm-password" placeholder="Confirme sua senha" class="w-full p-3 rounded-lg bg-white border border-[#8a6a4f] text-[#4a3525] placeholder-[#6b4f3a]">
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" id="terms" class="h-4 w-4 rounded border-gray-300 text-green-700 focus:ring-green-600">
+            <label for="terms" class="text-sm text-[#4a3525]">Aceito compartilhar meu pântano com os <a href="#" class="underline hover:text-green-800">termos de serviço</a>.</label>
+          </div>
+
+          <button type="submit" class="font-shrek w-full p-3 rounded-lg bg-orange-600 text-white text-xl shadow-md btn-magic hover:bg-orange-700">
+            Começar Minha Jornada!
+          </button>
+        </form>
+
+        <div class="flex items-center justify-center my-6">
+          <svg class="w-5 h-5 text-[#8a6a4f]" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3c-1.1 0-2 .9-2 2v10.17l-3.59-3.58c-.78-.78-2.05-.78-2.83 0-.78.78-.78 2.05 0 2.83L9.17 18H8c-1.1 0-2 .9-2 2s.9 2 2 2h8c1.1 0 2-.9 2-2s-.9-2-2-2h-1.17l6.59-6.59c.78-.78.78-2.05 0-2.83-.78-.78-2.05-.78-2.83 0L14 15.17V5c0-1.1-.9-2-2-2z"/></svg>
+          <span class="mx-4 text-sm font-medium text-[#6b4f3a]">Ou</span>
+          <svg class="w-5 h-5 text-[#8a6a4f]" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.31 15.31l-1.06 1.06-2.12-2.12-2.12 2.12-1.06-1.06 2.12-2.12-2.12-2.12 1.06-1.06 2.12 2.12 2.12-2.12 1.06 1.06-2.12 2.12 2.12 2.12zM12 4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg>
+        </div>
+
+        <div class="space-y-3">
+          <button class="w-full flex items-center justify-center p-3 rounded-lg bg-white border-2 border-red-500 text-gray-700 font-semibold shadow-md hover:bg-gray-50 transition duration-200">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.24 10.285V14.4h6.806c-.275 1.76-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.345-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.85l3.85-3.85C18.823 1.086 15.823 0 12.24 0 5.4 0 0 5.4 0 12s5.4 12 12.24 12c6.912 0 11.7-4.805 11.7-11.775 0-.79-.07-1.56-.19-2.34H12.24z"/></svg>
+            Entrar com Google
+          </button>
+          <button class="w-full flex items-center justify-center p-3 rounded-lg bg-white border-2 border-blue-700 text-gray-700 font-semibold shadow-md hover:bg-gray-50 transition duration-200">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5c0-2.07 1.25-3.2 3.1-3.2 0.88 0 1.64 0.07 1.87 0.1v2.53h-1.49c-1.01 0-1.2 0.48-1.2 1.18V12h2.8l-0.37 3H13v6.8c4.56-0.93 8-4.96 8-9.8z"/></svg>
+            Entrar com Facebook
+          </button>
+        </div>
+      </main>
+    </div>
+
+    <footer class="text-center text-yellow-200 text-sm mt-6 opacity-70">
+      © Tão Tão Perto - Todos os feitiços reservados.
+    </footer>
+  </div>
+
+</div>
