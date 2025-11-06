@@ -44,20 +44,21 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.478 0-8.268-2.943-9.542-7z" />
                 </svg>
-                <svg [hidden]="loginPasswordIcon !== 'closed'" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7 1.274-4.057 5.064 7 9.542 7 1.867 0 3.614.59 5.071 1.575M19.07 4.93a1 1 0 010 1.414L3.515 20.485a1 1 0 01-1.414-1.414L19.07 4.93zM16 12a4 4 0 01-4 4m0 0a4 4 0 01-4-4m4 4a4 4 0 010-8 4 4 0 014 4m-4 4v-4m0 0H8" />
-                </svg>
               </button>
             </div>
           </div>
 
-          <a href="#" class="block text-sm text-right text-green-800 hover:text-green-600">
-            Esqueci minha senha... será que o Gato de Botas roubou?
-          </a>
+          
+          <div class="text-center space-y-3">
+            <a href="#" class="text-sm text-green-800 hover:text-green-600 inline-block">
+              Esqueci minha senha... será que o Gato de Botas roubou?
+            </a>
+            
+            <button type="submit" class="font-shrek w-full flex items-center justify-center p-3 rounded-lg bg-[#588157] text-white text-xl shadow-md btn-magic" style="margin-bottom: 2%;">
+              Entrar na Aventura!
+            </button>
+          </div>
 
-          <button type="submit" class="font-shrek w-full p-3 rounded-lg bg-[#588157] text-white text-xl shadow-md btn-magic">
-            Entrar na Aventura!
-          </button>
         </form>
 
         <form [hidden]="abaAtual !== 'register'" (submit)="onFormSubmit($event)" class="space-y-5">
@@ -77,14 +78,21 @@
               <input [type]="regPasswordType" id="reg-password" placeholder="Crie uma senha" class="w-full p-3 rounded-lg bg-white border border-[#8a6a4f] text-[#4a3525] placeholder-[#6b4f3a]">
               <button type="button" (click)="toggleRegPassword()" class="absolute inset-y-0 right-0 px-3 flex items-center text-[#4a3525]">
                 <svg [hidden]="regPasswordIcon !== 'open'" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.478 0-8.268-2.943-9.542-7z" /></svg>
-                <svg [hidden]="regPasswordIcon !== 'closed'" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7 1.274-4.057 5.064 7 9.542 7 1.867 0 3.614.59 5.071 1.575M19.07 4.93a1 1 0 010 1.414L3.515 20.485a1 1 0 01-1.414-1.414L19.07 4.93zM16 12a4 4 0 01-4 4m0 0a4 4 0 01-4-4m4 4a4 4 0 010-8 4 4 0 014 4m-4 4v-4m0 0H8" /></svg>
               </button>
             </div>
           </div>
 
           <div>
             <label for="reg-confirm-password" class="block text-sm font-medium text-[#4a3525] mb-1">Confirmar Senha Secreta</label>
-            <input type="password" id="reg-confirm-password" placeholder="Confirme sua senha" class="w-full p-3 rounded-lg bg-white border border-[#8a6a4f] text-[#4a3525] placeholder-[#6b4f3a]">
+            <div class="relative">
+              <input [type]="regConfirmPasswordType" id="reg-confirm-password" placeholder="Confirme sua senha" class="w-full p-3 rounded-lg bg-white border border-[#8a6a4f] text-[#4a3525] placeholder-[#6b4f3a]">
+              <button type="button" (click)="toggleRegConfirmPassword()" class="absolute inset-y-0 right-0 px-3 flex items-center text-[#4a3525]">
+                <svg [hidden]="regConfirmPasswordIcon !== 'open'" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.478 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </button>
+            </div>
           </div>
 
           <div class="flex items-center space-x-2">
@@ -92,16 +100,10 @@
             <label for="terms" class="text-sm text-[#4a3525]">Aceito compartilhar meu pântano com os <a href="#" class="underline hover:text-green-800">termos de serviço</a>.</label>
           </div>
 
-          <button type="submit" class="font-shrek w-full p-3 rounded-lg bg-orange-600 text-white text-xl shadow-md btn-magic hover:bg-orange-700">
+          <button type="submit" class="font-shrek w-full p-3 rounded-lg bg-orange-600 text-white text-xl shadow-md btn-magic hover:bg-orange-700" style="margin-bottom: 3%;">
             Começar Minha Jornada!
           </button>
         </form>
-
-        <div class="flex items-center justify-center my-6">
-          <svg class="w-5 h-5 text-[#8a6a4f]" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3c-1.1 0-2 .9-2 2v10.17l-3.59-3.58c-.78-.78-2.05-.78-2.83 0-.78.78-.78 2.05 0 2.83L9.17 18H8c-1.1 0-2 .9-2 2s.9 2 2 2h8c1.1 0 2-.9 2-2s-.9-2-2-2h-1.17l6.59-6.59c.78-.78.78-2.05 0-2.83-.78-.78-2.05-.78-2.83 0L14 15.17V5c0-1.1-.9-2-2-2z"/></svg>
-          <span class="mx-4 text-sm font-medium text-[#6b4f3a]">Ou</span>
-          <svg class="w-5 h-5 text-[#8a6a4f]" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.31 15.31l-1.06 1.06-2.12-2.12-2.12 2.12-1.06-1.06 2.12-2.12-2.12-2.12 1.06-1.06 2.12 2.12 2.12-2.12 1.06 1.06-2.12 2.12 2.12 2.12zM12 4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg>
-        </div>
 
         <div class="space-y-3">
           <button class="w-full flex items-center justify-center p-3 rounded-lg bg-white border-2 border-red-500 text-gray-700 font-semibold shadow-md hover:bg-gray-50 transition duration-200">
@@ -117,7 +119,8 @@
     </div>
 
     <footer class="text-center text-yellow-200 text-sm mt-6 opacity-70">
-      © Tão Tão Perto - Todos os feitiços reservados.
+      © Tão Tão Perto - Todos os feitiços reservados a você. <br>
+      © Projeto feito ao MBA da unifametro.
     </footer>
   </div>
 
