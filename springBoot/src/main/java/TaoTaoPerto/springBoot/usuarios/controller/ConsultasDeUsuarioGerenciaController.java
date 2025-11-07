@@ -166,4 +166,10 @@ public class ConsultasDeUsuarioGerenciaController {
     public ResponseEntity<List<CategoriaDto>> listarTodasCategorias() {
         return ResponseEntity.status(HttpStatus.OK).body(categoriaServices.listarTodosProdutosPorCategoria());
     }
+
+    // Listar categoria por id ativa ou não ativa
+    @GetMapping("/vendores/registros/categorias/{id}")
+    public ResponseEntity<CategoriaDto> listarCategoriaPorIdAtivoOuNaoAtivo(@PathVariable Long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(categoriaServices.listarCategoriaPorId(id));
+    }
 }

@@ -33,9 +33,25 @@ public class CategoriaServices {
                 .toList();
     }
 
-    // Listar categoria por id
+    // Listar todas as categorias ativas
+    public List<CategoriaDto> listarTodosProdutosPorCategoriaAtiva() {
+        return categoriaRepository
+                .findAllByAtivoTrue()
+                .stream()
+                .map(categoriaDtoMapper::map)
+                .toList();
+    }
+
+    // Listar categoria por id ativa ou não ativa
     public CategoriaDto listarCategoriaPorId(Long id) {
         return categoriaRepository.findById(id)
+                .map(categoriaDtoMapper::map)
+                .orElseThrow(() -> new RuntimeException("Categoria nao encontrada"));
+    }
+
+    // Listar categoria por id ativa
+    public CategoriaDto listarCategoriaPorIdAtivo(Long id) {
+        return categoriaRepository.findByIdAndAtivoTrue(id)
                 .map(categoriaDtoMapper::map)
                 .orElseThrow(() -> new RuntimeException("Categoria nao encontrada"));
     }

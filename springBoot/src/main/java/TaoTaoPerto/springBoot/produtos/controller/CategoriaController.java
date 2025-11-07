@@ -7,8 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 
 @RestController
 @RequestMapping("/categoria/produtos")
@@ -27,10 +25,10 @@ public class CategoriaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(categoriaServices.salvarCategoriaDeProduto(categoriaModel));
     }
 
-    // Listar categoria por id
+    // Listar categoria por id ativa
     @GetMapping("/{id}")
     public ResponseEntity<CategoriaDto> listarCategoriaPorId(@PathVariable Long id) {
-        return ResponseEntity.status(HttpStatus.OK).body(categoriaServices.listarCategoriaPorId(id));
+        return ResponseEntity.status(HttpStatus.OK).body(categoriaServices.listarCategoriaPorIdAtivo(id));
     }
 
     // Atualizar categoria
