@@ -86,3 +86,11 @@ Este arquivo documenta tarefas de refatoração, correção de bugs e melhorias 
       <artifactId>spring-boot-starter-actuator</artifactId>
   </dependency>
   ```
+
+### 7. Melhoria de mensagens de erro
+
+- Adiconar um tratamento de erros nos services que não tem
+```
+    - Categorias de produtos
+    - Produtos
+```
