@@ -4,10 +4,9 @@ import TaoTaoPerto.springBoot.produtos.dtos.ProdutoDto;
 import TaoTaoPerto.springBoot.produtos.services.ProdutoServices;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/produtos")
@@ -23,5 +22,11 @@ public class ProdutoController {
     @PostMapping("/registrar")
     public ResponseEntity<ProdutoDto> salvarProduto(@RequestBody ProdutoDto produtoDto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(produtoServices.salvarProduto(produtoDto));
+    }
+
+    // atualizar produto
+    @PutMapping("/atualizar/{id}")
+    public ResponseEntity<Optional<ProdutoDto>> atualizarProduto(@PathVariable Long id, @RequestBody ProdutoDto produtoDto) {
+        return ResponseEntity.status(HttpStatus.OK).body(produtoServices.atualizarProduto(id, produtoDto));
     }
 }

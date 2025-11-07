@@ -63,6 +63,7 @@ public class ProdutoServices {
             produtoModel.get().atualizarProdutoComDto(produtoDto);
             produtoModel = Optional.of(produtoRepository.save(produtoModel.get()));
         }
+        System.out.println(produtoModel);
         return produtoModel.map(produtoDtoMapper::map);
     }
 

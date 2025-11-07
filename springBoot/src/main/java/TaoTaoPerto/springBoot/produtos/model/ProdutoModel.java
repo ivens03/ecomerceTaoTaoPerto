@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Data
@@ -128,6 +129,9 @@ public class ProdutoModel implements Serializable {
         }
         if (produtoDto.getTotalAvaliacoes() != null) {
             this.totalAvaliacoes = produtoDto.getTotalAvaliacoes();
+        }
+        if (produtoDto.getVendedorPerfilId() != null) {
+            this.vendedorPerfilId = produtoDto.getVendedorPerfilId();
         }
     }
 }
