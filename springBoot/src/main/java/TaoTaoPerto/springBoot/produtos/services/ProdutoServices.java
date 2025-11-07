@@ -38,19 +38,19 @@ public class ProdutoServices {
         return produtoModel.map(produtoDtoMapper::map);
     }
 
-    // Listar todos os produtos ativos
+    // Listar todos os produtos ativos * Fazer Controller usando ele para os clientes *
     public List<ProdutoDto> buscarTodosOsProdutos() {
         List<ProdutoModel> produtoModels = produtoRepository.findAllByAtivoTrue();
         return produtoModels.stream().map(produtoDtoMapper::map).collect(Collectors.toList());
     }
 
-    // Listar todos os produtos ativos e não ativos ***
+    // Listar todos os produtos ativos e não ativos
     public List<ProdutoDto> buscarTodosOsProdutosAtivosENaoAtivos() {
         List<ProdutoModel> produtoModels = produtoRepository.findAll();
         return produtoModels.stream().map(produtoDtoMapper::map).collect(Collectors.toList());
     }
 
-    // Listar todos os produtos ativos e não ativos por id ***
+    // Listar todos os produtos ativos e não ativos por id
     public Optional<ProdutoDto> buscarProdutoPorIdAtivoENaoAtivo(Long id) {
         Optional<ProdutoModel> produtoModel = produtoRepository.findById(id);
         return produtoModel.map(produtoDtoMapper::map);

@@ -29,4 +29,11 @@ public class ProdutoController {
     public ResponseEntity<Optional<ProdutoDto>> atualizarProduto(@PathVariable Long id, @RequestBody ProdutoDto produtoDto) {
         return ResponseEntity.status(HttpStatus.OK).body(produtoServices.atualizarProduto(id, produtoDto));
     }
+
+    // Delete logico
+    @DeleteMapping("/deletar/{id}")
+    public ResponseEntity<Void> deleteLogico(@PathVariable Long id) {
+        produtoServices.deleteLogico(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }

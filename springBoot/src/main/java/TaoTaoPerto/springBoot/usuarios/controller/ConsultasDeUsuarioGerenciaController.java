@@ -172,4 +172,16 @@ public class ConsultasDeUsuarioGerenciaController {
     public ResponseEntity<CategoriaDto> listarCategoriaPorIdAtivoOuNaoAtivo(@PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(categoriaServices.listarCategoriaPorId(id));
     }
+
+    // Listar todos os produtos ativos e não ativos por id
+    @GetMapping("/vendores/registros/produtos/{id}")
+    public ResponseEntity<ProdutoDto> listarProdutoPorIdAtivoOuNaoAtivo(@PathVariable Long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(produtoServices.buscarProdutoPorIdAtivoENaoAtivo(id));
+    }
+
+    // Listar todos os produtos ativos e não ativos
+    @GetMapping("/vendores/registros/produtos")
+    public ResponseEntity<List<ProdutoDto>> listarTodosProdutosAtivosENaoAtivos() {
+        return ResponseEntity.status(HttpStatus.OK).body(produtoServices.buscarTodosOsProdutosAtivosENaoAtivos());
+    }
 }
