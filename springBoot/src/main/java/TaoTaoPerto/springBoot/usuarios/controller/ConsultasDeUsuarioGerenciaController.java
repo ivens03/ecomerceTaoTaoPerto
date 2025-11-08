@@ -1,7 +1,9 @@
 package TaoTaoPerto.springBoot.usuarios.controller;
 
 import TaoTaoPerto.springBoot.produtos.dtos.CategoriaDto;
+import TaoTaoPerto.springBoot.produtos.dtos.ProdutoDto;
 import TaoTaoPerto.springBoot.produtos.services.CategoriaServices;
+import TaoTaoPerto.springBoot.produtos.services.ProdutoServices;
 import TaoTaoPerto.springBoot.usuarios.dtos.EnderecoDto;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.services.EnderecoServices;
@@ -35,15 +37,18 @@ public class ConsultasDeUsuarioGerenciaController {
     private final EnderecoServices enderecoServices;
     private final PerfilVendedorServices perfilVendedorServices;
     private final CategoriaServices categoriaServices;
+    private final ProdutoServices produtoServices;
 
     public ConsultasDeUsuarioGerenciaController(UsuarioServices usuarioServices,
                                                 EnderecoServices enderecoServices,
                                                 PerfilVendedorServices perfilVendedorServices,
-                                                CategoriaServices categoriaServices) {
+                                                CategoriaServices categoriaServices,
+                                                ProdutoServices produtoServices) {
         this.usuarioServices = usuarioServices;
         this.enderecoServices = enderecoServices;
         this.perfilVendedorServices = perfilVendedorServices;
         this.categoriaServices = categoriaServices;
+        this.produtoServices = produtoServices;
     }
 
     //Listar todos mesmo não ativos
@@ -175,7 +180,7 @@ public class ConsultasDeUsuarioGerenciaController {
 
     // Listar todos os produtos ativos e não ativos por id
     @GetMapping("/vendores/registros/produtos/{id}")
-    public ResponseEntity<ProdutoDto> listarProdutoPorIdAtivoOuNaoAtivo(@PathVariable Long id) {
+    public ResponseEntity<Optional<ProdutoDto>> listarProdutoPorIdAtivoOuNaoAtivo(@PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(produtoServices.buscarProdutoPorIdAtivoENaoAtivo(id));
     }
 
