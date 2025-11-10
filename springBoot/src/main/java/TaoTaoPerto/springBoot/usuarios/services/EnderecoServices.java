@@ -3,9 +3,11 @@ package TaoTaoPerto.springBoot.usuarios.services;
 import TaoTaoPerto.springBoot.exception.tratamentoDeErro.UsuarioDesativoOuNaoEncontrado;
 import TaoTaoPerto.springBoot.usuarios.dtos.EnderecoDto;
 import TaoTaoPerto.springBoot.usuarios.dtos.EnderecoDtoMapper;
+import TaoTaoPerto.springBoot.usuarios.enums.TipoMoradiaEnum;
 import TaoTaoPerto.springBoot.usuarios.model.EnderecoModel;
 import TaoTaoPerto.springBoot.usuarios.repository.EnderecoRepository;
 import TaoTaoPerto.springBoot.usuarios.repository.UsuarioRepository;
+import jakarta.validation.ValidationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,8 +25,18 @@ public class EnderecoServices {
         this.enderecoDtoMapper = enderecoDtoMapper;
     }
 
+    private void validarEndereco(EnderecoDto enderecoDto) {
+        if (enderecoDto.getTipoMoradia() == TipoMoradiaEnum.CONDOMINIO) {
+            if (enderecoDto.getComplemento() == null || enderecoDto.getComplemento().isBlank()) {
+                throw new ValidationException("O complemento é obrigatório para o tipo de moradia 'CONDOMÍNIO'.");
+            }
+        }
+    }
+
     // salvar
     public EnderecoDto salvarEndereco(EnderecoDto enderecoDto) {
+        validarEndereco(enderecoDto);
+        enderecoDto.setAtivo(true);
         EnderecoModel enderecoModel = enderecoRepository.save(enderecoDtoMapper.map(enderecoDto));
         return enderecoDtoMapper.map(enderecoModel);
     }
@@ -47,9 +59,9 @@ public class EnderecoServices {
         if (usuario.isEmpty() || !usuario.get().getAtivo()) {
             throw new UsuarioDesativoOuNaoEncontrado("Não foi possivel encontrar o usuario do ID: (" + id + ") ");
         }
-        return enderecoRepository.findByUsuarioId(id)
+        return enderecoRepository.findByUsuarioIdAndAtivoTrue(id)
                 .stream()
-                .filter(EnderecoModel::getAtivo)
+                //.filter(EnderecoModel::getAtivo)
                 .map(enderecoDtoMapper::map)
                 .toList();
     }
@@ -65,12 +77,16 @@ public class EnderecoServices {
 
     //Atualizar pelo id
     public EnderecoDto atualizarEndereco(Long id, EnderecoDto enderecoDto) {
-        var usuario = usuarioRepository.findById(id);
+        var usuario = usuarioRepository.findById(enderecoDto.getUsuarioId());
         if (usuario.isEmpty() || !usuario.get().getAtivo()) {
-            throw new UsuarioDesativoOuNaoEncontrado("Não foi possivel encontrar o usuario do ID: (" + id + ") ");
+            throw new UsuarioDesativoOuNaoEncontrado("Não foi possivel encontrar o usuario do ID: (" + enderecoDto.getUsuarioId() + ") ");
         }
+        validarEndereco(enderecoDto);
         EnderecoModel enderecoModel = enderecoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Endereço não encontrado"));
+                .orElseThrow(() -> new RuntimeException("Endereço não encontrado com o ID: " + id));
+        if (!enderecoModel.getUsuario().getId().equals(enderecoDto.getUsuarioId())) {
+            throw new ValidationException("Este endereço (ID: " + id + ") não pertence ao usuário (ID: " + enderecoDto.getUsuarioId() + ").");
+        }
         enderecoModel.atualizarEnderecoComDto(enderecoDto);
         return enderecoDtoMapper.map(enderecoRepository.save(enderecoModel));
     }

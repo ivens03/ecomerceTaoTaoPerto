@@ -32,6 +32,7 @@ public class EnderecoDtoMapper {
         enderecoModel.setCidade(enderecoDto.getCidade());
         enderecoModel.setEstado(enderecoDto.getEstado());
         enderecoModel.setAtivo(enderecoDto.getAtivo());
+        enderecoModel.setTipoMoradia(enderecoDto.getTipoMoradia());
 
         return enderecoModel;
     }
@@ -55,6 +56,7 @@ public class EnderecoDtoMapper {
         enderecoDto.setCidade(enderecoModel.getCidade());
         enderecoDto.setEstado(enderecoModel.getEstado());
         enderecoDto.setAtivo(enderecoModel.getAtivo());
+        enderecoDto.setTipoMoradia(enderecoModel.getTipoMoradia());
 
         return enderecoDto;
     }

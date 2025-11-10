@@ -1,6 +1,7 @@
 package TaoTaoPerto.springBoot.usuarios.model;
 
 import TaoTaoPerto.springBoot.usuarios.dtos.EnderecoDto;
+import TaoTaoPerto.springBoot.usuarios.enums.TipoMoradiaEnum;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -25,7 +26,7 @@ public class EnderecoModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonBackReference // Evita loop infinito no JSON
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id", nullable = false)
     private UsuarioModel usuario;
@@ -39,13 +40,14 @@ public class EnderecoModel implements Serializable {
     @Column(name = "logradouro", length = 255, nullable = false)
     private String logradouro;
 
-    @Column(name = "numero", length = 20)
+    @Column(name = "numero", length = 20, nullable = false)
     private String numero;
 
+    // (V14) É opcional, exceto se tipo_moradia = CONDOMINIO (regra no CHECK)
     @Column(name = "complemento", length = 100)
     private String complemento;
 
-    @Column(name = "bairro", length = 100)
+    @Column(name = "bairro", length = 100, nullable = false)
     private String bairro;
 
     @Column(name = "cidade", length = 100, nullable = false)
@@ -64,6 +66,10 @@ public class EnderecoModel implements Serializable {
 
     @Column(name = "ativo", nullable = false)
     private Boolean ativo;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_moradia", nullable = false)
+    private TipoMoradiaEnum tipoMoradia;
 
     public void atualizarEnderecoComDto(EnderecoDto enderecoDto) {
         if (enderecoDto.getLogradouro() != null) {
@@ -89,6 +95,9 @@ public class EnderecoModel implements Serializable {
         }
         if (enderecoDto.getAtivo() != null) {
             this.ativo = enderecoDto.getAtivo();
+        }
+        if (enderecoDto.getTipoMoradia() != null) {
+            this.tipoMoradia = enderecoDto.getTipoMoradia();
         }
     }
 

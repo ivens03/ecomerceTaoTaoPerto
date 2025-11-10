@@ -1,6 +1,8 @@
 package TaoTaoPerto.springBoot.usuarios.dtos;
 
+import TaoTaoPerto.springBoot.usuarios.enums.TipoMoradiaEnum;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -42,6 +44,9 @@ public class EnderecoDto {
     @NotBlank(message = "O estado é obrigatório")
     @Size(min = 2, max = 2, message = "O estado deve ter exatamente 2 caracteres")
     private String estado;
+
+    //@NotNull(message = "O tipo de moradia é obrigatório (CASA ou CONDOMINIO)")
+    private TipoMoradiaEnum tipoMoradia;
 
     private Boolean ativo;
 }

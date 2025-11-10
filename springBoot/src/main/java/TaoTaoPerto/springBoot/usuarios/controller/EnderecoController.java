@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -72,8 +73,8 @@ public class EnderecoController {
             @ApiResponse(responseCode = "404", description = "Usuário ou Endereço não encontrado",
                     content = @Content)
     })
-    @PutMapping("/atualizarEndereco/{id}")
-    public ResponseEntity<EnderecoDto> atualizarEndereco(@PathVariable Long id, EnderecoDto enderecoDto) {
+    @PatchMapping("/atualizarEndereco/{id}")
+    public ResponseEntity<EnderecoDto> atualizarEndereco(@PathVariable Long id, @Valid @RequestBody EnderecoDto enderecoDto) {
         return ResponseEntity.ok(enderecoServices.atualizarEndereco(id, enderecoDto));
     }
 
