@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "EndPoint dos clientes", description = "Endpoints para o cadastro e gerenciamento da conta do usuário (self-service)")
 @RestController
 @RequestMapping("/ususarios")
-public class UsuariosController {
+public class ClienteController {
 
     private final UsuarioServices usuarioServices;
     private final PerfilClienteServices perfilClienteServices;
 
-    public UsuariosController(UsuarioServices usuarioServices, PerfilClienteServices perfilClienteServices) {
+    public ClienteController(UsuarioServices usuarioServices, PerfilClienteServices perfilClienteServices) {
         this.usuarioServices = usuarioServices;
         this.perfilClienteServices = perfilClienteServices;
     }
