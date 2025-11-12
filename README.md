@@ -255,7 +255,23 @@ Ajuda a decidir mais rápido entre produtos similares.
 - Essencial: É a funcionalidade mais básica de qualquer e-commerce. O cliente precisa acompanhar o que comprou.
 
 ---
+### **2.4.14 – Múltiplos Carrinhos de Compra Personalizados**
+- O cliente pode criar e gerenciar vários carrinhos diferentes dentro do mesmo perfil.
 
+**Como funciona?**  
+- Uma nova seção no site chamada *“Meus Carrinhos”* permite criar, renomear e excluir carrinhos.  
+- Cada carrinho funciona de forma independente, com seus próprios produtos, quantidades e valores.  
+- O usuário pode alternar entre carrinhos com um clique, adicionando itens a qualquer um deles.  
+- É possível mover produtos de um carrinho para outro ou duplicar um carrinho inteiro.  
+- O sistema salva automaticamente todos os carrinhos criados, mesmo após logout.  
+- No checkout, o cliente escolhe qual carrinho deseja finalizar sem interferir nos outros.  
+
+**Benefícios:**  
+- Facilita a organização das compras por tema, pessoa ou ocasião (ex: *“Casa”*, *“Trabalho”*, *“Presentes”*).  
+- Aumenta a conveniência para clientes que compram com frequência ou para diferentes propósitos.  
+- Melhora a experiência do usuário e reduz o abandono de carrinho.  
+- Incentiva a recompra e o retorno ao site, pois os carrinhos permanecem salvos.
+---
 ## **2.5 – Recursos para ENTREGADORES**
 
 ### **2.5.1 – Histórico de Ganhos**
@@ -419,6 +435,22 @@ Chat dedicado a mensagens rápidas
 **Como ele veria?**
 - Após aceitar entrega, abriria a aba de endereço e juntamente a o "balão" de mensagens para o que receberá a entrega. 
 
+---
+### **2.5.14 – Comunidade de Entregadores**
+- Espaço dentro do app com fórum ou feed, onde entregadores trocam dicas, rotas, alertas e experiências.
+
+**Como funciona?**  
+- Uma seção chamada *“Comunidade”* reúne publicações feitas por entregadores.  
+- É possível criar posts, comentar, curtir e compartilhar informações úteis.  
+- O sistema permite marcar temas com hashtags (ex: #rotas, #chuva, #problemas).  
+- A moderação automática filtra linguagem inadequada e prioriza postagens relevantes.  
+- Entregadores podem seguir outros colegas ou tópicos de interesse.  
+
+**Benefícios:**  
+- Cria senso de comunidade e colaboração entre os entregadores.  
+- Facilita a troca de conhecimento sobre rotas, segurança e boas práticas.  
+- Diminui o isolamento e aumenta o engajamento com a plataforma.  
+- Fortalece o vínculo entre entregadores e a empresa.
 ---
 
 ## 2.6 – **Recursos para GERENTES**
@@ -754,6 +786,23 @@ Notificar o cliente que ja compra da loja sobre:
 **Como seria?**
 - Ao adicionar um estoque de volta, aparece a lista de pessoas que ja tenham feitas em sua loja e que podem se interresar pela volta de tal produto.
 
+---
+### **2.8.14 – Modo Colaborador**
+- Permite adicionar membros à conta da loja (ex: funcionários) com permissões limitadas.
+
+**Como funciona?**  
+- O dono da loja acessa a seção *“Equipe da Loja”* no painel de controle.  
+- Pode convidar novos colaboradores por e-mail ou código de acesso.  
+- Cada colaborador recebe uma função específica, como:  
+  - *Cadastro de Produtos*  
+  - *Atendimento ao Cliente*  
+- As permissões são configuráveis — o administrador decide o que cada um pode visualizar ou editar.  
+- Todas as ações são registradas no histórico da conta para auditoria.  
+
+**Benefícios:**  
+- Facilita a gestão de equipes e tarefas dentro da loja.  
+- Permite delegar responsabilidades sem comprometer a conta principal.  
+- Melhora a produtividade e organização da operação.
 ---
 
 
