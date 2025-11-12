@@ -43,6 +43,8 @@ A plataforma utiliza algoritmos para "prender" o usuário e otimizar o processo 
 | **Avatar Progressivo 🧬** | Usuários e vendedores possuem um avatar personalizável que evolui conforme interagem no site. A cada compra, avaliação ou meta cumprida, o avatar ganha novos visuais, emblemas ou animações — criando uma identidade visual e um senso de progresso contínuo. |
 
 
+
+
 ### 2.3. Painel de Vendedor com Analytics Avançado 📈
 
 Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e análise de dados:
@@ -50,7 +52,8 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 * **Integração de Gráficos:** Vendedores têm acesso a gráficos em tempo real de suas **Vendas, Usuários Alcançados e Visualizações** de produtos.
 * **Impulsionamento:** Ferramenta para que o vendedor possa **impulsionar a visibilidade** de seus produtos dentro da plataforma, melhorando o engajamento e a performance.
 
-## 2.4 – Recursos para CLIENTES
+
+## **2.4 – Recursos para CLIENTES**
 
 ### **2.4.1 – Rastreamento com Mapa Simplificado**
 - O cliente vê um ponto no mapa se movendo conforme o status do pedido.
@@ -96,6 +99,7 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 - Saldo interno da plataforma
 
 ---
+
 ### **2.4.4 – Notificação de Queda de Preço Personalizada**
 - Cliente marca um produto e recebe alerta automático quando o preço cair.
 
@@ -106,7 +110,9 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 
 **Benefícios:**
 - Evita que o cliente perca promoções.
+  
 ---
+
 ### **2.4.5 – Compra Compartilhada**
 - Permite que amigos adicionem produtos juntos em um mesmo carrinho.
 
@@ -127,6 +133,7 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 **Benefícios:**
 - Facilita compras coletivas (ex: presentes, eventos).
 - Estimula engajamento social entre usuários da plataforma.
+  
 ---
 
 ### **2.4.6 – Modo “Comprar Novamente” Rápido**
@@ -139,6 +146,8 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 
 **Benefícios:**
 - Agiliza compras recorrentes.
+
+---
 
 ### **2.4.7 - Lembrete de "Volta de Estoque"**
 - O cliente pode solicitar um alerta quando um produto esgotado voltar ao estoque.
@@ -155,6 +164,8 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 **Onde ele veria?**
 - Na página do produto esgotado e na área **“Minhas notificações”** do perfil do cliente.
 
+---
+
 ### **2.4.8 - Mudança de Idioma**
 - Permite ao cliente escolher o idioma da interface do site/aplicativo.
 
@@ -169,6 +180,7 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 **Onde ele veria?**
 - Na aba de configurações da conta.
 
+---
 
 ### **2.4.9 - Medidas Online**
 - Ajuda o cliente a escolher o tamanho ideal de roupas ou calçados.
@@ -190,15 +202,15 @@ Para capacitar os vendedores, a plataforma oferece ferramentas de gestão e aná
 
 ---
 
-### **2.4.7 – Histórico Inteligente de Avaliações**
+### **2.4.10 – Histórico Inteligente de Avaliações**
 O sistema sugere produtos para avaliar.
 
 Após avaliar, o cliente ganha benefícios como cupons.
 
 ---
 
-### **2.4.8 – Perfil de Preferências**
-O usuário escolhe manually preferências básicas:
+### **2.4.11 – Perfil de Preferências**
+O usuário escolhe manualmente as preferências básicas:
 
 * Tipos de produto que mais gosta
 * Marcas favoritas
@@ -209,7 +221,7 @@ A plataforma ajusta recomendações e promoções sem depender apenas de histór
 
 ---
 
-### **2.4.9 – Comparador de Produtos**
+### **2.4.12 – Comparador de Produtos**
 O usuário marca 2 produtos e abre uma tela mostrando:
 
 * Preço
@@ -221,7 +233,9 @@ O usuário marca 2 produtos e abre uma tela mostrando:
 **Benefício:**
 Ajuda a decidir mais rápido entre produtos similares.
 
-### **2.4.10 – Histórico de Pedidos Detalhado**
+---
+
+### **2.4.13 – Histórico de Pedidos Detalhado**
 - O cliente pode ver uma lista de todos os pedidos já feitos (atuais e concluídos).
 
 **Como funciona?**
@@ -239,15 +253,17 @@ Ajuda a decidir mais rápido entre produtos similares.
 
 ---
 
-## 2.5 – Recursos para ENTREGADORES
+## **2.5 – Recursos para ENTREGADORES**
 
-### 2.5.1 – Histórico de Ganhos
+### **2.5.1 – Histórico de Ganhos**
 - Entregadores visualizam **quanto ganharam por dia**.
 
 **Quais gráficos serão usados e para que servem?**  
 - Gráfico de barras: **dia vs valor ganho**  
 - Linha acumulando ganhos semanais/mensais  
 - Objetivo: dar clareza sobre desempenho diário e incentivar produtividade.
+
+---
 
 ### **2.5.2 – Registro de Gastos (Gasolina, manutenção, óleo, etc)**
 - Entregador pode registrar os próprios gastos.
@@ -259,11 +275,14 @@ Ajuda a decidir mais rápido entre produtos similares.
 **O relatório é exportável?**
 - Sim, o sistema permite exportar em **PDF ou Excel**, permitindo controle contábil externo.
 
-### 2.5.3 – Rotas Preferidas
+---
+
+### **2.5.3 – Rotas Preferidas**
 - Ele escolhe regiões que quer ou não quer atender.
 - Sistema prioriza pedidos naquelas áreas.
 
 ---
+
 ### **2.5.4 – Avaliação de Desempenho e Histórico de Entregas**
 - Estatísticas completas de entregas realizadas, atrasos e avaliações.
 
@@ -286,7 +305,9 @@ Ajuda a decidir mais rápido entre produtos similares.
 **Benefícios:**
 - Incentiva produtividade.
 - Permite acompanhar evolução e identificar melhorias.
+  
 ---
+
 ### **2.5.5 – Relato Rápido de Problemas**
 - Botão “Relatar problema” envia automaticamente foto e localização alem de um formulário.
 
@@ -301,8 +322,10 @@ Ajuda a decidir mais rápido entre produtos similares.
 - O cliente pode contestar após 3 dias
 
 **Benefícios:**
-- Reduz falhas e melhora a comunicação.
+- Reduz falhas e melhora a comunicação com a plataforma.
+
 ---
+
 ### **2.5.6 – Visualização de Rotas Otimizadas**
 - Mapa com o trajeto ideal e informações detalhadas de entrega.
 
@@ -313,6 +336,8 @@ Ajuda a decidir mais rápido entre produtos similares.
 
 **Benefícios:**
 - Reduz custos operacionais e tempo de entrega.
+
+---
 
 ### **2.5.7 - Sistema de mensagens com as lojas**
 - Permite que o entregador se comunique diretamente com o vendedor em caso de dúvidas ou imprevistos.
@@ -328,9 +353,10 @@ Ajuda a decidir mais rápido entre produtos similares.
 
 **Como ele veria?**
 - No painel de entregas do app do entregador, dentro do pedido selecionado.
+  
 ---
 
-### **2.5.7 – Check-in Simples de Entrega**
+### **2.5.8 – Check-in Simples de Entrega**
 Ao chegar no endereço, o entregador clica “Cheguei”.
 
 * Sistema registra localização aproximada (não precisa GPS em tempo real)
@@ -341,7 +367,7 @@ Evita ligações e aumenta transparência.
 
 ---
 
-### **2.5.8 – Prova de Entrega por Foto**
+### **2.5.9 – Prova de Entrega por Foto**
 Se o cliente não estiver, o entregador tira uma foto do pacote deixado na portaria ou caixa de correio.
 
 **Benefício:**
@@ -349,13 +375,15 @@ Evita reclamações e chargebacks.
 
 ---
 
-### **2.5.9 – Aviso Automático de Trânsito/Clima**
+### **2.5.10 – Aviso Automático de Trânsito/Clima**
 Se a cidade estiver com enchente, protesto ou trânsito crítico, o entregador marca “dificuldade na rota”.
 
 * Prazo ajusta automaticamente
 * Cliente recebe aviso preventivo
 
-### **2.5.10 – Status "Online" / "Offline**
+---
+
+### **2.5.11 – Status "Online" / "Offline**
 Um botão claro na tela principal do app que permite ao entregador definir se está disponível para receber novas entregas.
 
 **Como funciona?**
@@ -367,20 +395,26 @@ Um botão claro na tela principal do app que permite ao entregador definir se es
 
 **Benefícios:**
 - Essencial: Dá ao entregador controle sobre sua jornada de trabalho e evita que o sistema envie corridas que ele não pode aceitar (o que geraria cancelamentos e frustração).
+  
 ---
 
-## 2.6 – Recursos para GERENTES
+## 2.6 – **Recursos para GERENTES**
 
-### 2.6.1 – Dashboard Básico
+### **2.6.1 – Dashboard Básico**
 - Mostra pedidos por dia, atrasos, clientes e vendedores ativos.
-
-### 2.6.2 – Modo de Intervenção
-- Gerente pode assumir um chat entre cliente/vendedor e resolver diretamente.
-
-### 2.6.3 – Alerta de Problemas
-- Se uma loja tem muitas reclamações, ou um entregador com atrasos, o gerente recebe aviso.
-
+  
 ---
+
+### **2.6.2 – Modo de Intervenção**
+- Gerente pode assumir um chat entre cliente/vendedor e resolver diretamente.
+  
+---
+
+### **2.6.3 – Alerta de Problemas**
+- Se uma loja tem muitas reclamações, ou um entregador com atrasos, o gerente recebe aviso.
+  
+---
+
 ### **2.6.4 – Mapa de Calor de Vendas**
 - Mostra visualmente as regiões com maior volume de pedidos.
 
@@ -390,7 +424,9 @@ Um botão claro na tela principal do app que permite ao entregador definir se es
 
 **Benefícios:**
 - Identifica áreas estratégicas e oportunidades de expansão.
+  
 ---
+
 ### **2.6.5 – Simulador de Lucro**
 - Mostra o impacto estimado nos lucros antes de aplicar descontos.
 
@@ -398,6 +434,8 @@ Um botão claro na tela principal do app que permite ao entregador definir se es
 - O gerente informa o percentual de desconto ou promoção.
 - O sistema calcula a nova margem de lucro automaticamente.
 - Exibe comparativo entre lucro atual e projetado.
+  
+---
 
 ### **2.6.6 – Alerta de Vendedores Inativos**
 - Notifica automaticamente quando um vendedor ultrapassa o limite de dias sem atividade.
@@ -412,7 +450,7 @@ Um botão claro na tela principal do app que permite ao entregador definir se es
 
 **Benefícios:**
 - Mantém a plataforma ativa e saudável.
-
+  
 ---
 
 ### **2.6.7 – Relatório de Fraude**
@@ -447,10 +485,10 @@ Gerente pode revisar conversas entre cliente ↔ vendedor ↔ entregador caso ha
 * Apenas quando há chamado formal
 * Mantém transparência
 * Ajuda a decidir reembolso
-
+  
 ---
 
-## 2.7 – Recursos para SUPORTE
+## **2.7 – Recursos para SUPORTE**
 
 ### **2.7.1 – Chatbot de Triagem Nível 1**
 - Antes de chegar ao humano, um robô faz perguntas simples.
@@ -459,6 +497,8 @@ Gerente pode revisar conversas entre cliente ↔ vendedor ↔ entregador caso ha
 - Primeiro nível: chatbot automatizado.  
 - Caso não resolva, encaminha para um atendente humano do setor de suporte.
 - Futuramente podendo encaminhar para algum outro setor se necessário
+  
+---
 
 ### **2.7.2 – Histórico Unificado de Reclamações**
 - O suporte pode visualizar histórico daquele cliente ou vendedor.
@@ -466,6 +506,8 @@ Gerente pode revisar conversas entre cliente ↔ vendedor ↔ entregador caso ha
 **Por que esse nível de acesso?**
 - Para identificar abusos, golpes, clientes repetidamente insatisfeitos, problemas recorrentes com uma loja ou produto.
 - Evita reembolsos indevidos e agiliza casos urgentes.
+  
+---
 
 ### **2.7.3 – Reembolso Simplificado**
 - O suporte pode clicar em “aprovar” e gerar reembolso interno imediatamente.
@@ -474,8 +516,9 @@ Gerente pode revisar conversas entre cliente ↔ vendedor ↔ entregador caso ha
 1. Caso aprovado, o sistema devolve o valor como **crédito interno** na conta do cliente.
 2. Crédito pode ser usado para nova compra.
 3. Em casos especiais, é possível fazer reversão via cartão ou pix.
-
+   
 ---
+
 ### **2.7.4 – Relatórios de Atendimento**
 - Acompanha métricas de desempenho do suporte e satisfação dos clientes.
 
@@ -485,7 +528,9 @@ Gerente pode revisar conversas entre cliente ↔ vendedor ↔ entregador caso ha
 
 **Benefícios:**
 - Melhora o controle de qualidade.
+  
 ---
+
 ### **2.7.5 – Auto-Sugestão de Solução**
 - Sugere respostas automáticas com base em reclamações anteriores.
 
@@ -496,7 +541,9 @@ Gerente pode revisar conversas entre cliente ↔ vendedor ↔ entregador caso ha
 
 **Benefícios:**
 - Reduz tempo de atendimento.
+  
 ---
+
 ### **2.7.6 – Chat Pré-Configurado por Tipo de Problema**
 - Cliente escolhe o motivo e o suporte recebe formulário filtrado.
 
@@ -508,20 +555,20 @@ Gerente pode revisar conversas entre cliente ↔ vendedor ↔ entregador caso ha
 **Benefícios:**
 - Reduz tempo de triagem.
 - Garante atendimento mais rápido e assertivo.
-
+  
 ---
 
 ### **2.7.7 – Carimbo de Evidências**
 Suporte pode anexar prints, fotos enviadas pelo cliente ou vendedor dentro do caso.
 
-Facilita análise e auditoria.
+- Facilita análise e auditoria.
 
 ---
 
 ### **2.7.8 – Etiqueta “Cliente Risco” / “Loja Risco”**
 Se o sistema identificar golpes recorrentes (cliente pedindo reembolso sem motivo ou loja enganando compradores), coloca um alerta interno.
 
-Previne prejuízo financeiro.
+- Previne prejuízo financeiro.
 
 ---
 
@@ -535,22 +582,27 @@ Quando o chamado fecha:
 
 * Cliente avalia o atendimento
 * Dados ajudam na qualidade e métrica de SLAs
-
+  
 ---
 
-## 2.8 – Recursos para VENDEDORES
+## **2.8 – Recursos para VENDEDORES**
 
-### 2.8.1 – Etiqueta de 'Vendido Pela Loja'
+### **2.8.1 – Etiqueta de 'Vendido Pela Loja'**
 - Exibe nos produtos a informação de que são vendidos e enviados pela própria loja.
+  
+---
 
 ### **2.8.2 – Cupom Relâmpago**
 - Cupom válido por tempo curto (ex: 1h ou 1 dia).
+
 
 **Por que o vendedor tem cupom?**
 - Para limpar estoque rápido, destacar produtos, atrair tráfego para a vitrine da loja.
 
 **Onde o vendedor usa?**
 - No painel da loja, criando cupons para produtos específicos ou toda a loja.
+  
+---
 
 ### **2.8.3 – “Por que este preço?” ❔**
 - Ícone ao lado do preço do carrinho **explica para o cliente**:  
@@ -560,7 +612,9 @@ Quando o chamado fecha:
 
 **Objetivo:**  
 - Criar transparência e empatia com o valor final, ajudando o cliente a entender de onde vem o preço.
+  
 ---
+
 ### **2.8.4 – Comparador de Preços Concorrentes**
 - Mostra o preço médio de produtos semelhantes em outras lojas da plataforma.
 
@@ -570,7 +624,9 @@ Quando o chamado fecha:
 
 **Benefícios:**
 - Mantém a loja competitiva.
+  
 ---
+
 ### **2.8.5 – Estoque Inteligente**
 - Sugere quais produtos repor com base no histórico de vendas.
 
@@ -581,7 +637,9 @@ Quando o chamado fecha:
 **Benefícios:**
 - Evita falta de produtos.
 - Melhora planejamento de compras e reposições.
+  
 ---
+
 ### **2.8.6 – Análise de Desistências**
 - Informa quantas vezes o produto foi visto ou adicionado ao carrinho sem compra.
 
@@ -592,6 +650,8 @@ Quando o chamado fecha:
 **Benefícios:**
 - Ajuda o vendedor a otimizar preços e descrições.
 - Reduz abandono de carrinho e melhora conversão.
+  
+---
 
 ### **2.8.7 - Variação de Cores e Tamanhos do Produto Vendido**
 - O vendedor pode cadastrar múltiplas versões de um mesmo produto.
@@ -607,6 +667,8 @@ Quando o chamado fecha:
 
 **Como ele veria?**
 - No painel de gerenciamento de produtos, na seção “Adicionar Variações”.
+  
+---
 
 ### **2.8.8 - Medidas Online**
 - Permite ao vendedor cadastrar tabelas de medidas personalizadas para cada produto.
@@ -622,23 +684,24 @@ Quando o chamado fecha:
 
 **Como ele veria?**
 - No painel de cadastro de produtos e na página pública do produto.
+  
 ---
 
-### **2.8.7 – Ferramenta de A/B Testing de Vitrine**
+### **2.8.9 – Ferramenta de A/B Testing de Vitrine**
 Vendedor cria 2 versões de banner, foto ou título.
 
 Sistema mostra automaticamente qual gerou mais cliques e vendas.
 
 ---
 
-### **2.8.8 – Promoções por Horário Estratégico**
+### **2.8.10 – Promoções por Horário Estratégico**
 Vendedor agenda promoções automáticas em horários de pico ou baixa.
 
 Ex: descontos só à noite ou só nos finais de semana.
 
 ---
 
-### **2.8.9 – Perguntas e Respostas**
+### **2.8.11 – Perguntas e Respostas**
 Clientes fazem perguntas no produto e o vendedor responde publicamente.
 
 * Reduz dúvidas repetidas
@@ -646,7 +709,7 @@ Clientes fazem perguntas no produto e o vendedor responde publicamente.
 
 ---
 
-### **2.8.10 – Organização de Catálogo por Coleções**
+### **2.8.12 – Organização de Catálogo por Coleções**
 Vendedor pode organizar:
 
 * “Black Friday”
