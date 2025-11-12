@@ -1,4 +1,7 @@
-<img width="257" height="569" alt="image" src="https://github.com/user-attachments/assets/a777b448-fc32-43db-ba7c-39d197dc49f6" /># Projeto E-commerce TaoTaoPerto MBA Unifametro 
+
+# Projeto E-commerce TaoTaoPerto MBA Unifametro 
+
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/ec3e0ad9-9c5a-4e55-92bb-6515f7ab30db" />
 
 ## 1. Contexto Acadêmico 🎓
 
