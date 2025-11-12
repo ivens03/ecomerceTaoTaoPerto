@@ -1,4 +1,4 @@
-# Projeto E-commerce TaoTaoPerto MBA Unifametro 
+<img width="257" height="569" alt="image" src="https://github.com/user-attachments/assets/a777b448-fc32-43db-ba7c-39d197dc49f6" /># Projeto E-commerce TaoTaoPerto MBA Unifametro 
 
 ## 1. Contexto Acadêmico 🎓
 
@@ -395,28 +395,48 @@ Um botão claro na tela principal do app que permite ao entregador definir se es
 
 **Benefícios:**
 - Essencial: Dá ao entregador controle sobre sua jornada de trabalho e evita que o sistema envie corridas que ele não pode aceitar (o que geraria cancelamentos e frustração).
-  
+
+---
+
+### **2.5.12 - Sistema de Código de Confirmação**
+O app gera um código necessário para poder ser feita a entrega
+
+**Como funciona?**
+- O código será sempre o final do telefone cadastrado no app.
+- A entrega confirmará após a pessoa dizer o código e então poderá prosseguir o processo.
+
+---
+
+### **2.5.13 - Chat com cliente**
+Chat dedicado a mensagens rápidas
+
+**Como funciona?**
+- O entregador poderá enviar mensagens rápidas pré-programadas
+
+**Como ele veria?**
+- Após aceitar entrega, abriria a aba de endereço e juntamente a o "balão" de mensagens para o que receberá a entrega. 
+
 ---
 
 ## 2.6 – **Recursos para GERENTES**
 
 ### **2.6.1 – Dashboard Básico**
-- Mostra pedidos por dia, atrasos, clientes e vendedores ativos.
+Mostra pedidos por dia, atrasos, clientes e vendedores ativos.
   
 ---
 
 ### **2.6.2 – Modo de Intervenção**
-- Gerente pode assumir um chat entre cliente/vendedor e resolver diretamente.
+Gerente pode assumir um chat entre cliente/vendedor e resolver diretamente.
   
 ---
 
 ### **2.6.3 – Alerta de Problemas**
-- Se uma loja tem muitas reclamações, ou um entregador com atrasos, o gerente recebe aviso.
+Se uma loja tem muitas reclamações, ou um entregador com atrasos, o gerente recebe aviso.
   
 ---
 
 ### **2.6.4 – Mapa de Calor de Vendas**
-- Mostra visualmente as regiões com maior volume de pedidos.
+Mostra visualmente as regiões com maior volume de pedidos.
 
 **Como funciona?**
 - O mapa utiliza cores para representar intensidade de vendas por região.
@@ -428,7 +448,7 @@ Um botão claro na tela principal do app que permite ao entregador definir se es
 ---
 
 ### **2.6.5 – Simulador de Lucro**
-- Mostra o impacto estimado nos lucros antes de aplicar descontos.
+Mostra o impacto estimado nos lucros antes de aplicar descontos.
 
 **Como funciona?**
 - O gerente informa o percentual de desconto ou promoção.
@@ -438,7 +458,7 @@ Um botão claro na tela principal do app que permite ao entregador definir se es
 ---
 
 ### **2.6.6 – Alerta de Vendedores Inativos**
-- Notifica automaticamente quando um vendedor ultrapassa o limite de dias sem atividade.
+Notifica automaticamente quando um vendedor ultrapassa o limite de dias sem atividade.
 
 **Como funciona?**
 - O sistema monitora eventos de atividade do vendedor (login, atualização de produtos, mensagens, vendas, etc.).  
@@ -722,6 +742,17 @@ Deixa vitrine profissional com pouco esforço.
 
 ---
 
+### **2.8.13 - Aviso de volta de Estoque**
+Notificar o cliente que ja compra da loja sobre:
+
+**Como funciona?**
+- O vendedor consegue notificar uma pessoa que ja tenha feito alguma compra na sua loja, enviando notificação pelo própio app.
+
+**Como seria?**
+- Ao adicionar um estoque de volta, aparece a lista de pessoas que ja tenham feitas em sua loja e que podem se interresar pela volta de tal produto.
+
+---
+
 
 ## 3. Stack Tecnológica (Tecnologias Utilizadas) 🛠️
 
@@ -757,7 +788,7 @@ O projeto **TaoTaoPerto** foi construído utilizando uma arquitetura moderna e t
 
 O projeto **TaoTaoPerto** foi concebido e implementado pelos seguintes alunos, como parte do trabalho de conclusão do MBA em Desenvolvimento Full Stack com DevOps:
 
-| Membro da Equipe |  |
+| Membro da Equipe | Funções
 | :--- | :--- |
 | **Ivens Magno Da Costa Lisboa** | Engenheiro de software |
 | **Rodrigo Santos Cavalcante** | Engenheiro de software |
