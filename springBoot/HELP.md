@@ -53,49 +53,34 @@ O projeto segue uma arquitetura baseada em domínios, onde cada tipo de usuário
 ### Estrutura de Diretórios
 
 ```
-com.taotaoperto
+src/main/java/TaoTaoPerto/springBoot/
 ├── config/                    # Configurações do projeto
-├── usuarios/                  # Funcionalidades comuns a todos os usuários
-│   ├── controller/
-│   ├── service/
-│   ├── repository/
-│   ├── model/
-│   └── dto/
-├── exception/                  # Tratamento de erros personalizados.
+├── exception/                 # Tratamento de erros personalizados
 │   ├── dto/
 │   ├── tratamentoDeErro/
-│   ├── GlobalExceptionHandler
-├── clientes/                  # Funcionalidades específicas para clientes
+│   └── GlobalExceptionHandler
+├── produtos/                  # Funcionalidades relacionadas a produtos
 │   ├── controller/
 │   ├── service/
 │   ├── repository/
 │   ├── model/
 │   └── dto/
-├── vendedores/                # Funcionalidades específicas para vendedores
-│   ├── controller/
-│   ├── service/
-│   ├── repository/
-│   ├── model/
-│   └── dto/
-│── entregadores/              # Funcionalidades específicas para os entregadores
-│   ├── controller/
-│   ├── service/
-│   ├── repository/
-│   ├── model/
-│   └── dto/
-│── administradores/           # Funcionalidades administrativas
-│   ├── controller/
-│   ├── service/
-│   ├── repository/
-│   ├── model/
-│   └── dto/
-│── suporte/                   # Funcionalidades suporte
+└── usuarios/                  # Funcionalidades de usuários
     ├── controller/
     ├── service/
     ├── repository/
     ├── model/
     └── dto/
 ```
+
+### Pacotes Principais
+
+- **config/**: Configurações globais da aplicação
+- **exception/**: Tratamento centralizado de exceções e erros
+- **produtos/**: Lógica de negócios relacionada a produtos
+- **usuarios/**: Gerenciamento de usuários e autenticação
+
+> **Nota:** A estrutura está em desenvolvimento e novos módulos serão adicionados conforme a necessidade do projeto.
 
 ### Descrição dos Pacotes
 
