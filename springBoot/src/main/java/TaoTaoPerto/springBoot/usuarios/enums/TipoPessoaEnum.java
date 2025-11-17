@@ -1,4 +1,4 @@
-package TaoTaoPerto.springBoot.vendendor.enums;
+package TaoTaoPerto.springBoot.usuarios.enums;
 
 public enum TipoPessoaEnum {
     PF,  // Pessoa Física

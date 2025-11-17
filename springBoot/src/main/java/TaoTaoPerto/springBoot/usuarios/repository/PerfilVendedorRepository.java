@@ -1,6 +1,6 @@
-package TaoTaoPerto.springBoot.vendendor.repository;
+package TaoTaoPerto.springBoot.usuarios.repository;
 
-import TaoTaoPerto.springBoot.vendendor.model.PerfilVendedorModel;
+import TaoTaoPerto.springBoot.usuarios.model.PerfilVendedorModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

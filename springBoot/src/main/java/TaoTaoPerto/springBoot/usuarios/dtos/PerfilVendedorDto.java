@@ -1,7 +1,6 @@
-package TaoTaoPerto.springBoot.vendendor.dtos;
+package TaoTaoPerto.springBoot.usuarios.dtos;
 
-import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
-import TaoTaoPerto.springBoot.vendendor.enums.TipoPessoaEnum;
+import TaoTaoPerto.springBoot.usuarios.enums.TipoPessoaEnum;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;

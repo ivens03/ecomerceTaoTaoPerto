@@ -1,8 +1,7 @@
-package TaoTaoPerto.springBoot.vendendor.model;
+package TaoTaoPerto.springBoot.usuarios.model;
 
-import TaoTaoPerto.springBoot.usuarios.model.UsuarioModel;
-import TaoTaoPerto.springBoot.vendendor.dtos.PerfilVendedorDto;
-import TaoTaoPerto.springBoot.vendendor.enums.TipoPessoaEnum;
+import TaoTaoPerto.springBoot.usuarios.dtos.PerfilVendedorDto;
+import TaoTaoPerto.springBoot.usuarios.enums.TipoPessoaEnum;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;

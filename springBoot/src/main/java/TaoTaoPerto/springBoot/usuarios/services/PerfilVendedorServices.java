@@ -1,14 +1,13 @@
-package TaoTaoPerto.springBoot.vendendor.services;
+package TaoTaoPerto.springBoot.usuarios.services;
 
 import TaoTaoPerto.springBoot.exception.tratamentoDeErro.UsuarioDesativoOuNaoEncontrado;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.model.UsuarioModel;
 import TaoTaoPerto.springBoot.usuarios.repository.UsuarioRepository;
-import TaoTaoPerto.springBoot.usuarios.services.UsuarioServices;
-import TaoTaoPerto.springBoot.vendendor.dtos.PerfilVendedorDto;
-import TaoTaoPerto.springBoot.vendendor.dtos.PerfilVendedorDtoMapper;
-import TaoTaoPerto.springBoot.vendendor.model.PerfilVendedorModel;
-import TaoTaoPerto.springBoot.vendendor.repository.PerfilVendedorRepository;
+import TaoTaoPerto.springBoot.usuarios.dtos.PerfilVendedorDto;
+import TaoTaoPerto.springBoot.usuarios.dtos.PerfilVendedorDtoMapper;
+import TaoTaoPerto.springBoot.usuarios.model.PerfilVendedorModel;
+import TaoTaoPerto.springBoot.usuarios.repository.PerfilVendedorRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
