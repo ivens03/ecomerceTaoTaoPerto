@@ -91,13 +91,6 @@ public class PerfilVendedorModel implements Serializable {
     @Column(name = "inscricao_estadual", length = 20)
     private String inscricaoEstadual;
 
-    // Métodos 'helper' para sincronizar o relacionamento
-    public void addAvaliacao(AvaliacaoVendedorModel avaliacao) {
-        this.avaliacoes.add(avaliacao);
-        avaliacao.setPerfilVendedor(this);
-    }
-
-    // Metodod para atualizar
     public void atualizarPerfilVendedorComDto(PerfilVendedorDto perfilVendedorDto) {
         if (perfilVendedorDto.getCnpj() != null) {
             this.cnpj = perfilVendedorDto.getCnpj();
