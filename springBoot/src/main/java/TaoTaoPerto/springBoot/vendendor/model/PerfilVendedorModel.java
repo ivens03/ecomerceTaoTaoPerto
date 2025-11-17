@@ -3,6 +3,7 @@ package TaoTaoPerto.springBoot.vendendor.model;
 import TaoTaoPerto.springBoot.usuarios.model.UsuarioModel;
 import TaoTaoPerto.springBoot.vendendor.dtos.PerfilVendedorDto;
 import TaoTaoPerto.springBoot.vendendor.enums.TipoPessoaEnum;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
@@ -27,11 +28,13 @@ import java.util.List;
 public class PerfilVendedorModel implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "usuario_id")
     private Long id;
 
+    @MapsId
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "usuario_id"/*, nullable = false, unique = true*/)
+    @JoinColumn(name = "usuario_id")
+    @JsonBackReference
     private UsuarioModel usuario;
 
     @NotNull
