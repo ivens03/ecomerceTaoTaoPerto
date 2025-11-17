@@ -1,7 +1,7 @@
-package TaoTaoPerto.springBoot.cliente.controller;
+package TaoTaoPerto.springBoot.usuarios.controller;
 
-import TaoTaoPerto.springBoot.cliente.dtos.PerfilClienteDto;
-import TaoTaoPerto.springBoot.cliente.services.PerfilClienteServices;
+import TaoTaoPerto.springBoot.usuarios.dtos.PerfilClienteDto;
+import TaoTaoPerto.springBoot.usuarios.services.PerfilClienteServices;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.services.UsuarioServices;
 import io.swagger.v3.oas.annotations.Operation;

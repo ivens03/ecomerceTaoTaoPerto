@@ -1,6 +1,5 @@
 package TaoTaoPerto.springBoot.usuarios.model;
 
-import TaoTaoPerto.springBoot.cliente.model.PerfilClienteModel;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.enums.TiposUsuariosEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;

@@ -1,8 +1,6 @@
-package TaoTaoPerto.springBoot.cliente.dtos;
+package TaoTaoPerto.springBoot.usuarios.dtos;
 
-import TaoTaoPerto.springBoot.cliente.model.PerfilClienteModel;
-import TaoTaoPerto.springBoot.usuarios.dtos.EnderecoDtoMapper;
-import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDtoMapper;
+import TaoTaoPerto.springBoot.usuarios.model.PerfilClienteModel;
 import org.springframework.stereotype.Component;
 
 @Component

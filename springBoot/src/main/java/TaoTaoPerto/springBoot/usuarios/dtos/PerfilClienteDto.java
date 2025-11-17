@@ -1,7 +1,5 @@
-package TaoTaoPerto.springBoot.cliente.dtos;
+package TaoTaoPerto.springBoot.usuarios.dtos;
 
-import TaoTaoPerto.springBoot.usuarios.dtos.EnderecoDto;
-import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
