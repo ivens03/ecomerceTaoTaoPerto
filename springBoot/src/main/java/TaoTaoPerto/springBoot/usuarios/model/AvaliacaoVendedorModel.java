@@ -1,6 +1,5 @@
-package TaoTaoPerto.springBoot.vendendor.model;
+package TaoTaoPerto.springBoot.usuarios.model;
 
-import TaoTaoPerto.springBoot.usuarios.model.UsuarioModel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;

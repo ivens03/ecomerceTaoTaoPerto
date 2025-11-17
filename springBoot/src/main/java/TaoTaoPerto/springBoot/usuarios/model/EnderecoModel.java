@@ -43,7 +43,6 @@ public class EnderecoModel implements Serializable {
     @Column(name = "numero", length = 20, nullable = false)
     private String numero;
 
-    // (V14) É opcional, exceto se tipo_moradia = CONDOMINIO (regra no CHECK)
     @Column(name = "complemento", length = 100)
     private String complemento;
 

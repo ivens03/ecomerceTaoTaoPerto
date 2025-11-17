@@ -1,6 +1,5 @@
 package TaoTaoPerto.springBoot.usuarios.model;
 
-import TaoTaoPerto.springBoot.cliente.model.PerfilClienteModel;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.enums.TiposUsuariosEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -102,21 +101,17 @@ public class UsuarioModel implements Serializable {
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
     private PerfilClienteModel perfilCliente;
 
-//    @JsonManagedReference
-//    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-//    private ConfiguracaoSegurancaModel configuracaoSeguranca;
+    @JsonManagedReference
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
+    private PerfilEntregadorModel perfilEntregador;
 
-//    @JsonManagedReference
-//    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-//    private PreferenciaUsuarioModel preferencias;
+    @JsonManagedReference
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
+    private PerfilVendedorModel perfilVendedor;
 
-//    @JsonManagedReference
-//    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
-//    private PerfilFuncionarioModel perfilFuncionario;
-
-//    @JsonManagedReference
-//    @OneToMany(mappedBy = "gestor", fetch = FetchType.LAZY)
-//    private List<PerfilFuncionarioModel> subordinados;
+    @JsonManagedReference
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
+    private PerfilGerenteModel perfilGerente;
 
     public void atualizarUsuarioComDto(UsuarioDto usuarioDto) {
         if (usuarioDto.getNomeCompleto() != null) {

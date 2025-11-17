@@ -1,7 +1,7 @@
-package TaoTaoPerto.springBoot.vendendor.controller;
+package TaoTaoPerto.springBoot.usuarios.controller;
 
-import TaoTaoPerto.springBoot.vendendor.dtos.PerfilVendedorDto;
-import TaoTaoPerto.springBoot.vendendor.services.PerfilVendedorServices;
+import TaoTaoPerto.springBoot.usuarios.dtos.PerfilVendedorDto;
+import TaoTaoPerto.springBoot.usuarios.services.PerfilVendedorServices;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

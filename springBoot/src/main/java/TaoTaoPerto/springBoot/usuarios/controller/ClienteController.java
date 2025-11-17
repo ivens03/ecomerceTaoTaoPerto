@@ -1,7 +1,7 @@
-package TaoTaoPerto.springBoot.cliente.controller;
+package TaoTaoPerto.springBoot.usuarios.controller;
 
-import TaoTaoPerto.springBoot.cliente.dtos.PerfilClienteDto;
-import TaoTaoPerto.springBoot.cliente.services.PerfilClienteServices;
+import TaoTaoPerto.springBoot.usuarios.dtos.PerfilClienteDto;
+import TaoTaoPerto.springBoot.usuarios.services.PerfilClienteServices;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.services.UsuarioServices;
 import io.swagger.v3.oas.annotations.Operation;
@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "EndPoint dos clientes", description = "Endpoints para o cadastro e gerenciamento da conta do usuário (self-service)")
 @RestController
 @RequestMapping("/ususarios")
-public class UsuariosController {
+public class ClienteController {
 
     private final UsuarioServices usuarioServices;
     private final PerfilClienteServices perfilClienteServices;
 
-    public UsuariosController(UsuarioServices usuarioServices, PerfilClienteServices perfilClienteServices) {
+    public ClienteController(UsuarioServices usuarioServices, PerfilClienteServices perfilClienteServices) {
         this.usuarioServices = usuarioServices;
         this.perfilClienteServices = perfilClienteServices;
     }

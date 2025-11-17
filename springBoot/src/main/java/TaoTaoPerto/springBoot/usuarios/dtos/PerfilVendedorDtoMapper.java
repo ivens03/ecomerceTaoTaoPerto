@@ -1,8 +1,6 @@
-package TaoTaoPerto.springBoot.vendendor.dtos;
+package TaoTaoPerto.springBoot.usuarios.dtos;
 
-import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDtoMapper; // <-- Importar o mapper de usuário
-import TaoTaoPerto.springBoot.usuarios.model.UsuarioModel;
-import TaoTaoPerto.springBoot.vendendor.model.PerfilVendedorModel;
+import TaoTaoPerto.springBoot.usuarios.model.PerfilVendedorModel;
 import org.springframework.stereotype.Component;
 
 @Component

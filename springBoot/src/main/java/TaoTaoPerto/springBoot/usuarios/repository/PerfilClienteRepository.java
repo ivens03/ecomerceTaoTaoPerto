@@ -1,6 +1,6 @@
-package TaoTaoPerto.springBoot.cliente.repository;
+package TaoTaoPerto.springBoot.usuarios.repository;
 
-import TaoTaoPerto.springBoot.cliente.model.PerfilClienteModel;
+import TaoTaoPerto.springBoot.usuarios.model.PerfilClienteModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

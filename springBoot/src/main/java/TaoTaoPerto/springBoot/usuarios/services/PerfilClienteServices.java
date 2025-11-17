@@ -1,14 +1,13 @@
-package TaoTaoPerto.springBoot.cliente.services;
+package TaoTaoPerto.springBoot.usuarios.services;
 
-import TaoTaoPerto.springBoot.cliente.dtos.PerfilClienteDto;
-import TaoTaoPerto.springBoot.cliente.dtos.PerfilClienteDtoMapper;
-import TaoTaoPerto.springBoot.cliente.model.PerfilClienteModel;
-import TaoTaoPerto.springBoot.cliente.repository.PerfilClienteRepository;
+import TaoTaoPerto.springBoot.usuarios.dtos.PerfilClienteDto;
+import TaoTaoPerto.springBoot.usuarios.dtos.PerfilClienteDtoMapper;
+import TaoTaoPerto.springBoot.usuarios.model.PerfilClienteModel;
+import TaoTaoPerto.springBoot.usuarios.repository.PerfilClienteRepository;
 import TaoTaoPerto.springBoot.exception.tratamentoDeErro.UsuarioDesativoOuNaoEncontrado;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDtoMapper;
 import TaoTaoPerto.springBoot.usuarios.model.UsuarioModel;
-import TaoTaoPerto.springBoot.usuarios.services.UsuarioServices;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 

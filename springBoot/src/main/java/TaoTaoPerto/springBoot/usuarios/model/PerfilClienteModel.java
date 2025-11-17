@@ -1,7 +1,5 @@
-package TaoTaoPerto.springBoot.cliente.model;
+package TaoTaoPerto.springBoot.usuarios.model;
 
-import TaoTaoPerto.springBoot.usuarios.model.EnderecoModel;
-import TaoTaoPerto.springBoot.usuarios.model.UsuarioModel;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

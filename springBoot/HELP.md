@@ -53,49 +53,34 @@ O projeto segue uma arquitetura baseada em domínios, onde cada tipo de usuário
 ### Estrutura de Diretórios
 
 ```
-com.taotaoperto
+src/main/java/TaoTaoPerto/springBoot/
 ├── config/                    # Configurações do projeto
-├── usuarios/                  # Funcionalidades comuns a todos os usuários
-│   ├── controller/
-│   ├── service/
-│   ├── repository/
-│   ├── model/
-│   └── dto/
-├── exception/                  # Tratamento de erros personalizados.
+├── exception/                 # Tratamento de erros personalizados
 │   ├── dto/
 │   ├── tratamentoDeErro/
-│   ├── GlobalExceptionHandler
-├── clientes/                  # Funcionalidades específicas para clientes
+│   └── GlobalExceptionHandler
+├── produtos/                  # Funcionalidades relacionadas a produtos
 │   ├── controller/
 │   ├── service/
 │   ├── repository/
 │   ├── model/
 │   └── dto/
-├── vendedores/                # Funcionalidades específicas para vendedores
-│   ├── controller/
-│   ├── service/
-│   ├── repository/
-│   ├── model/
-│   └── dto/
-│── entregadores/              # Funcionalidades específicas para os entregadores
-│   ├── controller/
-│   ├── service/
-│   ├── repository/
-│   ├── model/
-│   └── dto/
-│── administradores/           # Funcionalidades administrativas
-│   ├── controller/
-│   ├── service/
-│   ├── repository/
-│   ├── model/
-│   └── dto/
-│── suporte/                   # Funcionalidades suporte
+└── usuarios/                  # Funcionalidades de usuários
     ├── controller/
     ├── service/
     ├── repository/
     ├── model/
     └── dto/
 ```
+
+### Pacotes Principais
+
+- **config/**: Configurações globais da aplicação
+- **exception/**: Tratamento centralizado de exceções e erros
+- **produtos/**: Lógica de negócios relacionada a produtos
+- **usuarios/**: Gerenciamento de usuários e autenticação
+
+> **Nota:** A estrutura está em desenvolvimento e novos módulos serão adicionados conforme a necessidade do projeto.
 
 ### Descrição dos Pacotes
 
@@ -365,6 +350,27 @@ Tabela principal que contém os registros de todos os usuários, seus dados pess
 | `atualizado_em` | TIMESTAMP | NOT NULL, DEFAULT CURRENT\_TIMESTAMP | Data e hora da última atualização (gerenciado pelo trigger `set_timestamp`). |
 
 ---
+#### Tabela `usuarios.perfis_entregadores`
+
+(V15) Armazena dados *exclusivos* de usuários que são entregadores (relação 1-para-1 obrigatória se tipo = ENTREGADORES).
+
+| Coluna | Tipo | Restrições | Descrição |
+| :--- | :--- | :--- | :--- |
+| `usuario_id` | BIGINT | PRIMARY KEY, FK (usuarios.usuarios) ON DELETE CASCADE | ID do usuário. Serve como PK e FK simultaneamente (Shared PK). |
+| `placa_veiculo` | VARCHAR(10) | UNIQUE | Placa do veículo utilizado para entregas. |
+| `cnh_categoria` | VARCHAR(5) | | Categoria da CNH (ex: 'A', 'B', 'AB'). |
+| `em_entrega` | BOOLEAN | DEFAULT FALSE | Indica se o entregador está em uma rota ativa no momento. |
+
+#### Tabela `usuarios.perfis_gerentes`
+
+(V15) Armazena dados *exclusivos* de usuários que são gerentes (relação 1-para-1 obrigatória se tipo = GERENTES).
+
+| Coluna | Tipo | Restrições | Descrição |
+| :--- | :--- | :--- | :--- |
+| `usuario_id` | BIGINT | PRIMARY KEY, FK (usuarios.usuarios) ON DELETE CASCADE | ID do usuário. Serve como PK e FK simultaneamente (Shared PK). |
+| `matricula` | VARCHAR(20) | UNIQUE | Matrícula funcional do gerente. |
+| `data_admissao` | DATE | | Data de admissão na empresa. |
+| `nivel_acesso` | INTEGER | | Nível numérico de permissão administrativa. |
 
 ### Schema `auditoria`
 
@@ -389,27 +395,24 @@ Tabela principal que contém os registros de todos os usuários, seus dados pess
 
 #### Tabela `vendas.perfis_vendedores`
 
-(V6) Armazena os dados da "loja" de um usuário do tipo `VENDEDOR` (relação 1-para-1).
+(V6 original, Refatorado na V15) Armazena os dados da "loja" de um usuário do tipo `VENDEDOR`.
+**Nota V15:** A estrutura foi alterada para usar o `usuario_id` como Chave Primária (Shared PK), removendo a antiga coluna `id` auto-incremento.
 
 | Coluna | Tipo | Restrições | Descrição |
 | :--- | :--- | :--- | :--- |
-| `id` | BIGSERIAL | PRIMARY KEY | Identificador único do perfil de vendedor. |
-| `usuario_id` | BIGINT | NOT NULL, UNIQUE, FK (usuarios.usuarios) ON DELETE CASCADE | ID do usuário (chave 1-para-1). |
+| `usuario_id` | BIGINT | PRIMARY KEY, FK (usuarios.usuarios) ON DELETE CASCADE | ID do usuário. Serve como PK e FK simultaneamente (Shared PK). |
 | `nome_loja` | VARCHAR(150) | NOT NULL, UNIQUE | Nome público da loja/vendedor. |
 | `descricao` | TEXT | NULL | Descrição pública da loja. |
 | `logo_url` | VARCHAR(500) | NULL | URL do logo da loja. |
 | `banner_url` | VARCHAR(500) | NULL | URL do banner da loja. |
 | `nota_media` | DECIMAL(3, 2) | NOT NULL, DEFAULT 0.00 | Média de notas (calculada a partir das avaliações). |
 | `total_avaliacoes` | INT | NOT NULL, DEFAULT 0 | Contagem total de avaliações recebidas. |
-| `comissao_percentual_padrao` | DECIMAL(5, 2) | NOT NULL, DEFAULT 10.00 | (V8) Percentual de comissão padrão da plataforma para este vendedor. |
-| `tipo_pessoa` | VARCHAR(10) | NOT NULL, DEFAULT 'PF' | (V11) Tipo de pessoa: 'PF' ou 'PJ'. |
+| `tipo_pessoa` | VARCHAR(255) | NOT NULL | (V11) Tipo de pessoa: 'PF' ou 'PJ'. |
 | `razao_social` | VARCHAR(255) | NULL | (V11) Razão Social (obrigatório se PJ). |
 | `cnpj` | VARCHAR(14) | NULL, UNIQUE | (V11) CNPJ (obrigatório se PJ). |
 | `inscricao_estadual` | VARCHAR(20) | NULL | (V11) Inscrição Estadual (opcional). |
-| `visualizacoes_perfil` | BIGINT | NOT NULL, DEFAULT 0 | (V13) Contador (desnormalizado) de visualizações do perfil da loja. |
-| `visualizacoes_produtos` | BIGINT | NOT NULL, DEFAULT 0 | (V13) Contador (desnormalizado) de visualizações de todos os produtos deste vendedor. |
-| `criado_em` | TIMESTAMP | NOT NULL, DEFAULT CURRENT\_TIMESTAMP | Data e hora da criação do registro. |
-| `atualizado_em` | TIMESTAMP | NOT NULL, DEFAULT CURRENT\_TIMESTAMP | Data e hora da última atualização (gerenciado pelo trigger `set_timestamp`). |
+| `criado_em` | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP | Data e hora da criação do registro. |
+| `atualizado_em` | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP | Data e hora da última atualização. |
 
 *Constraints (V11):* `chk_dados_pj_obrigatorios` garante que `razao_social` e `cnpj` não sejam nulos se `tipo_pessoa` = 'PJ'.
 
