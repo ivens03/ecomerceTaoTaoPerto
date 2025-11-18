@@ -1,5 +1,6 @@
 package TaoTaoPerto.springBoot.produtos.dtos;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,10 @@ public class ProdutoDto {
     private Long vendedorPerfilId;
     private String nome;
     private String descricao;
+
+    @NotBlank(message = "O SKU (Stock Keeping Unit) é obrigatório e não pode ser vazio.")
     private String sku;
+
     private BigDecimal precoBase;
     private BigDecimal precoPromocional;
     private Integer estoqueQuantidade = 0;
