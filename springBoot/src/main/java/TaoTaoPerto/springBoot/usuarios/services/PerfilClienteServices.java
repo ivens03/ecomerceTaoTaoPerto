@@ -2,6 +2,7 @@ package TaoTaoPerto.springBoot.usuarios.services;
 
 import TaoTaoPerto.springBoot.usuarios.dtos.PerfilClienteDto;
 import TaoTaoPerto.springBoot.usuarios.dtos.PerfilClienteDtoMapper;
+import TaoTaoPerto.springBoot.usuarios.enums.TiposUsuariosEnum;
 import TaoTaoPerto.springBoot.usuarios.model.PerfilClienteModel;
 import TaoTaoPerto.springBoot.usuarios.repository.PerfilClienteRepository;
 import TaoTaoPerto.springBoot.exception.tratamentoDeErro.UsuarioDesativoOuNaoEncontrado;
@@ -28,8 +29,9 @@ public class PerfilClienteServices {
 
     //Salvar definido como cliente
     @Transactional
-    public PerfilClienteDto salvarPerfilCliente(PerfilClienteDto perfilClienteDto){
+    public PerfilClienteDto salvarPerfilCliente(PerfilClienteDto perfilClienteDto) {
         UsuarioDto usuarioDto = perfilClienteDto.getUsuario();
+        usuarioDto.setTipoUsuario(TiposUsuariosEnum.CLIENTE);
         UsuarioDto usuarioSalvoDto = usuarioServices.salvarUsuario(usuarioDto);
         UsuarioModel usuarioSalvoModel = usuarioDtoMapper.map(
                 usuarioServices.listarUsuarioPorId(usuarioSalvoDto.getId())

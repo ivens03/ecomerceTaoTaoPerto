@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +39,7 @@ public class PerfilVendedorController {
                     content = @Content)
     })
     @PostMapping("/cadastrar")
-    public ResponseEntity<PerfilVendedorDto> cadastrarPerfilVendedor(@RequestBody PerfilVendedorDto perfilVendedorDto){
+    public ResponseEntity<PerfilVendedorDto> cadastrarPerfilVendedor(@RequestBody @Valid PerfilVendedorDto perfilVendedorDto){
         PerfilVendedorDto perfilVendedorDtoSalvo = perfilVendedorServices.salvarPerfil(perfilVendedorDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(perfilVendedorDtoSalvo);
     }
