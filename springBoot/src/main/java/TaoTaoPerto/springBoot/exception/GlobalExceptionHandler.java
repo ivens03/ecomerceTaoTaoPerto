@@ -6,10 +6,14 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.time.Instant;
+import java.util.HashMap;
+import java.util.Map;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -60,5 +64,27 @@ public class GlobalExceptionHandler {
         );
 
         return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ApiErrorResponseDto> handleValidationExceptions(MethodArgumentNotValidException ex, HttpServletRequest request) {
+
+        Map<String, String> errosValidacao = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String nomeCampo = ((FieldError) error).getField();
+            String mensagemErro = error.getDefaultMessage();
+            errosValidacao.put(nomeCampo, mensagemErro);
+        });
+
+        ApiErrorResponseDto errorResponse = new ApiErrorResponseDto(
+                Instant.now(),
+                HttpStatus.BAD_REQUEST.value(),
+                "Dados Inválidos",
+                "Erro de validação. Verifique os campos abaixo.",
+                request.getRequestURI(),
+                errosValidacao
+        );
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
 }
