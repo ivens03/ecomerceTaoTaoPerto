@@ -2,6 +2,7 @@ package TaoTaoPerto.springBoot.produtos.controller;
 
 import TaoTaoPerto.springBoot.produtos.dtos.ProdutoDto;
 import TaoTaoPerto.springBoot.produtos.services.ProdutoServices;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class ProdutoController {
 
     // salvar produto
     @PostMapping("/registrar")
-    public ResponseEntity<ProdutoDto> salvarProduto(@RequestBody ProdutoDto produtoDto) {
+    public ResponseEntity<ProdutoDto> salvarProduto(@RequestBody @Valid ProdutoDto produtoDto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(produtoServices.salvarProduto(produtoDto));
     }
 
