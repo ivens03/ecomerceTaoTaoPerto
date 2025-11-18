@@ -2,6 +2,7 @@ package TaoTaoPerto.springBoot.usuarios.services;
 
 import TaoTaoPerto.springBoot.exception.tratamentoDeErro.UsuarioDesativoOuNaoEncontrado;
 import TaoTaoPerto.springBoot.usuarios.dtos.UsuarioDto;
+import TaoTaoPerto.springBoot.usuarios.enums.TiposUsuariosEnum;
 import TaoTaoPerto.springBoot.usuarios.model.UsuarioModel;
 import TaoTaoPerto.springBoot.usuarios.repository.UsuarioRepository;
 import TaoTaoPerto.springBoot.usuarios.dtos.PerfilVendedorDto;
@@ -40,6 +41,7 @@ public class PerfilVendedorServices {
             throw new IllegalArgumentException("Os dados do usuário são obrigatórios no DTO.");
         }
         UsuarioDto usuarioSalvoDto = usuarioServices.salvarUsuario(perfilDto.getUsuario());
+        usuarioSalvoDto.setTipoUsuario(TiposUsuariosEnum.VENDEDORES);
         UsuarioModel usuarioEntidade = usuarioRepository.findById(usuarioSalvoDto.getId())
                 .orElseThrow(() -> new RuntimeException("Erro fatal: não foi possível encontrar usuário recém-criado. ID: " + usuarioSalvoDto.getId()));
         PerfilVendedorModel perfilModel = perfilVendedorDtoMapper.map(perfilDto);
