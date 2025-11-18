@@ -42,7 +42,7 @@ public class PerfilVendedorDto {
     private Instant criadoEm;
     private Instant atualizadoEm;
 
-    @NotNull(message = "O tipo de pessoa (PF/PJ) é obrigatório.")
+    @NotNull(message = "O tipo de pessoa é obrigatório. Valores aceitos: [PF, PJ]")
     private TipoPessoaEnum tipoPessoa;
 
     @Size(max = 255, message = "A Razão Social não pode exceder 255 caracteres.")
