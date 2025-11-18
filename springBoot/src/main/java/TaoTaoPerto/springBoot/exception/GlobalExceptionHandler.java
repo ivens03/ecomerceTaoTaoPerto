@@ -6,14 +6,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.time.Instant;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -85,36 +83,6 @@ public class GlobalExceptionHandler {
                 "Erro de validação. Verifique os campos abaixo.",
                 request.getRequestURI(),
                 errosValidacao
-        );
-
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
-    }
-
-    @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<ApiErrorResponseDto> handleHttpMessageNotReadableException(HttpMessageNotReadableException ex, HttpServletRequest request) {
-
-        String mensagem = "Erro no formato do JSON enviado.";
-        Map<String, String> detalhes = new HashMap<>();
-
-        // Se a causa for o nosso erro de formato (gerado pelo Deserializer)
-        if (ex.getCause() instanceof com.fasterxml.jackson.databind.exc.InvalidFormatException ifx) {
-
-            // Pega o nome do campo (ex: "tipoPessoa")
-            String nomeCampo = ifx.getPath().isEmpty() ? "desconhecido" : ifx.getPath().get(ifx.getPath().size() - 1).getFieldName();
-
-            // AQUI ESTÁ A LIMPEZA: A mensagem bonita já vem pronta do ifx.getOriginalMessage()
-            // que nós definimos no TipoPessoaDeserializer!
-            detalhes.put(nomeCampo, ifx.getOriginalMessage());
-            mensagem = "Valor inválido fornecido.";
-        }
-
-        ApiErrorResponseDto errorResponse = new ApiErrorResponseDto(
-                Instant.now(),
-                HttpStatus.BAD_REQUEST.value(),
-                "Formato Inválido",
-                mensagem,
-                request.getRequestURI(),
-                detalhes.isEmpty() ? null : detalhes
         );
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
