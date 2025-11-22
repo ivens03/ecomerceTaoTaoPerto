@@ -13,6 +13,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,17 +42,21 @@ public class PerfilVendedorServices {
             throw new IllegalArgumentException("Os dados do usuário são obrigatórios no DTO.");
         }
         UsuarioDto usuarioSalvoDto = usuarioServices.salvarUsuario(perfilDto.getUsuario());
-        usuarioSalvoDto.setTipoUsuario(TiposUsuariosEnum.VENDEDORES);
         UsuarioModel usuarioEntidade = usuarioRepository.findById(usuarioSalvoDto.getId())
                 .orElseThrow(() -> new RuntimeException("Erro fatal: não foi possível encontrar usuário recém-criado. ID: " + usuarioSalvoDto.getId()));
         PerfilVendedorModel perfilModel = perfilVendedorDtoMapper.map(perfilDto);
+        perfilModel.setCriadoEm(null);
+        perfilModel.setAtualizadoEm(null); // (Opcional, mas recomendado)
         if (perfilDto.getCnpj() == null) {
             perfilModel.setCnpj("CNPJ_PADRAO_PF");
         }
         perfilModel.setNotaMedia(BigDecimal.ZERO);
         perfilModel.setTotalAvaliacoes(0);
         perfilModel.setUsuario(usuarioEntidade);
+        usuarioEntidade.setTipoUsuario(TiposUsuariosEnum.VENDEDORES);
+        usuarioRepository.save(usuarioEntidade);
         PerfilVendedorModel perfilSalvo = perfilVendedorRepository.save(perfilModel);
+        perfilSalvo.setCriadoEm(LocalDateTime.now());
         return perfilVendedorDtoMapper.map(perfilSalvo);
     }
 

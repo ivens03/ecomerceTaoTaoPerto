@@ -15,7 +15,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,11 +68,11 @@ public class PerfilVendedorModel implements Serializable {
 
     @CreationTimestamp
     @Column(name = "criado_em", nullable = false, updatable = false)
-    private Instant criadoEm;
+    private LocalDateTime criadoEm;
 
     @UpdateTimestamp
     @Column(name = "atualizado_em", nullable = false)
-    private Instant atualizadoEm;
+    private LocalDateTime atualizadoEm;
 
     @NotNull
     @Enumerated(EnumType.STRING)
