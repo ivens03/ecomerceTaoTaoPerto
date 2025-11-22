@@ -43,7 +43,7 @@ public class UsuarioDto {
     @Past(message = "A data de nascimento deve ser no passado.")
     private LocalDate dataNascimento;
     
-    private TiposUsuariosEnum tipoUsuario = TiposUsuariosEnum.CLIENTE;
+    private TiposUsuariosEnum tipoUsuario;
 
     private Boolean ativo;
 }

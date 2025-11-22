@@ -32,7 +32,6 @@ public class PerfilVendedorDtoMapper {
         perfilVendedorModel.setBannerUrl(perfilVendedorDto.getBannerUrl());
         perfilVendedorModel.setNotaMedia(perfilVendedorDto.getNotaMedia());
         perfilVendedorModel.setTotalAvaliacoes(perfilVendedorDto.getTotalAvaliacoes());
-        perfilVendedorModel.setCriadoEm(perfilVendedorDto.getCriadoEm());
         perfilVendedorModel.setAtualizadoEm(perfilVendedorDto.getAtualizadoEm());
         perfilVendedorModel.setTipoPessoa(perfilVendedorDto.getTipoPessoa());
         perfilVendedorModel.setRazaoSocial(perfilVendedorDto.getRazaoSocial());

@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -39,8 +39,8 @@ public class PerfilVendedorDto {
     private BigDecimal notaMedia;
 
     private Integer totalAvaliacoes;
-    private Instant criadoEm;
-    private Instant atualizadoEm;
+    private LocalDateTime criadoEm;
+    private LocalDateTime atualizadoEm;
 
     @NotNull(message = "O tipo de pessoa é obrigatório. Valores aceitos: [PF, PJ]")
     private TipoPessoaEnum tipoPessoa;
