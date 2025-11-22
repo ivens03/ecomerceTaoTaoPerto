@@ -1,6 +1,7 @@
 package TaoTaoPerto.springBoot.usuarios.dtos;
 
 import TaoTaoPerto.springBoot.usuarios.enums.TiposUsuariosEnum;
+import TaoTaoPerto.springBoot.usuarios.valid.IdadeValida;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
@@ -38,6 +39,7 @@ public class UsuarioDto {
     @Size(max = 15, message = "O celular deve ter no máximo 15 caracteres.")
     private String celular;
 
+    @IdadeValida(idadeMinima = 16, idadeMaxima = 150)
     @Past(message = "A data de nascimento deve ser no passado.")
     private LocalDate dataNascimento;
     
