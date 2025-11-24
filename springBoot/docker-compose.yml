@@ -1,6 +1,6 @@
-version: '3.8'
 services:
-  app:
+  # --- BACK-END (Spring Boot) ---
+  backend:
     build: .
     container_name: spring-boot-ecommerce
     ports:
@@ -14,7 +14,10 @@ services:
       db:
         condition: service_healthy
     restart: unless-stopped
+    networks:
+      - ecommerce-network
 
+  # --- BANCO DE DADOS (Postgres) ---
   db:
     image: postgres:15-alpine
     container_name: postgres-ecommerce
@@ -30,6 +33,28 @@ services:
     restart: unless-stopped
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - ecommerce-network
+
+  # --- FRONT-END (Angular) ---
+  frontend:
+    build:
+      context: ../angular
+      dockerfile: Dockerfile
+    container_name: angular-ecommerce
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - ecommerce-network
+
+# --- DEFINIÇÕES GLOBAIS (Fora dos services) ---
 
 volumes:
   postgres_data:
+
+networks:
+  ecommerce-network:
+    driver: bridge
