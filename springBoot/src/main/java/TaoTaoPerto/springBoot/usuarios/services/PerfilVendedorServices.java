@@ -104,7 +104,7 @@ public class PerfilVendedorServices {
         }
         PerfilVendedorModel perfilModel = perfilOptional.get();
         perfilModel.atualizarPerfilVendedorComDto(perfilDto);
-        System.out.println(perfilModel);
+        perfilModel.setAtualizadoEm(LocalDateTime.now());
         return perfilVendedorDtoMapper.map(perfilVendedorRepository.save(perfilModel));
     }
 
